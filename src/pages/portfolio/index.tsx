@@ -9,18 +9,18 @@ export default function Portfolio() {
   return (
     <div className="w-full">
       {/* 1. Hero */}
-      <section className="relative pt-40 pb-32 md:pt-48 md:pb-40 bg-[#111] overflow-hidden flex items-center">
+      <section className="relative pt-40 pb-32 md:pt-48 md:pb-40 bg-sidebar text-sidebar-foreground overflow-hidden flex items-center">
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=80" 
             alt="Capabilities" 
-            className="w-full h-full object-cover opacity-20 mix-blend-luminosity"
+            className="w-full h-full object-cover"
           />
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
           <ScrollReveal>
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block">Our Work</span>
-            <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tight">
+            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.9)' }}>Our Work</span>
+            <h1 className="text-5xl md:text-7xl font-black text-sidebar-foreground mb-8 tracking-tight" style={{ textShadow: '0 2px 12px rgba(0, 0, 0, 0.9)' }}>
               Our Development Capabilities
             </h1>
           </ScrollReveal>
@@ -28,11 +28,11 @@ export default function Portfolio() {
       </section>
 
       {/* 2. Intro section */}
-      <section className="py-24 bg-white border-b border-gray-200">
+      <section className="py-24 bg-background border-b border-border">
         <div className="container mx-auto px-4 md:px-8 text-center max-w-4xl">
           <ScrollReveal>
-            <h2 className="text-3xl md:text-4xl font-black text-black mb-8">Building Out in the Open</h2>
-            <div className="space-y-6 text-xl text-gray-600 leading-relaxed">
+            <h2 className="text-3xl md:text-4xl font-black text-foreground mb-8">Building Out in the Open</h2>
+            <div className="space-y-6 text-xl text-muted-foreground leading-relaxed">
               <p>
                 As a fast-growing technology startup, many of our recent enterprise projects are currently bound by strict NDAs, preventing us from sharing exact client details or source code.
               </p>
@@ -45,7 +45,7 @@ export default function Portfolio() {
       </section>
 
       {/* 3. Capability Showcases (4 sections) */}
-      <div className="flex flex-col">
+      <div className="bg-background">
         {[
           {
             title: "Enterprise Web Applications",
@@ -75,57 +75,65 @@ export default function Portfolio() {
             desc: "Designing and deploying the invisible backend architecture that powers global platforms. We establish auto-scaling, self-healing environments using deep Infrastructure as Code practices.",
             bullets: ["Terraform IaC Provisioning", "Kubernetes Orchestration", "Zero-Trust VPC Architecture", "Multi-Region Disaster Recovery"]
           }
-        ].map((showcase, i) => (
-          <section key={i} className="relative min-h-[80vh] flex items-center py-24 overflow-hidden border-b border-white/10 last:border-0 group">
-            <div className="absolute inset-0">
-              <img 
-                src={showcase.img} 
-                alt={showcase.title} 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent" />
-            </div>
-            
-            <div className="container mx-auto px-4 md:px-8 relative z-10">
-              <ScrollReveal className="max-w-3xl">
-                <span className="inline-block px-4 py-1 bg-primary text-white text-xs font-bold tracking-widest uppercase mb-6">
-                  {showcase.tag}
-                </span>
-                <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tight">{showcase.title}</h2>
-                <p className="text-xl text-gray-300 mb-10 leading-relaxed">{showcase.desc}</p>
-                
-                <div className="space-y-4 mb-12">
-                  {showcase.bullets.map((bullet, j) => (
-                    <div key={j} className="flex items-center gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary" />
-                      <span className="text-lg font-medium text-white">{bullet}</span>
+        ].map((showcase, i) => {
+          const isEven = i % 2 === 0;
+          return (
+            <section key={i} className={cn("border-b border-border last:border-0 overflow-hidden", isEven ? "bg-background" : "bg-muted/40")}>
+              <div className="container mx-auto px-4 md:px-8 py-24 md:py-32">
+                <div className={cn("grid lg:grid-cols-2 gap-16 items-center", !isEven && "lg:grid-flow-col-dense")}>
+                  
+                  {/* Image Side */}
+                  <ScrollReveal className={cn("relative group", isEven ? "lg:col-start-1" : "lg:col-start-2")}>
+                    <img 
+                      src={showcase.img} 
+                      alt={showcase.title} 
+                      className="w-full aspect-[4/3] object-cover shadow-xl border border-border"
+                    />
+                  </ScrollReveal>
+                  
+                  {/* Content Side */}
+                  <ScrollReveal delay={0.2} className={cn(isEven ? "lg:col-start-2" : "lg:col-start-1")}>
+                    <span className="inline-block px-4 py-1 bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase mb-6">
+                      {showcase.tag}
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-black text-foreground mb-8 tracking-tight">{showcase.title}</h2>
+                    <p className="text-xl text-muted-foreground mb-10 leading-relaxed">{showcase.desc}</p>
+                    
+                    <div className="space-y-4 mb-12">
+                      {showcase.bullets.map((bullet, j) => (
+                        <div key={j} className="flex items-center gap-3">
+                          <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                          <span className="text-lg font-medium text-foreground">{bullet}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                    
+                    <Button asChild size="lg" className="h-14 px-8 text-base">
+                      <Link href="/contact">Discuss Your Project</Link>
+                    </Button>
+                  </ScrollReveal>
+
                 </div>
-                
-                <Button asChild size="lg" className="h-14 px-8 text-base bg-white text-black hover:bg-primary hover:text-white border-0">
-                  <Link href="/contact">Discuss Your Project</Link>
-                </Button>
-              </ScrollReveal>
-            </div>
-          </section>
-        ))}
+              </div>
+            </section>
+          );
+        })}
       </div>
 
       {/* 4. Development Process Preview */}
-      <section className="py-24 bg-gray-50 border-y border-gray-200 text-center">
+      <section className="py-24 bg-muted/40 border-y border-border text-center">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="mb-16">
-            <h2 className="text-3xl font-black text-black">How We Execute</h2>
+            <h2 className="text-3xl font-black text-foreground">How We Execute</h2>
           </ScrollReveal>
           
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {['Discovery', 'Architecture', 'Agile Build', 'Launch & Scale'].map((step, i) => (
               <ScrollReveal key={i} delay={i * 0.1} className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-red-100 text-primary font-black text-xl flex items-center justify-center mb-4">
+                <div className="w-16 h-16 rounded-full bg-primary/10 text-primary font-black text-xl flex items-center justify-center mb-4">
                   {i + 1}
                 </div>
-                <h4 className="font-bold text-lg text-black">{step}</h4>
+                <h4 className="font-bold text-lg text-foreground">{step}</h4>
               </ScrollReveal>
             ))}
           </div>
@@ -139,21 +147,21 @@ export default function Portfolio() {
       </section>
 
       {/* 5. Why Work With Us Now — Split layout */}
-      <section className="py-24 md:py-32 bg-white">
+      <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal className="relative">
               <img 
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" 
                 alt="Startup advantage" 
-                className="w-full aspect-[4/3] object-cover shadow-xl"
+                className="w-full aspect-[4/3] object-cover shadow-xl border border-border"
               />
             </ScrollReveal>
             
             <ScrollReveal delay={0.2}>
               <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">The Optixa Advantage</span>
-              <h2 className="text-4xl font-black text-black mb-8">Why Partner With Us Now</h2>
-              <p className="text-xl text-gray-600 mb-10">
+              <h2 className="text-4xl font-black text-foreground mb-8">Why Partner With Us Now</h2>
+              <p className="text-xl text-muted-foreground mb-10">
                 Engaging a growing technology startup offers massive advantages over sluggish, traditional enterprise agencies. We are hungry, agile, and technically superior.
               </p>
               
@@ -165,11 +173,11 @@ export default function Portfolio() {
                   { title: "Aggressive Pricing", desc: "We are building our reputation. You get senior architectural talent without the massive agency overhead fees." },
                   { title: "Startup-Friendly Contracts", desc: "Agile, flexible engagements that allow you to pivot without punitive change-request penalties." }
                 ].map((adv, i) => (
-                  <div key={i} className="flex gap-4 border-b border-gray-100 pb-4 last:border-0 last:pb-0">
+                  <div key={i} className="flex gap-4 border-b border-border pb-4 last:border-0 last:pb-0">
                     <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-bold text-gray-900">{adv.title}</h4>
-                      <p className="text-gray-600 mt-1">{adv.desc}</p>
+                      <h4 className="font-bold text-foreground">{adv.title}</h4>
+                      <p className="text-muted-foreground mt-1">{adv.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -180,11 +188,11 @@ export default function Portfolio() {
       </section>
 
       {/* 6. CTA */}
-      <section className="py-24 bg-[#111] text-center">
+      <section className="py-24 bg-sidebar text-sidebar-foreground text-center">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-8">Let's Build Your Capability Showcase</h2>
-            <Button asChild size="lg" className="bg-primary text-white hover:bg-white hover:text-black h-16 px-10 text-lg">
+            <h2 className="text-4xl md:text-5xl font-black text-sidebar-foreground mb-8">Let's Build Your Capability Showcase</h2>
+            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-background hover:text-foreground h-16 px-10 text-lg">
               <Link href="/contact">Start Your Project</Link>
             </Button>
           </ScrollReveal>

@@ -57,7 +57,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
         </div>
 
         {/* Back */}
-        <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-2xl bg-white p-8 flex flex-col border border-border">
+        <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-2xl bg-card p-8 flex flex-col border border-border">
           <div className="flex-1">
             <h3 className="text-2xl font-bold text-foreground mb-4">{title}</h3>
             <p className="text-muted-foreground">{description}</p>

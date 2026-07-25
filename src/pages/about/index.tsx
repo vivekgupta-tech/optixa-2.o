@@ -9,56 +9,55 @@ export default function About() {
   return (
     <div className="w-full">
       {/* 1. Hero */}
-      <section className="relative pt-40 pb-32 md:pt-48 md:pb-40 bg-[#111] overflow-hidden min-h-[80vh] flex items-center">
+      <section className="relative pt-40 pb-32 md:pt-48 md:pb-40 bg-sidebar text-sidebar-foreground overflow-hidden min-h-[80vh] flex items-center">
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80" 
             alt="Optixa Office" 
-            className="w-full h-full object-cover opacity-30 mix-blend-luminosity"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-transparent" />
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <ScrollReveal>
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block">Our Story</span>
-            <h1 className="text-5xl md:text-7xl font-black text-white mb-8 max-w-4xl leading-[1.1] tracking-tight">
+            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.9)' }}>Our Story</span>
+            <h1 className="text-5xl md:text-7xl font-black text-sidebar-foreground mb-8 max-w-4xl leading-[1.1] tracking-tight" style={{ textShadow: '0 2px 12px rgba(0, 0, 0, 0.9)' }}>
               Building the Future of Software
             </h1>
-            <p className="text-xl text-gray-300 mb-12 max-w-2xl leading-relaxed">
+            <p className="text-xl text-sidebar-foreground/90 mb-12 max-w-2xl leading-relaxed" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.9)' }}>
               Optixa is a growing technology startup dedicated to engineering scalable, high-performance software for enterprises and fast-moving companies.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg" className="h-14 px-8 text-base">
                 <Link href="/contact">Work With Us</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="h-14 px-8 text-base border-white text-white hover:bg-white hover:text-black bg-transparent">
+              <Button asChild size="lg" variant="outline" className="h-14 px-8 text-base border-sidebar-foreground/30 text-sidebar-foreground hover:bg-sidebar-foreground hover:text-sidebar bg-transparent">
                 <Link href="/portfolio">View Portfolio</Link>
               </Button>
             </div>
           </ScrollReveal>
           
           <ScrollReveal delay={0.4} className="absolute bottom-12 left-4 md:left-8 animate-bounce">
-            <ArrowRight className="w-8 h-8 text-white rotate-90" />
+            <ArrowRight className="w-8 h-8 text-sidebar-foreground rotate-90" />
           </ScrollReveal>
         </div>
       </section>
 
       {/* 2. Company Story — Image Right, Text Left */}
-      <section className="py-24 md:py-32 bg-white">
+      <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal className="order-2 lg:order-1">
-              <h2 className="text-4xl md:text-5xl font-black text-black mb-8 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-black text-foreground mb-8 leading-tight">
                 Engineers First.<br/>Consultants Second.
               </h2>
-              <div className="space-y-6 text-lg text-gray-600">
+              <div className="space-y-6 text-lg text-muted-foreground">
                 <p>
                   Optixa was founded on a simple premise: most outsourced software is built poorly. Traditional agencies optimize for billable hours, handing off bloated, unscalable codebases to frustrated clients.
                 </p>
                 <p>
                   We are different. We operate as an extension of your team—a dedicated squad of senior engineers, architects, and designers who care deeply about the technical elegance of what we build. We don't just take orders; we challenge assumptions and architect systems designed for the long term.
                 </p>
-                <blockquote className="border-l-4 border-primary pl-6 py-2 my-8 text-2xl font-bold text-black italic">
+                <blockquote className="border-l-4 border-primary pl-6 py-2 my-8 text-2xl font-bold text-foreground italic">
                   "Our mission isn't to write code. It's to solve complex business problems using technology as our lever."
                 </blockquote>
                 <p>
@@ -67,11 +66,11 @@ export default function About() {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.2} className="order-1 lg:order-2 relative">
-              <div className="absolute top-0 right-0 w-full h-full bg-gray-100 translate-x-4 translate-y-4 -z-10" />
+              <div className="absolute top-0 right-0 w-full h-full bg-muted translate-x-4 translate-y-4 -z-10" />
               <img 
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" 
                 alt="Engineering team" 
-                className="w-full aspect-[4/5] object-cover border border-gray-200"
+                className="w-full aspect-[4/5] object-cover border border-border"
               />
             </ScrollReveal>
           </div>
@@ -80,20 +79,20 @@ export default function About() {
 
       {/* 3. Mission & Vision — Split Dark Section */}
       <section className="flex flex-col md:flex-row min-h-[60vh]">
-        <div className="md:w-1/2 bg-[#111] p-12 md:p-24 flex flex-col justify-center">
+        <div className="md:w-1/2 bg-sidebar text-sidebar-foreground p-12 md:p-24 flex flex-col justify-center">
           <ScrollReveal>
             <div className="w-16 h-1 bg-primary mb-8" />
             <h3 className="text-primary font-bold uppercase tracking-widest text-sm mb-4">Our Mission</h3>
-            <p className="text-3xl md:text-4xl font-black text-white leading-snug">
+            <p className="text-3xl md:text-4xl font-black text-sidebar-foreground leading-snug">
               To engineer digital products that eliminate operational friction and accelerate human potential.
             </p>
           </ScrollReveal>
         </div>
-        <div className="md:w-1/2 bg-gray-50 p-12 md:p-24 flex flex-col justify-center">
+        <div className="md:w-1/2 bg-muted/40 p-12 md:p-24 flex flex-col justify-center">
           <ScrollReveal delay={0.2}>
-            <div className="w-16 h-1 bg-black mb-8" />
-            <h3 className="text-gray-500 font-bold uppercase tracking-widest text-sm mb-4">Our Vision</h3>
-            <p className="text-3xl md:text-4xl font-black text-black leading-snug">
+            <div className="w-16 h-1 bg-foreground mb-8" />
+            <h3 className="text-muted-foreground font-bold uppercase tracking-widest text-sm mb-4">Our Vision</h3>
+            <p className="text-3xl md:text-4xl font-black text-foreground leading-snug">
               To be the trusted technical backbone for the world's most innovative enterprises and startups.
             </p>
           </ScrollReveal>
@@ -101,11 +100,11 @@ export default function About() {
       </section>
 
       {/* 4. Core Values — Large Icon Sections (not cards) */}
-      <section className="py-24 md:py-32 bg-white">
+      <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="mb-20 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-black text-black mb-6">The Principles That Guide Us</h2>
-            <p className="text-xl text-gray-600">These aren't just words on a wall. These values dictate who we hire, how we write code, and how we interact with our clients.</p>
+            <h2 className="text-4xl md:text-5xl font-black text-foreground mb-6">The Principles That Guide Us</h2>
+            <p className="text-xl text-muted-foreground">These aren't just words on a wall. These values dictate who we hire, how we write code, and how we interact with our clients.</p>
           </ScrollReveal>
 
           <div className="space-y-16">
@@ -117,13 +116,13 @@ export default function About() {
               { icon: <Users />, title: "Agile Mindset", text: "Requirements change. We embrace shifts in strategy and pivot quickly without burying you in change-request paperwork." },
               { icon: <Shield />, title: "Quality Over Speed", text: "We launch fast, but we never compromise on security or structural integrity. Technical debt is paid down immediately." }
             ].map((value, i) => (
-              <ScrollReveal key={i} delay={i * 0.1} className="flex flex-col md:flex-row gap-8 items-start border-b border-gray-100 pb-16 last:border-0 last:pb-0">
-                <div className="w-20 h-20 bg-red-50 rounded-2xl flex items-center justify-center shrink-0 text-primary">
+              <ScrollReveal key={i} delay={i * 0.1} className="flex flex-col md:flex-row gap-8 items-start border-b border-border pb-16 last:border-0 last:pb-0">
+                <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center shrink-0 text-primary">
                   {React.isValidElement(value.icon) ? React.cloneElement(value.icon as React.ReactElement<{ className?: string }>, { className: "w-10 h-10" }) : value.icon}
                 </div>
                 <div className="pt-2">
-                  <h3 className="text-3xl font-black text-black mb-4">{value.title}</h3>
-                  <p className="text-xl text-gray-600 max-w-4xl leading-relaxed">{value.text}</p>
+                  <h3 className="text-3xl font-black text-foreground mb-4">{value.title}</h3>
+                  <p className="text-xl text-muted-foreground max-w-4xl leading-relaxed">{value.text}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -132,15 +131,15 @@ export default function About() {
       </section>
 
       {/* 5. Startup Timeline — Vertical Timeline */}
-      <section className="py-24 md:py-32 bg-gray-50 border-y border-gray-200">
+      <section className="py-24 md:py-32 bg-muted/40 border-y border-border">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="mb-20 text-center">
-            <h2 className="text-4xl md:text-5xl font-black text-black">Our Journey</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-foreground">Our Journey</h2>
           </ScrollReveal>
 
           <div className="max-w-4xl mx-auto relative">
             {/* Vertical Line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gray-200 md:-ml-0.5" />
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-border md:-ml-0.5" />
 
             {[
               { year: "2021", title: "Optixa Founded", desc: "Started by a team of senior engineers frustrated with agency standards." },
@@ -155,19 +154,19 @@ export default function About() {
                 <ScrollReveal key={i} delay={0.1} className="relative flex items-center justify-between mb-16 last:mb-0 w-full">
                   {/* Left Side (Empty on mobile, content on desktop even) */}
                   <div className={cn("hidden md:block w-5/12 text-right pr-12", !isEven && "opacity-0")}>
-                    <h4 className="text-2xl font-bold text-black mb-2">{node.title}</h4>
-                    <p className="text-gray-600">{node.desc}</p>
+                    <h4 className="text-2xl font-bold text-foreground mb-2">{node.title}</h4>
+                    <p className="text-muted-foreground">{node.desc}</p>
                   </div>
 
                   {/* Center Node */}
-                  <div className="absolute left-0 md:left-1/2 -ml-2 md:-ml-8 w-16 h-16 rounded-full bg-primary flex items-center justify-center border-4 border-gray-50 z-10 shadow-lg">
-                    <span className="text-white font-bold text-sm">{node.year}</span>
+                  <div className="absolute left-0 md:left-1/2 -ml-2 md:-ml-8 w-16 h-16 rounded-full bg-primary flex items-center justify-center border-4 border-background z-10 shadow-lg">
+                    <span className="text-primary-foreground font-bold text-sm">{node.year}</span>
                   </div>
 
                   {/* Right Side (Content on mobile, content on desktop odd) */}
                   <div className={cn("w-full pl-24 md:pl-12 md:w-5/12", isEven && "md:hidden")}>
-                    <h4 className="text-2xl font-bold text-black mb-2">{node.title}</h4>
-                    <p className="text-gray-600">{node.desc}</p>
+                    <h4 className="text-2xl font-bold text-foreground mb-2">{node.title}</h4>
+                    <p className="text-muted-foreground">{node.desc}</p>
                   </div>
                 </ScrollReveal>
               );
@@ -177,10 +176,10 @@ export default function About() {
       </section>
 
       {/* 6. How We Work — 3 Wide Rows */}
-      <section className="py-24 md:py-32 bg-white">
+      <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="mb-20 text-center">
-            <h2 className="text-4xl md:text-5xl font-black text-black">How We Operate</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-foreground">How We Operate</h2>
           </ScrollReveal>
 
           <div className="space-y-24">
@@ -208,9 +207,9 @@ export default function About() {
               return (
                 <div key={i} className={cn("grid md:grid-cols-2 gap-12 items-center", !isEven && "md:grid-flow-col-dense")}>
                   <ScrollReveal className={cn(isEven ? "md:col-start-1" : "md:col-start-2")}>
-                    <p className="text-8xl font-black text-gray-100 mb-4 tracking-tighter">{row.num}</p>
-                    <h3 className="text-3xl font-black text-black mb-6">{row.title}</h3>
-                    <p className="text-xl text-gray-600 leading-relaxed">{row.desc}</p>
+                    <p className="text-8xl font-black text-muted mb-4 tracking-tighter">{row.num}</p>
+                    <h3 className="text-3xl font-black text-foreground mb-6">{row.title}</h3>
+                    <p className="text-xl text-muted-foreground leading-relaxed">{row.desc}</p>
                   </ScrollReveal>
                   <ScrollReveal delay={0.2} className={cn(isEven ? "md:col-start-2" : "md:col-start-1")}>
                     <img src={row.img} alt={row.title} className="w-full aspect-[4/3] object-cover shadow-xl" />
@@ -223,7 +222,7 @@ export default function About() {
       </section>
 
       {/* 7. Work Culture — Full-Width Image Section */}
-      <section className="relative py-32 md:py-48 bg-[#111]">
+      <section className="relative py-32 md:py-48 bg-sidebar text-sidebar-foreground">
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80" 
@@ -233,7 +232,7 @@ export default function About() {
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <ScrollReveal className="max-w-3xl">
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-12">A Place Where Great Software Is Built</h2>
+            <h2 className="text-5xl md:text-6xl font-black text-sidebar-foreground mb-12">A Place Where Great Software Is Built</h2>
             <div className="space-y-6">
               {[
                 "We hire problem solvers, not just typists.",
@@ -242,12 +241,12 @@ export default function About() {
               ].map((pt, i) => (
                 <div key={i} className="flex items-center gap-4">
                   <CheckCircle2 className="w-6 h-6 text-primary shrink-0" />
-                  <p className="text-2xl text-white font-medium">{pt}</p>
+                  <p className="text-2xl text-sidebar-foreground font-medium">{pt}</p>
                 </div>
               ))}
             </div>
             <div className="mt-12">
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-black bg-transparent">
+              <Button asChild size="lg" variant="outline" className="border-sidebar-foreground/30 text-sidebar-foreground hover:bg-sidebar-foreground hover:text-sidebar bg-transparent">
                 <Link href="/careers">View Open Roles</Link>
               </Button>
             </div>
@@ -255,12 +254,12 @@ export default function About() {
         </div>
       </section>
 
-      {/* 8. CTA — Dark Strip */}
+      {/* 8. CTA — Primary Strip */}
       <section className="py-20 bg-primary text-center">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal>
-            <h2 className="text-4xl font-black text-white mb-8">Ready to Start a Project?</h2>
-            <Button asChild size="lg" className="bg-black text-white hover:bg-white hover:text-black h-16 px-10 text-lg">
+            <h2 className="text-4xl font-black text-primary-foreground mb-8">Ready to Start a Project?</h2>
+            <Button asChild size="lg" className="bg-sidebar text-sidebar-foreground hover:bg-background hover:text-foreground h-16 px-10 text-lg">
               <Link href="/contact">Talk to an Architect</Link>
             </Button>
           </ScrollReveal>

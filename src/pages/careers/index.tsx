@@ -8,21 +8,21 @@ export default function Careers() {
   return (
     <div className="w-full">
       {/* 1. Hero */}
-      <section className="relative pt-40 pb-32 md:pt-48 md:pb-40 bg-[#111] overflow-hidden flex items-center">
+      <section className="relative pt-40 pb-32 md:pt-48 md:pb-40 bg-sidebar text-sidebar-foreground overflow-hidden flex items-center">
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=2000&q=80" 
             alt="Careers Hero" 
-            className="w-full h-full object-cover opacity-30 mix-blend-luminosity"
+            className="w-full h-full object-cover"
           />
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
           <ScrollReveal>
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block">Careers at Optixa</span>
-            <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tight">
+            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.9)' }}>Careers at Optixa</span>
+            <h1 className="text-5xl md:text-7xl font-black text-sidebar-foreground mb-8 tracking-tight" style={{ textShadow: '0 2px 12px rgba(0, 0, 0, 0.9)' }}>
               Build the Future With Us
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-sidebar-foreground/90 max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.9)' }}>
               We are a team of passionate engineers and designers. Join us in building high-performance software for the world's most innovative companies.
             </p>
           </ScrollReveal>
@@ -99,18 +99,18 @@ export default function Careers() {
       </section>
 
       {/* 4. Culture Section — Full-width image background */}
-      <section className="relative py-32 bg-[#111] overflow-hidden">
+      <section className="relative py-32 bg-sidebar text-sidebar-foreground overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80" 
             alt="Team Culture" 
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover"
           />
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center max-w-3xl">
           <ScrollReveal>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-6">No Egos. Just Engineering.</h2>
-            <p className="text-xl text-gray-300 leading-relaxed">
+            <h2 className="text-4xl md:text-5xl font-black text-sidebar-foreground mb-6" style={{ textShadow: '0 2px 12px rgba(0, 0, 0, 0.9)' }}>No Egos. Just Engineering.</h2>
+            <p className="text-xl text-sidebar-foreground/90 leading-relaxed" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.9)' }}>
               We foster a culture of intense curiosity and mutual respect. The best idea wins, regardless of whose title is highest. We debate architecture passionately, write clean code, and celebrate our launches together.
             </p>
           </ScrollReveal>
