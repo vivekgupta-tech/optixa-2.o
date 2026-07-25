@@ -1,0 +1,65 @@
+{
+  "hero": {
+    "image": "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=2000&q=80",
+    "imageAlt": "Careers Hero",
+    "subtitle": "Careers at Optixa",
+    "title": "Build the Future With Us",
+    "description": "We are a team of passionate engineers and designers. Join us in building high-performance software for the world's most innovative companies."
+  },
+  "whyJoin": {
+    "title": "Why Join Optixa",
+    "items": [
+      {
+        "icon": "Code",
+        "title": "Accelerated Technical Growth",
+        "desc": "Forget maintaining legacy 10-year-old codebases. Here, you will build greenfield projects using the latest stacks (Next.js, Go, Rust, AWS). You will learn more in your first 6 months here than you would in 2 years at a massive corporation."
+      },
+      {
+        "icon": "Laptop",
+        "title": "Creative Freedom",
+        "desc": "We don't micromanage. If you find a better architectural pattern or a faster way to solve a problem, we want you to implement it. We hire smart people and get out of their way."
+      },
+      {
+        "icon": "Zap",
+        "title": "Real Impact",
+        "desc": "You aren't a cog in a machine. Your code will ship to production constantly, directly impacting our clients' businesses. You will see the immediate results of your engineering efforts."
+      }
+    ]
+  },
+  "perks": {
+    "title": "The Perks",
+    "items": [
+      { "icon": "Map", "title": "Remote-First", "desc": "Work from anywhere. We care about your output, not your location." },
+      { "icon": "Heart", "title": "Health Coverage", "desc": "Comprehensive medical benefits for you and your dependents." },
+      { "icon": "Clock", "title": "Flexible Hours", "desc": "Set your own schedule as long as core team hours are met." },
+      { "icon": "Laptop", "title": "Top-Tier Gear", "desc": "MacBook Pro, 4K monitors, and whatever software you need to succeed." },
+      { "icon": "Plane", "title": "Generous PTO", "desc": "Take the time you need to recharge. Burnout serves no one." },
+      { "icon": "Shield", "title": "Learning Budget", "desc": "Annual stipend for courses, conferences, and certifications." }
+    ]
+  },
+  "culture": {
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80",
+    "imageAlt": "Team Culture",
+    "title": "No Egos. Just Engineering.",
+    "description": "We foster a culture of intense curiosity and mutual respect. The best idea wins, regardless of whose title is highest. We debate architecture passionately, write clean code, and celebrate our launches together."
+  },
+  "hiring": {
+    "title": "How We Hire",
+    "steps": [
+      { "step": "1", "title": "Introduction Call", "desc": "A 30-minute chat to align on culture and expectations." },
+      { "step": "2", "title": "Technical Screen", "desc": "A practical pairing session. No whiteboard riddles." },
+      { "step": "3", "title": "Architecture Chat", "desc": "Discussing systems design with our lead engineers." },
+      { "step": "4", "title": "Offer", "desc": "We move fast and present a fair, transparent offer." }
+    ]
+  },
+  "openPositions": {
+    "title": "Open Positions",
+    "description": "We are currently scaling our engineering teams, but do not have public listings available at this exact moment. Check back soon.",
+    "callout": {
+      "title": "Think you'd be a great fit anyway?",
+      "description": "We are always eager to meet exceptional Senior React/Next.js Engineers and Cloud Architects.",
+      "email": "careers@optixa.io",
+      "linkText": "Send your CV to careers@optixa.io"
+    }
+  }
+}

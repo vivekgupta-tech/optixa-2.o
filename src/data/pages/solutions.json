@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=2000&q=80",
+    "imageAlt": "Enterprise Solutions",
+    "title": "Enterprise Solutions Engineered for Scale",
+    "description": "Comprehensive technical systems designed to solve foundational business bottlenecks and accelerate digital transformation.",
+    "btn": { "text": "Request a Capability Brief", "link": "/contact" }
+  },
+  "intro": {
+    "title": "Solving Macro Problems",
+    "description": "While our services define what we do, our solutions define the complex problems we solve. We assemble cross-functional engineering teams to dismantle legacy infrastructure, automate labor-intensive workflows, and extract actionable intelligence from siloed data."
+  },
+  "labels": {
+    "integratedSolution": "Integrated Solution",
+    "exploreSolution": "Explore Solution",
+    "moreSolutionsTitle": "More Enterprise Solutions"
+  },
+  "cta": {
+    "title": "Ready to Transform Your Business?",
+    "btn": { "text": "Schedule a Solution Mapping Session", "link": "/contact" }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "title": "Terms & Conditions",
+  "subtitle": "Legal",
+  "lastUpdated": "Last Updated: October 2024",
+  "sections": [
+    {
+      "heading": "1. Acceptance of Terms",
+      "content": "By accessing or using the Optixa website and our services, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our services."
+    },
+    {
+      "heading": "2. Description of Services",
+      "content": "Optixa provides software development, cloud architecture, AI integration, and technology consulting services. The specific deliverables, timelines, and costs for any project will be detailed in a separate Statement of Work (SOW) or contract."
+    },
+    {
+      "heading": "3. Intellectual Property",
+      "content": "Unless otherwise agreed in writing, all intellectual property rights in the custom software we develop for you will be transferred to you upon full payment of all related fees. Pre-existing frameworks or open-source tools utilized in the project remain the property of their respective owners."
+    },
+    {
+      "heading": "4. Limitation of Liability",
+      "content": "In no event shall Optixa be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of our services."
+    },
+    {
+      "heading": "5. Governing Law",
+      "content": "These Terms shall be governed by and construed in accordance with the laws of Pakistan, without regard to its conflict of law provisions."
+    }
+  ]
+}

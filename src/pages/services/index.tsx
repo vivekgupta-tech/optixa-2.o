@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { Button } from '@/components/common/Button';
 import { services } from '@/data/services';
+import { servicesList } from '@/data';
 import { ArrowRight, CheckCircle2, ChevronDown, MonitorPlay, Settings, Layers, Code, HardDrive, Share2 } from 'lucide-react';
 
 export default function ServicesList() {
@@ -15,21 +16,21 @@ export default function ServicesList() {
       <section className="relative pt-40 pb-32 md:pt-48 md:pb-40 bg-[#111] overflow-hidden min-h-[70vh] flex items-center">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=2000&q=80" 
-            alt="Developer Coding" 
+            src={servicesList.hero.image} 
+            alt={servicesList.hero.imageAlt} 
             className="w-full h-full object-cover opacity-20 mix-blend-luminosity"
           />
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
           <ScrollReveal>
             <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tight">
-              End-to-End Technology Services
+              {servicesList.hero.title}
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-              We design, architect, and engineer digital platforms that solve complex business challenges and scale indefinitely.
+              {servicesList.hero.description}
             </p>
             <Button asChild size="lg" className="h-14 px-8 text-base">
-              <Link href="/contact">Discuss Your Project</Link>
+              <Link href={servicesList.hero.btn.link}>{servicesList.hero.btn.text}</Link>
             </Button>
           </ScrollReveal>
         </div>
@@ -39,9 +40,9 @@ export default function ServicesList() {
       <section className="py-24 bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-black text-black mb-6">Our Engineering Philosophy</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-black mb-6">{servicesList.intro.title}</h2>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Technology is merely a tool; the goal is business impact. We don't just write code to fulfill a spec—we act as strategic technical partners. By combining deep domain expertise with modern software engineering practices, we deliver secure, high-performance systems that give you a definitive market advantage.
+              {servicesList.intro.description}
             </p>
           </ScrollReveal>
         </div>
@@ -69,7 +70,7 @@ export default function ServicesList() {
                   {/* Content Side */}
                   <ScrollReveal delay={0.2} className={cn(isEven ? "lg:col-start-2" : "lg:col-start-1")}>
                     <span className="inline-block px-3 py-1 bg-red-100 text-primary text-sm font-bold uppercase tracking-wider mb-6">
-                      Core Service
+                      {servicesList.labels.coreService}
                     </span>
                     <h3 className="text-4xl md:text-5xl font-black text-black mb-6">{service.title}</h3>
                     
@@ -79,7 +80,7 @@ export default function ServicesList() {
                     </div>
 
                     <div className="mb-10">
-                      <h4 className="text-xl font-bold text-black mb-4">Key Capabilities:</h4>
+                      <h4 className="text-xl font-bold text-black mb-4">{servicesList.labels.keyCapabilities}</h4>
                       <div className="space-y-3">
                         {service.features.slice(0, 4).map((feat, i) => (
                           <div key={i} className="flex items-start gap-3">
@@ -100,7 +101,7 @@ export default function ServicesList() {
 
                     <Button asChild size="lg" className="h-14 px-8 text-base bg-black hover:bg-primary">
                       <Link href={`/services/${service.slug}`}>
-                        Explore {service.title} <ArrowRight className="w-5 h-5 ml-2" />
+                        {servicesList.labels.explorePrefix} {service.title} <ArrowRight className="w-5 h-5 ml-2" />
                       </Link>
                     </Button>
                   </ScrollReveal>
@@ -116,7 +117,7 @@ export default function ServicesList() {
       <section className="py-24 md:py-32 bg-white">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-4xl font-black text-black">Specialized Capabilities</h2>
+            <h2 className="text-4xl font-black text-black">{servicesList.labels.specializedTitle}</h2>
           </ScrollReveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -126,7 +127,7 @@ export default function ServicesList() {
                   <h3 className="text-2xl font-bold text-black mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
                   <p className="text-gray-500 mb-6 line-clamp-2">{service.shortDescription}</p>
                   <span className="text-primary font-bold flex items-center gap-2 text-sm uppercase tracking-wider">
-                    View Service <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                    {servicesList.labels.viewService} <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
                   </span>
                 </Link>
               </ScrollReveal>
@@ -139,17 +140,12 @@ export default function ServicesList() {
       <section className="py-24 bg-gray-50 border-t border-gray-200">
         <div className="container mx-auto px-4 md:px-8 max-w-4xl">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-4xl font-black text-black">Not Sure Where to Start?</h2>
-            <p className="text-xl text-gray-600 mt-4">Common questions about engaging our engineering teams.</p>
+            <h2 className="text-4xl font-black text-black">{servicesList.faq.title}</h2>
+            <p className="text-xl text-gray-600 mt-4">{servicesList.faq.description}</p>
           </ScrollReveal>
 
           <div className="space-y-4">
-            {[
-              { q: "Do you offer full-cycle development?", a: "Yes. From initial UI/UX discovery and system architecture to backend engineering, frontend deployment, and ongoing DevOps support, we handle the entire product lifecycle." },
-              { q: "How do you price your services?", a: "For well-defined scopes, we offer fixed-bid projects. For ongoing development and agile scopes, we offer dedicated engineering squads on a monthly retainer basis." },
-              { q: "Can you rescue an existing failing project?", a: "Yes. We frequently conduct technical audits of legacy or failing codebases, stabilize the architecture, and execute a modernization strategy." },
-              { q: "Do we own the intellectual property?", a: "Absolutely. Upon final payment, 100% of the source code and IP is legally transferred to your organization." }
-            ].map((faq, i) => (
+            {servicesList.faq.items.map((faq, i) => (
               <ScrollReveal key={i} delay={i * 0.1} className="bg-white border border-gray-200 p-6">
                 <details className="group">
                   <summary className="flex items-center justify-between cursor-pointer list-none font-bold text-xl text-black">
@@ -170,9 +166,9 @@ export default function ServicesList() {
       <section className="py-24 bg-primary text-center">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-8">Need Technical Guidance?</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-8">{servicesList.cta.title}</h2>
             <Button asChild size="lg" className="bg-black text-white hover:bg-white hover:text-black h-16 px-10 text-lg border-2 border-black">
-              <Link href="/contact">Schedule an Architecture Review</Link>
+              <Link href={servicesList.cta.btn.link}>{servicesList.cta.btn.text}</Link>
             </Button>
           </ScrollReveal>
         </div>

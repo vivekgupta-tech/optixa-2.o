@@ -1,0 +1,87 @@
+{
+  "hero": {
+    "title": "Start a Conversation",
+    "description": "Ready to engineer your next digital platform? Reach out to our technical team to discuss architecture, process, and feasibility."
+  },
+  "info": {
+    "title": "Let's Build Together",
+    "paragraphs": [
+      "We typically begin engagements with a thorough discovery phase or a technical audit of your existing infrastructure.",
+      "Fill out the form with your project details, and a senior architect or engineering manager will be in touch within 24 hours. No salespeople."
+    ],
+    "contactCards": [
+      {
+        "label": "Email Us",
+        "value": "hello@optixa.io",
+        "href": "mailto:hello@optixa.io"
+      },
+      {
+        "label": "Location",
+        "value": "Lahore, Pakistan",
+        "subValue": "Remote-First Global Team"
+      },
+      {
+        "label": "Working Hours",
+        "value": "Mon–Fri, 9am–6pm PKT",
+        "subValue": "Flexible timezone overlap"
+      }
+    ],
+    "followLabel": "Follow Us"
+  },
+  "form": {
+    "fields": {
+      "fullName": { "label": "Full Name *", "placeholder": "John Doe" },
+      "email": { "label": "Email Address *", "placeholder": "john@company.com" },
+      "company": { "label": "Company (Optional)", "placeholder": "Acme Corp" },
+      "phone": { "label": "Phone (Optional)", "placeholder": "+1 (555) 000-0000" },
+      "service": {
+        "label": "Service Interested In *",
+        "placeholder": "Select a service...",
+        "options": [
+          { "value": "ai", "label": "AI Development" },
+          { "value": "custom", "label": "Custom Software" },
+          { "value": "web", "label": "Web Application" },
+          { "value": "cloud", "label": "Cloud Engineering" },
+          { "value": "mobile", "label": "Mobile App" },
+          { "value": "uiux", "label": "UI/UX Design" },
+          { "value": "consulting", "label": "Architecture Consulting" },
+          { "value": "other", "label": "Other" }
+        ]
+      },
+      "budget": {
+        "label": "Project Budget *",
+        "placeholder": "Select budget range...",
+        "options": [
+          { "value": "under5k", "label": "Under $5k (Consulting Only)" },
+          { "value": "5k-20k", "label": "$5k – $20k" },
+          { "value": "20k-50k", "label": "$20k – $50k" },
+          { "value": "50k+", "label": "$50k+" },
+          { "value": "discuss", "label": "Let's discuss" }
+        ]
+      },
+      "details": {
+        "label": "Project Details *",
+        "placeholder": "Tell us about your business goals and technical requirements... (min 50 chars)"
+      }
+    },
+    "submitBtn": "Send Message",
+    "privacyNote": "We respect your privacy. No spam, ever."
+  },
+  "whyContact": [
+    { "title": "No Salespeople", "desc": "You will speak directly to a technical leader who understands architecture." },
+    { "title": "Rapid Response", "desc": "We review inquiries daily and respond within 24 hours." },
+    { "title": "Honest Assessment", "desc": "If we aren't the right fit for your tech stack, we will tell you immediately." },
+    { "title": "NDA Ready", "desc": "We are happy to sign standard NDAs before discussing proprietary details." }
+  ],
+  "faq": {
+    "title": "Engagement FAQ",
+    "items": [
+      { "q": "What happens after I fill out this form?", "a": "A technical lead will review your submission and email you to schedule a 30-minute introductory call. During that call, we'll discuss your business goals, tech stack, and determine if there's a mutual fit." },
+      { "q": "Do you offer fixed-price contracts?", "a": "Yes, for projects with highly rigid and pre-defined scopes. However, we generally recommend Agile retainers (Time & Materials) as it allows for much greater flexibility and faster time-to-market." },
+      { "q": "Can we hire a single developer or do we need a full team?", "a": "We primarily deploy full cross-functional pods (e.g., 1 Lead, 2 Frontend, 1 Backend, 1 QA). However, we do offer staff augmentation for specific senior roles if you already have an established engineering culture." },
+      { "q": "Do you work with startups seeking equity exchanges?", "a": "We generally operate on a standard fee-for-service model. We do not accept equity in lieu of payment, ensuring you keep full ownership of your company." },
+      { "q": "Where is your team located?", "a": "We are a remote-first team headquartered in Lahore, Pakistan, with engineers across multiple time zones to ensure overlap with US, European, and MENA clients." },
+      { "q": "Will you sign our NDA?", "a": "Absolutely. We can use your standard NDA or provide our own mutual NDA before discussing any sensitive IP." }
+    ]
+  }
+}

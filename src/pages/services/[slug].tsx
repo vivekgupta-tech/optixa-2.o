@@ -3,6 +3,7 @@ import { useParams, Link } from 'wouter';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { Button } from '@/components/common/Button';
 import { services } from '@/data/services';
+import { serviceDetail } from '@/data';
 import NotFound from '../not-found';
 import { ArrowRight, CheckCircle2, ChevronDown, Layers, Layout, Zap, Lock, Eye, MessageSquare, Database, Shield, Box } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -41,7 +42,7 @@ export default function ServiceDetail() {
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <ScrollReveal>
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block">Service Capability</span>
+            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block">{serviceDetail.hero.subtitle}</span>
             <h1 className="text-5xl md:text-7xl font-black text-white mb-8 max-w-5xl leading-[1.1] tracking-tight">
               {service.title}
             </h1>
@@ -50,10 +51,10 @@ export default function ServiceDetail() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg" className="h-14 px-8 text-base">
-                <Link href="/contact">Discuss Your Project</Link>
+                <Link href={serviceDetail.hero.btnPrimary.link}>{serviceDetail.hero.btnPrimary.text}</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="h-14 px-8 text-base border-white text-white hover:bg-white hover:text-black bg-transparent">
-                <a href="#overview">Explore Capability</a>
+                <a href={serviceDetail.hero.btnSecondary.link}>{serviceDetail.hero.btnSecondary.text}</a>
               </Button>
             </div>
           </ScrollReveal>
@@ -66,7 +67,7 @@ export default function ServiceDetail() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal>
               <h2 className="text-4xl md:text-5xl font-black text-black mb-8 leading-tight">
-                Architected for Business Impact
+                {serviceDetail.overview.title}
               </h2>
               <div className="space-y-6 text-xl text-gray-600 leading-relaxed">
                 <p>{service.description}</p>
@@ -89,8 +90,8 @@ export default function ServiceDetail() {
       <section className="py-24 md:py-32 bg-[#111111] text-white">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="max-w-3xl mb-16">
-            <span className="text-primary font-bold uppercase tracking-wider text-sm mb-4 block">The Problem Space</span>
-            <h2 className="text-4xl md:text-5xl font-black">Business Challenges We Solve</h2>
+            <span className="text-primary font-bold uppercase tracking-wider text-sm mb-4 block">{serviceDetail.challenges.subtitle}</span>
+            <h2 className="text-4xl md:text-5xl font-black">{serviceDetail.challenges.title}</h2>
           </ScrollReveal>
 
           <div className="space-y-8">
@@ -115,16 +116,16 @@ export default function ServiceDetail() {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <ScrollReveal className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" 
-                alt="Solution architecture" 
+                src={serviceDetail.solution.image} 
+                alt={serviceDetail.solution.imageAlt} 
                 className="w-full aspect-[4/5] object-cover shadow-2xl sticky top-32"
               />
             </ScrollReveal>
             
             <ScrollReveal delay={0.2}>
-              <h2 className="text-4xl md:text-5xl font-black text-black mb-8">Technical Approach</h2>
+              <h2 className="text-4xl md:text-5xl font-black text-black mb-8">{serviceDetail.solution.title}</h2>
               <p className="text-xl text-gray-600 mb-12">
-                We don't provide generic fixes. Our {service.title.toLowerCase()} solutions are deeply integrated, highly secure, and built specifically to dismantle your operational bottlenecks.
+                {serviceDetail.solution.descriptionPrefix} {service.title.toLowerCase()} {serviceDetail.solution.descriptionSuffix}
               </p>
               
               <div className="space-y-8">
@@ -149,7 +150,7 @@ export default function ServiceDetail() {
       <section className="py-24 md:py-32 bg-white">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="mb-20 text-center">
-            <h2 className="text-4xl md:text-5xl font-black text-black">Execution Process</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-black">{serviceDetail.process.title}</h2>
           </ScrollReveal>
 
           <div className="relative max-w-5xl mx-auto">
@@ -174,8 +175,8 @@ export default function ServiceDetail() {
       <section className="py-24 bg-gray-50 border-y border-gray-200">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-4xl font-black text-black">Core Technologies</h2>
-            <p className="text-lg text-gray-600 mt-4">Enterprise-grade tools powering our {service.title.toLowerCase()} stack.</p>
+            <h2 className="text-4xl font-black text-black">{serviceDetail.technologies.title}</h2>
+            <p className="text-lg text-gray-600 mt-4">{serviceDetail.technologies.descriptionPrefix} {service.title.toLowerCase()} {serviceDetail.technologies.descriptionSuffix}</p>
           </ScrollReveal>
           
           <ScrollReveal delay={0.2} className="max-w-4xl mx-auto flex flex-wrap justify-center gap-4">
@@ -192,7 +193,7 @@ export default function ServiceDetail() {
       <section className="py-24 md:py-32 bg-primary text-white">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-black">Measurable Outcomes</h2>
+            <h2 className="text-4xl md:text-5xl font-black">{serviceDetail.benefits.title}</h2>
           </ScrollReveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -211,7 +212,7 @@ export default function ServiceDetail() {
       <section className="py-16 bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 md:px-8 text-center">
           <ScrollReveal>
-            <h3 className="text-xl font-bold text-gray-500 mb-8 uppercase tracking-widest">Target Industries</h3>
+            <h3 className="text-xl font-bold text-gray-500 mb-8 uppercase tracking-widest">{serviceDetail.industries.title}</h3>
             <div className="flex flex-wrap justify-center gap-4">
               {service.industries.map((ind, i) => (
                 <span key={i} className="px-5 py-2 bg-gray-100 text-black font-semibold rounded-full text-sm">
@@ -227,7 +228,7 @@ export default function ServiceDetail() {
       <section className="py-24 md:py-32 bg-gray-50">
         <div className="container mx-auto px-4 md:px-8 max-w-4xl">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-4xl font-black text-black">Common Questions</h2>
+            <h2 className="text-4xl font-black text-black">{serviceDetail.faq.title}</h2>
           </ScrollReveal>
 
           <div className="space-y-4">
@@ -252,9 +253,9 @@ export default function ServiceDetail() {
       <section className="py-24 bg-[#111] text-center">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-8">Require {service.title}?</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-8">{serviceDetail.cta.titlePrefix} {service.title}{serviceDetail.cta.titleSuffix}</h2>
             <Button asChild size="lg" className="h-16 px-10 text-lg">
-              <Link href="/contact">Schedule a Technical Call</Link>
+              <Link href={serviceDetail.cta.btn.link}>{serviceDetail.cta.btn.text}</Link>
             </Button>
           </ScrollReveal>
         </div>

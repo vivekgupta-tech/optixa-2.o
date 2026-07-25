@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { Button } from '@/components/common/Button';
 import { solutions } from '@/data/solutions';
+import { solutionsPage } from '@/data';
 import { ArrowRight, CheckCircle2, ChevronRight, Box } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -16,21 +17,21 @@ export default function Solutions() {
       <section className="relative pt-40 pb-32 md:pt-48 md:pb-40 bg-[#111] overflow-hidden min-h-[70vh] flex items-center">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=2000&q=80" 
-            alt="Enterprise Solutions" 
+            src={solutionsPage.hero.image} 
+            alt={solutionsPage.hero.imageAlt} 
             className="w-full h-full object-cover opacity-30 mix-blend-luminosity"
           />
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
           <ScrollReveal>
             <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tight">
-              Enterprise Solutions Engineered for Scale
+              {solutionsPage.hero.title}
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-              Comprehensive technical systems designed to solve foundational business bottlenecks and accelerate digital transformation.
+              {solutionsPage.hero.description}
             </p>
             <Button asChild size="lg" className="h-14 px-8 text-base">
-              <Link href="/contact">Request a Capability Brief</Link>
+              <Link href={solutionsPage.hero.btn.link}>{solutionsPage.hero.btn.text}</Link>
             </Button>
           </ScrollReveal>
         </div>
@@ -40,9 +41,9 @@ export default function Solutions() {
       <section className="py-24 bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-black text-black mb-6">Solving Macro Problems</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-black mb-6">{solutionsPage.intro.title}</h2>
             <p className="text-xl text-gray-600 leading-relaxed">
-              While our services define what we do, our solutions define the complex problems we solve. We assemble cross-functional engineering teams to dismantle legacy infrastructure, automate labor-intensive workflows, and extract actionable intelligence from siloed data.
+              {solutionsPage.intro.description}
             </p>
           </ScrollReveal>
         </div>
@@ -69,7 +70,7 @@ export default function Solutions() {
                   {/* Content Side */}
                   <ScrollReveal delay={0.2} className={cn(isEven ? "lg:col-start-2" : "lg:col-start-1")}>
                     <span className="inline-block px-3 py-1 bg-red-100 text-primary text-sm font-bold uppercase tracking-wider mb-6">
-                      Integrated Solution
+                      {solutionsPage.labels.integratedSolution}
                     </span>
                     <h3 className="text-4xl font-black text-black mb-6">{solution.title}</h3>
                     
@@ -90,7 +91,7 @@ export default function Solutions() {
 
                     <Button asChild variant="outline" size="lg" className="border-2 border-black text-black hover:bg-black hover:text-white">
                       <Link href={`/solutions/${solution.slug}`}>
-                        Explore Solution <ArrowRight className="w-5 h-5 ml-2" />
+                        {solutionsPage.labels.exploreSolution} <ArrowRight className="w-5 h-5 ml-2" />
                       </Link>
                     </Button>
                   </ScrollReveal>
@@ -106,7 +107,7 @@ export default function Solutions() {
       <section className="py-24 md:py-32 bg-white">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-4xl font-black text-black">More Enterprise Solutions</h2>
+            <h2 className="text-4xl font-black text-black">{solutionsPage.labels.moreSolutionsTitle}</h2>
           </ScrollReveal>
 
           <div className="max-w-5xl mx-auto space-y-6">
@@ -134,9 +135,9 @@ export default function Solutions() {
       <section className="py-24 bg-primary text-center">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-8">Ready to Transform Your Business?</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-8">{solutionsPage.cta.title}</h2>
             <Button asChild size="lg" className="bg-black text-white hover:bg-white hover:text-black h-16 px-10 text-lg border-2 border-black">
-              <Link href="/contact">Schedule a Solution Mapping Session</Link>
+              <Link href={solutionsPage.cta.btn.link}>{solutionsPage.cta.btn.text}</Link>
             </Button>
           </ScrollReveal>
         </div>

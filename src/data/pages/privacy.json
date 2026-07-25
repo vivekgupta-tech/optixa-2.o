@@ -1,0 +1,27 @@
+{
+  "title": "Privacy Policy",
+  "subtitle": "Legal",
+  "lastUpdated": "Last Updated: October 2024",
+  "sections": [
+    {
+      "heading": "1. Information We Collect",
+      "content": "We collect information that you provide directly to us when you fill out a contact form, request a quote, or subscribe to our newsletter. This may include your name, email address, phone number, and any other details you choose to provide."
+    },
+    {
+      "heading": "2. How We Use Your Information",
+      "content": "We use the information we collect to provide, maintain, and improve our services, communicate with you, respond to your inquiries, and send you technical insights if you have opted into our newsletter."
+    },
+    {
+      "heading": "3. Information Sharing",
+      "content": "We do not sell your personal information. We may share your information with trusted third-party service providers who assist us in operating our website and conducting our business, provided they agree to keep this information confidential."
+    },
+    {
+      "heading": "4. Data Security",
+      "content": "We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction."
+    },
+    {
+      "heading": "5. Your Rights",
+      "content": "You have the right to request access to, correction of, or deletion of your personal data. To exercise these rights, please contact us at privacy@optixa.io."
+    }
+  ]
+}

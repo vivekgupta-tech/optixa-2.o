@@ -1,0 +1,20 @@
+{
+  "hero": {
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=80",
+    "imageAlt": "Global Industries",
+    "title": "Industry-Specific Technology Solutions",
+    "description": "We combine deep sector knowledge with world-class engineering to solve the unique challenges of your industry.",
+    "btn": { "text": "Discuss Your Industry", "link": "/contact" }
+  },
+  "labels": {
+    "keySolutions": "Key Solutions:",
+    "explorePrefix": "Explore",
+    "moreSectorsTitle": "More Sectors We Empower",
+    "viewDetails": "View Details"
+  },
+  "cta": {
+    "title": "Not seeing your industry?",
+    "description": "We build agnostic, custom platforms that conform to any business model.",
+    "btn": { "text": "Talk to an Architect", "link": "/contact" }
+  }
+}

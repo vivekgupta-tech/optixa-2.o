@@ -6,6 +6,7 @@ import { Button } from '../common/Button';
 import { services } from '@/data/services';
 import { solutions } from '@/data/solutions';
 import { industries } from '@/data/industries';
+import { navbar } from '@/data';
 
 export const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,18 +28,8 @@ export const Header: React.FC = () => {
     setActiveDropdown(null);
   }, [location]);
 
-  const navLinks = [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
-    { label: 'Services', href: '/services', hasDropdown: true },
-    { label: 'Solutions', href: '/solutions', hasDropdown: true },
-    { label: 'Technologies', href: '/technologies' },
-    { label: 'Industries', href: '/industries', hasDropdown: true },
-    { label: 'Process', href: '/process' },
-    { label: 'Portfolio', href: '/portfolio' },
-    { label: 'Insights', href: '/insights' },
-    { label: 'Careers', href: '/careers' },
-  ];
+  const { navLinks, megaMenu, actions, mobileMenu, logo } = navbar;
+
 
   return (
     <header
@@ -54,7 +45,7 @@ export const Header: React.FC = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group z-50">
             <span className="text-2xl font-black tracking-tight text-foreground group-hover:text-primary transition-colors">
-              OPTIXA
+              {logo}
             </span>
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
           </Link>
@@ -101,9 +92,9 @@ export const Header: React.FC = () => {
                               </Link>
                             ))}
                             <div className="col-span-2 pt-4 mt-2 border-t border-gray-100 flex justify-between items-center px-3">
-                              <span className="text-sm font-medium text-gray-500">Explore our full capabilities</span>
-                              <Link href="/services" className="text-sm font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all">
-                                View all services <ArrowRight className="w-4 h-4" />
+                              <span className="text-sm font-medium text-gray-500">{megaMenu.services.exploreText}</span>
+                              <Link href={megaMenu.services.viewAllLink} className="text-sm font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all">
+                                {megaMenu.services.viewAllText} <ArrowRight className="w-4 h-4" />
                               </Link>
                             </div>
                           </div>
@@ -124,9 +115,9 @@ export const Header: React.FC = () => {
                               </Link>
                             ))}
                             <div className="col-span-2 pt-4 mt-2 border-t border-gray-100 flex justify-between items-center px-3">
-                              <span className="text-sm font-medium text-gray-500">Purpose-built solutions</span>
-                              <Link href="/solutions" className="text-sm font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all">
-                                View all solutions <ArrowRight className="w-4 h-4" />
+                              <span className="text-sm font-medium text-gray-500">{megaMenu.solutions.exploreText}</span>
+                              <Link href={megaMenu.solutions.viewAllLink} className="text-sm font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all">
+                                {megaMenu.solutions.viewAllText} <ArrowRight className="w-4 h-4" />
                               </Link>
                             </div>
                           </div>
@@ -144,8 +135,8 @@ export const Header: React.FC = () => {
                               </Link>
                             ))}
                             <div className="col-span-2 pt-4 mt-2 border-t border-gray-100 flex justify-end items-center px-3">
-                              <Link href="/industries" className="text-sm font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all">
-                                View all industries <ArrowRight className="w-4 h-4" />
+                              <Link href={megaMenu.industries.viewAllLink} className="text-sm font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all">
+                                {megaMenu.industries.viewAllText} <ArrowRight className="w-4 h-4" />
                               </Link>
                             </div>
                           </div>
@@ -161,7 +152,7 @@ export const Header: React.FC = () => {
           {/* Actions */}
           <div className="hidden lg:flex items-center gap-4">
             <Button asChild size="default" className="font-semibold shadow-md">
-              <Link href="/contact">Get a Quote</Link>
+              <Link href={actions.getQuoteLink}>{actions.getQuote}</Link>
             </Button>
           </div>
 
@@ -224,18 +215,18 @@ export const Header: React.FC = () => {
           ))}
           <li className="pt-2">
             <Link
-              href="/contact"
+              href={mobileMenu.contactLink}
               className={cn(
                 "block py-3 text-xl font-bold transition-colors w-full",
-                location === '/contact' ? "text-primary" : "text-gray-900"
+                location === mobileMenu.contactLink ? "text-primary" : "text-gray-900"
               )}
             >
-              Contact
+              {mobileMenu.contact}
             </Link>
           </li>
         </ul>
         <Button asChild size="lg" className="w-full h-14 text-lg">
-          <Link href="/contact">Get a Quote</Link>
+          <Link href={actions.getQuoteLink}>{actions.getQuote}</Link>
         </Button>
       </div>
     </header>

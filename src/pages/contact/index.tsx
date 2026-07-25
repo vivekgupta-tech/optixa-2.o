@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation } from 'wouter';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { Button } from '@/components/common/Button';
+import { contact } from '@/data';
 import { Mail, MapPin, Clock, Twitter, Linkedin, Github, CheckCircle2, ChevronDown } from 'lucide-react';
 
 export default function Contact() {
@@ -22,10 +23,10 @@ export default function Contact() {
         <div className="container mx-auto px-4 md:px-8 text-center max-w-4xl">
           <ScrollReveal>
             <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight">
-              Start a Conversation
+              {contact.hero.title}
             </h1>
             <p className="text-xl text-gray-400">
-              Ready to engineer your next digital platform? Reach out to our technical team to discuss architecture, process, and feasibility.
+              {contact.hero.description}
             </p>
           </ScrollReveal>
         </div>
@@ -38,13 +39,13 @@ export default function Contact() {
           {/* Left Side (Info) */}
           <div className="bg-white p-8 md:p-16 lg:p-24 flex flex-col justify-center">
             <ScrollReveal>
-              <h2 className="text-4xl font-black text-black mb-8">Let's Build Together</h2>
+              <h2 className="text-4xl font-black text-black mb-8">{contact.info.title}</h2>
               <div className="space-y-6 text-lg text-gray-600 mb-12">
                 <p>
-                  We typically begin engagements with a thorough discovery phase or a technical audit of your existing infrastructure.
+                  {contact.info.paragraphs[0]}
                 </p>
                 <p>
-                  Fill out the form with your project details, and a senior architect or engineering manager will be in touch within 24 hours. No salespeople.
+                  {contact.info.paragraphs[1]}
                 </p>
               </div>
 
@@ -54,8 +55,8 @@ export default function Contact() {
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-1">Email Us</h4>
-                    <a href="mailto:hello@optixa.io" className="text-xl font-bold text-black hover:text-primary transition-colors">hello@optixa.io</a>
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-1">{contact.info.contactCards[0].label}</h4>
+                    <a href={contact.info.contactCards[0].href} className="text-xl font-bold text-black hover:text-primary transition-colors">{contact.info.contactCards[0].value}</a>
                   </div>
                 </div>
 
@@ -64,8 +65,8 @@ export default function Contact() {
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-1">Location</h4>
-                    <p className="text-xl font-bold text-black">Lahore, Pakistan<br/><span className="text-base text-gray-500 font-medium">Remote-First Global Team</span></p>
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-1">{contact.info.contactCards[1].label}</h4>
+                    <p className="text-xl font-bold text-black">{contact.info.contactCards[1].value}<br/><span className="text-base text-gray-500 font-medium">{contact.info.contactCards[1].subValue}</span></p>
                   </div>
                 </div>
 
@@ -74,14 +75,14 @@ export default function Contact() {
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-1">Working Hours</h4>
-                    <p className="text-xl font-bold text-black">Mon–Fri, 9am–6pm PKT<br/><span className="text-base text-gray-500 font-medium">Flexible timezone overlap</span></p>
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-1">{contact.info.contactCards[2].label}</h4>
+                    <p className="text-xl font-bold text-black">{contact.info.contactCards[2].value}<br/><span className="text-base text-gray-500 font-medium">{contact.info.contactCards[2].subValue}</span></p>
                   </div>
                 </div>
               </div>
 
               <div>
-                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-4">Follow Us</h4>
+                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-4">{contact.info.followLabel}</h4>
                 <div className="flex gap-4">
                   <a href="#" className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:border-black hover:bg-black hover:text-white transition-colors">
                     <Linkedin className="w-5 h-5" />
@@ -104,62 +105,55 @@ export default function Contact() {
                 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-gray-900">Full Name *</label>
-                    <input type="text" required className="w-full bg-white border border-gray-300 p-4 text-black focus:outline-none focus:border-primary transition-colors" placeholder="John Doe" />
+                    <label className="text-sm font-bold text-gray-900">{contact.form.fields.fullName.label}</label>
+                    <input type="text" required className="w-full bg-white border border-gray-300 p-4 text-black focus:outline-none focus:border-primary transition-colors" placeholder={contact.form.fields.fullName.placeholder} />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-gray-900">Email Address *</label>
-                    <input type="email" required className="w-full bg-white border border-gray-300 p-4 text-black focus:outline-none focus:border-primary transition-colors" placeholder="john@company.com" />
+                    <label className="text-sm font-bold text-gray-900">{contact.form.fields.email.label}</label>
+                    <input type="email" required className="w-full bg-white border border-gray-300 p-4 text-black focus:outline-none focus:border-primary transition-colors" placeholder={contact.form.fields.email.placeholder} />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-gray-900">Company (Optional)</label>
-                    <input type="text" className="w-full bg-white border border-gray-300 p-4 text-black focus:outline-none focus:border-primary transition-colors" placeholder="Acme Corp" />
+                    <label className="text-sm font-bold text-gray-900">{contact.form.fields.company.label}</label>
+                    <input type="text" className="w-full bg-white border border-gray-300 p-4 text-black focus:outline-none focus:border-primary transition-colors" placeholder={contact.form.fields.company.placeholder} />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-gray-900">Phone (Optional)</label>
-                    <input type="tel" className="w-full bg-white border border-gray-300 p-4 text-black focus:outline-none focus:border-primary transition-colors" placeholder="+1 (555) 000-0000" />
+                    <label className="text-sm font-bold text-gray-900">{contact.form.fields.phone.label}</label>
+                    <input type="tel" className="w-full bg-white border border-gray-300 p-4 text-black focus:outline-none focus:border-primary transition-colors" placeholder={contact.form.fields.phone.placeholder} />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-gray-900">Service Interested In *</label>
+                  <label className="text-sm font-bold text-gray-900">{contact.form.fields.service.label}</label>
                   <select required className="w-full bg-white border border-gray-300 p-4 text-black focus:outline-none focus:border-primary transition-colors appearance-none rounded-none">
-                    <option value="">Select a service...</option>
-                    <option value="ai">AI Development</option>
-                    <option value="custom">Custom Software</option>
-                    <option value="web">Web Application</option>
-                    <option value="cloud">Cloud Engineering</option>
-                    <option value="mobile">Mobile App</option>
-                    <option value="uiux">UI/UX Design</option>
-                    <option value="consulting">Architecture Consulting</option>
-                    <option value="other">Other</option>
+                    <option value="">{contact.form.fields.service.placeholder}</option>
+                    {contact.form.fields.service.options.map(opt => (
+                      <option key={opt.value} value={opt.value}>{opt.label}</option>
+                    ))}
                   </select>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-gray-900">Project Budget *</label>
+                  <label className="text-sm font-bold text-gray-900">{contact.form.fields.budget.label}</label>
                   <select required className="w-full bg-white border border-gray-300 p-4 text-black focus:outline-none focus:border-primary transition-colors appearance-none rounded-none">
-                    <option value="">Select budget range...</option>
-                    <option value="under5k">Under $5k (Consulting Only)</option>
-                    <option value="5k-20k">$5k – $20k</option>
-                    <option value="20k-50k">$20k – $50k</option>
-                    <option value="50k+">$50k+</option>
-                    <option value="discuss">Let's discuss</option>
+                    <option value="">{contact.form.fields.budget.placeholder}</option>
+                    {contact.form.fields.budget.options.map(opt => (
+                      <option key={opt.value} value={opt.value}>{opt.label}</option>
+                    ))}
                   </select>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-gray-900">Project Details *</label>
-                  <textarea required minLength={50} rows={5} className="w-full bg-white border border-gray-300 p-4 text-black focus:outline-none focus:border-primary transition-colors resize-none" placeholder="Tell us about your business goals and technical requirements... (min 50 chars)"></textarea>
+                  <label className="text-sm font-bold text-gray-900">{contact.form.fields.details.label}</label>
+                  <textarea required minLength={50} rows={5} className="w-full bg-white border border-gray-300 p-4 text-black focus:outline-none focus:border-primary transition-colors resize-none" placeholder={contact.form.fields.details.placeholder}></textarea>
                 </div>
 
                 <Button type="submit" size="lg" className="w-full h-16 text-lg bg-primary hover:bg-black text-white">
-                  Send Message
+                  {contact.form.submitBtn}
                 </Button>
-                <p className="text-xs text-gray-500 text-center mt-4">We respect your privacy. No spam, ever.</p>
+                <p className="text-xs text-gray-500 text-center mt-4">{contact.form.privacyNote}</p>
               </form>
             </ScrollReveal>
           </div>
@@ -171,12 +165,7 @@ export default function Contact() {
       <section className="py-24 bg-[#111] text-white">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid md:grid-cols-4 gap-8 border-t border-white/10 pt-16">
-            {[
-              { title: "No Salespeople", desc: "You will speak directly to a technical leader who understands architecture." },
-              { title: "Rapid Response", desc: "We review inquiries daily and respond within 24 hours." },
-              { title: "Honest Assessment", desc: "If we aren't the right fit for your tech stack, we will tell you immediately." },
-              { title: "NDA Ready", desc: "We are happy to sign standard NDAs before discussing proprietary details." }
-            ].map((feat, i) => (
+            {contact.whyContact.map((feat, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
                 <CheckCircle2 className="w-8 h-8 text-primary mb-4" />
                 <h4 className="font-bold text-xl mb-2">{feat.title}</h4>
@@ -191,18 +180,11 @@ export default function Contact() {
       <section className="py-24 md:py-32 bg-white">
         <div className="container mx-auto px-4 md:px-8 max-w-4xl">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-4xl font-black text-black">Engagement FAQ</h2>
+            <h2 className="text-4xl font-black text-black">{contact.faq.title}</h2>
           </ScrollReveal>
 
           <div className="space-y-4">
-            {[
-              { q: "What happens after I fill out this form?", a: "A technical lead will review your submission and email you to schedule a 30-minute introductory call. During that call, we'll discuss your business goals, tech stack, and determine if there's a mutual fit." },
-              { q: "Do you offer fixed-price contracts?", a: "Yes, for projects with highly rigid and pre-defined scopes. However, we generally recommend Agile retainers (Time & Materials) as it allows for much greater flexibility and faster time-to-market." },
-              { q: "Can we hire a single developer or do we need a full team?", a: "We primarily deploy full cross-functional pods (e.g., 1 Lead, 2 Frontend, 1 Backend, 1 QA). However, we do offer staff augmentation for specific senior roles if you already have an established engineering culture." },
-              { q: "Do you work with startups seeking equity exchanges?", a: "We generally operate on a standard fee-for-service model. We do not accept equity in lieu of payment, ensuring you keep full ownership of your company." },
-              { q: "Where is your team located?", a: "We are a remote-first team headquartered in Lahore, Pakistan, with engineers across multiple time zones to ensure overlap with US, European, and MENA clients." },
-              { q: "Will you sign our NDA?", a: "Absolutely. We can use your standard NDA or provide our own mutual NDA before discussing any sensitive IP." }
-            ].map((faq, i) => (
+            {contact.faq.items.map((faq, i) => (
               <ScrollReveal key={i} delay={i * 0.1} className="bg-gray-50 border border-gray-200 p-6">
                 <details className="group">
                   <summary className="flex items-center justify-between cursor-pointer list-none font-bold text-xl text-black">

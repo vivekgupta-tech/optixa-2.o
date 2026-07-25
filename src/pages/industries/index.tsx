@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { Button } from '@/components/common/Button';
 import { industries } from '@/data/industries';
+import { industriesList } from '@/data';
 import { ArrowRight, CheckCircle2, ChevronRight, Building } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -16,21 +17,21 @@ export default function Industries() {
       <section className="relative pt-40 pb-32 md:pt-48 md:pb-40 bg-[#111] overflow-hidden min-h-[70vh] flex items-center">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=80" 
-            alt="Global Industries" 
+            src={industriesList.hero.image} 
+            alt={industriesList.hero.imageAlt} 
             className="w-full h-full object-cover opacity-30 mix-blend-luminosity"
           />
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
           <ScrollReveal>
             <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tight">
-              Industry-Specific Technology Solutions
+              {industriesList.hero.title}
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-              We combine deep sector knowledge with world-class engineering to solve the unique challenges of your industry.
+              {industriesList.hero.description}
             </p>
             <Button asChild size="lg" className="h-14 px-8 text-base">
-              <Link href="/contact">Discuss Your Industry</Link>
+              <Link href={industriesList.hero.btn.link}>{industriesList.hero.btn.text}</Link>
             </Button>
           </ScrollReveal>
         </div>
@@ -63,7 +64,7 @@ export default function Industries() {
                     </div>
 
                     <div className="mb-10">
-                      <h4 className="text-xl font-bold text-black mb-4">Key Solutions:</h4>
+                      <h4 className="text-xl font-bold text-black mb-4">{industriesList.labels.keySolutions}</h4>
                       <div className="space-y-4">
                         {industry.solutions.map((sol, i) => (
                           <div key={i} className="flex items-start gap-3 border-b border-gray-100 pb-4 last:border-0 last:pb-0">
@@ -79,7 +80,7 @@ export default function Industries() {
 
                     <Button asChild variant="outline" size="lg" className="border-2 border-black text-black hover:bg-black hover:text-white">
                       <Link href={`/industries/${industry.slug}`}>
-                        Explore {industry.title} <ArrowRight className="w-5 h-5 ml-2" />
+                        {industriesList.labels.explorePrefix} {industry.title} <ArrowRight className="w-5 h-5 ml-2" />
                       </Link>
                     </Button>
                   </ScrollReveal>
@@ -95,7 +96,7 @@ export default function Industries() {
       <section className="py-24 md:py-32 bg-gray-50">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="mb-16">
-            <h2 className="text-4xl font-black text-black">More Sectors We Empower</h2>
+            <h2 className="text-4xl font-black text-black">{industriesList.labels.moreSectorsTitle}</h2>
           </ScrollReveal>
 
           <div className="space-y-6 max-w-5xl">
@@ -110,7 +111,7 @@ export default function Industries() {
                     <p className="text-xl text-gray-600">{industry.shortDescription}</p>
                   </div>
                   <div className="shrink-0 flex items-center text-primary font-bold text-lg gap-2">
-                    View Details <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                    {industriesList.labels.viewDetails} <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                   </div>
                 </Link>
               </ScrollReveal>
@@ -123,10 +124,10 @@ export default function Industries() {
       <section className="py-24 bg-[#111] text-center">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-8">Not seeing your industry?</h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-10">We build agnostic, custom platforms that conform to any business model.</p>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-8">{industriesList.cta.title}</h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-10">{industriesList.cta.description}</p>
             <Button asChild size="lg" className="bg-primary text-white hover:bg-white hover:text-black h-16 px-10 text-lg">
-              <Link href="/contact">Talk to an Architect</Link>
+              <Link href={industriesList.cta.btn.link}>{industriesList.cta.btn.text}</Link>
             </Button>
           </ScrollReveal>
         </div>

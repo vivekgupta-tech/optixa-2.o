@@ -1,0 +1,27 @@
+{
+  "title": "Cookie Policy",
+  "subtitle": "Legal",
+  "lastUpdated": "Last Updated: October 2024",
+  "sections": [
+    {
+      "heading": "1. What are Cookies?",
+      "content": "Cookies are small text files that are stored on your device when you visit a website. They are widely used to make websites work more efficiently and provide information to the owners of the site."
+    },
+    {
+      "heading": "2. How We Use Cookies",
+      "content": "Optixa uses cookies to understand how you interact with our website, to remember your preferences, and to improve your overall experience. We use both session cookies (which expire when you close your browser) and persistent cookies (which stay on your device until deleted)."
+    },
+    {
+      "heading": "3. Types of Cookies We Use",
+      "listItems": [
+        { "strong": "Essential Cookies:", "text": " Required for the basic operation of our site." },
+        { "strong": "Analytics Cookies:", "text": " Help us understand how visitors use our site (e.g., Google Analytics)." },
+        { "strong": "Preference Cookies:", "text": " Allow us to remember choices you make." }
+      ]
+    },
+    {
+      "heading": "4. Managing Cookies",
+      "content": "Most web browsers allow you to control cookies through their settings preferences. However, if you limit the ability of websites to set cookies, you may worsen your overall user experience."
+    }
+  ]
+}

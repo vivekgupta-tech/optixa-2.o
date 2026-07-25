@@ -1,0 +1,15 @@
+{
+  "hero": {
+    "title": "Engineering Insights",
+    "description": "Technical deep dives, architectural patterns, and strategic thoughts from the engineers building modern enterprise software."
+  },
+  "categories": ["All", "Architecture", "AI & Automation", "Development", "Security", "Design", "DevOps"],
+  "readArticleText": "Read Article",
+  "loadMoreText": "Load More Articles",
+  "newsletter": {
+    "title": "Stay Ahead of the Curve",
+    "description": "Join 10,000+ engineering leaders receiving our monthly deep-dives into software architecture, AI, and scaling patterns.",
+    "placeholder": "Enter your email address",
+    "submitText": "Subscribe"
+  }
+}

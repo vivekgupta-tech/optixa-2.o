@@ -1,0 +1,27 @@
+{
+  "hero": {
+    "subtitle": "Industry Focus",
+    "btnPrefix": "Talk with our",
+    "btnSuffix": "Experts",
+    "btnLink": "/contact"
+  },
+  "overview": {
+    "title": "Transforming the Sector"
+  },
+  "challenges": {
+    "title": "Key Industry Challenges"
+  },
+  "solutions": {
+    "title": "Our Sector Solutions"
+  },
+  "technologies": {
+    "title": "Relevant Tech Stack"
+  },
+  "faq": {
+    "title": "Sector Questions"
+  },
+  "cta": {
+    "title": "Modernize Your Operations",
+    "btn": { "text": "Get in Touch", "link": "/contact" }
+  }
+}
