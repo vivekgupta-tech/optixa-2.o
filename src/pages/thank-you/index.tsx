@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'wouter';
 import { Button } from '@/components/common/Button';
+import { thankYou } from '@/data';
 
 export default function ThankYou() {
   return (
@@ -11,12 +12,12 @@ export default function ThankYou() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
           </svg>
         </div>
-        <h1 className="text-5xl font-black text-black mb-6 tracking-tight">Message Received</h1>
+        <h1 className="text-5xl font-black text-black mb-6 tracking-tight">{thankYou.title}</h1>
         <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-          Thank you for reaching out. A senior engineer will review your project details and contact you within 24 hours to schedule our discovery call.
+          {thankYou.description}
         </p>
         <Button asChild size="lg" className="h-14 px-8">
-          <Link href="/">Return to Homepage</Link>
+          <Link href={thankYou.btn.link}>{thankYou.btn.text}</Link>
         </Button>
       </div>
     </div>

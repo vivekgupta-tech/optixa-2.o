@@ -3,6 +3,7 @@ import { useParams, Link } from 'wouter';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { Button } from '@/components/common/Button';
 import { insights } from '@/data/insights';
+import { insightDetail } from '@/data';
 import NotFound from '../not-found';
 import { ArrowLeft, ArrowRight, Twitter, Linkedin, Link as LinkIcon, ChevronDown } from 'lucide-react';
 
@@ -34,7 +35,7 @@ export default function InsightDetail() {
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <ScrollReveal className="max-w-4xl">
             <Link href="/insights" className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors font-bold text-sm uppercase tracking-wider mb-8">
-              <ArrowLeft className="w-4 h-4" /> Back to Insights
+              <ArrowLeft className="w-4 h-4" /> {insightDetail.backText}
             </Link>
             <br />
             <span className="inline-block px-3 py-1 bg-primary text-white text-xs font-bold uppercase tracking-wider mb-6">
@@ -62,7 +63,7 @@ export default function InsightDetail() {
                 
                 {/* Author */}
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Written By</h4>
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">{insightDetail.writtenBy}</h4>
                   <div className="flex items-center gap-4">
                     <img src={post.author.image} alt={post.author.name} className="w-14 h-14 rounded-full object-cover grayscale" />
                     <div>
@@ -74,7 +75,7 @@ export default function InsightDetail() {
 
                 {/* Share */}
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Share Article</h4>
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">{insightDetail.shareArticle}</h4>
                   <div className="flex gap-3">
                     <button className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:border-black hover:text-black transition-colors">
                       <Twitter className="w-4 h-4" />
@@ -90,10 +91,10 @@ export default function InsightDetail() {
 
                 {/* Services Banner */}
                 <div className="bg-gray-50 p-6 border border-gray-200 hidden lg:block">
-                  <h4 className="font-black text-xl text-black mb-2">Need to scale your architecture?</h4>
-                  <p className="text-sm text-gray-600 mb-6">Our senior engineers can help audit your current systems.</p>
+                  <h4 className="font-black text-xl text-black mb-2">{insightDetail.banner.title}</h4>
+                  <p className="text-sm text-gray-600 mb-6">{insightDetail.banner.description}</p>
                   <Button asChild className="w-full">
-                    <Link href="/contact">Get in Touch</Link>
+                    <Link href={insightDetail.banner.btn.link}>{insightDetail.banner.btn.text}</Link>
                   </Button>
                 </div>
               </div>
@@ -134,7 +135,7 @@ export default function InsightDetail() {
       <section className="py-24 bg-gray-50 border-t border-gray-200">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="mb-16">
-            <h2 className="text-3xl font-black text-black">Keep Reading</h2>
+            <h2 className="text-3xl font-black text-black">{insightDetail.relatedTitle}</h2>
           </ScrollReveal>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -159,9 +160,9 @@ export default function InsightDetail() {
       <section className="py-20 bg-[#111] text-center">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal>
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-8">Discuss Your Architecture with Us</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-8">{insightDetail.cta.title}</h2>
             <Button asChild size="lg" className="bg-primary text-white hover:bg-white hover:text-black h-16 px-10 text-lg">
-              <Link href="/contact">Schedule a Technical Call</Link>
+              <Link href={insightDetail.cta.btn.link}>{insightDetail.cta.btn.text}</Link>
             </Button>
           </ScrollReveal>
         </div>

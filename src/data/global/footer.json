@@ -1,0 +1,62 @@
+{
+  "brand": {
+    "name": "OPTIXA",
+    "description": "We build custom software, AI solutions, and scalable cloud platforms for modern businesses and growing startups."
+  },
+  "social": {
+    "linkedin": "https://linkedin.com",
+    "twitter": "https://twitter.com",
+    "github": "https://github.com",
+    "youtube": "https://youtube.com"
+  },
+  "columns": {
+    "quickLinks": {
+      "title": "Quick Links",
+      "links": [
+        { "label": "Home", "href": "/" },
+        { "label": "About", "href": "/about" },
+        { "label": "Portfolio", "href": "/portfolio" },
+        { "label": "Insights", "href": "/insights" },
+        { "label": "Careers", "href": "/careers" },
+        { "label": "Contact", "href": "/contact" }
+      ]
+    },
+    "services": {
+      "title": "Services",
+      "links": [
+        { "label": "Custom Software", "href": "/services/custom-software" },
+        { "label": "AI Automation", "href": "/services/ai-automation" },
+        { "label": "Cloud Solutions", "href": "/services/cloud-solutions" },
+        { "label": "SaaS Development", "href": "/services/saas-development" },
+        { "label": "Mobile Apps", "href": "/services/mobile-applications" }
+      ],
+      "viewAll": {
+        "label": "All Services",
+        "href": "/services"
+      }
+    },
+    "company": {
+      "title": "Company",
+      "links": [
+        { "label": "Solutions", "href": "/solutions" },
+        { "label": "Our Process", "href": "/process" },
+        { "label": "Technologies", "href": "/technologies" },
+        { "label": "Industries", "href": "/industries" }
+      ]
+    }
+  },
+  "newsletter": {
+    "title": "Newsletter",
+    "description": "Stay updated with our latest technology insights.",
+    "placeholder": "Email address",
+    "buttonText": "Subscribe"
+  },
+  "bottom": {
+    "copyright": "Optixa. All rights reserved.",
+    "links": [
+      { "label": "Privacy Policy", "href": "/privacy" },
+      { "label": "Terms", "href": "/terms" },
+      { "label": "Cookies", "href": "/cookies" }
+    ]
+  }
+}

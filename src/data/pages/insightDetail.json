@@ -1,0 +1,15 @@
+{
+  "backText": "Back to Insights",
+  "writtenBy": "Written By",
+  "shareArticle": "Share Article",
+  "banner": {
+    "title": "Need to scale your architecture?",
+    "description": "Our senior engineers can help audit your current systems.",
+    "btn": { "text": "Get in Touch", "link": "/contact" }
+  },
+  "relatedTitle": "Keep Reading",
+  "cta": {
+    "title": "Discuss Your Architecture with Us",
+    "btn": { "text": "Schedule a Technical Call", "link": "/contact" }
+  }
+}

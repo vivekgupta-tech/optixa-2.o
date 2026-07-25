@@ -31,7 +31,7 @@ export const industries: Industry[] = [
     technologies: ['Go', 'Rust', 'PostgreSQL', 'Kafka', 'AWS', 'Kubernetes'],
     stats: [
       { metric: '99.999%', label: 'Uptime Reliability' },
-      { metric: '<10ms', label: 'Transaction Latency' },
+      { metric: '10ms', label: 'Transaction Latency' },
       { metric: '100%', label: 'PCI-DSS Compliant' },
       { metric: 'AES-256', label: 'Data Encryption' }
     ],

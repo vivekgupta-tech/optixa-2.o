@@ -1,6 +1,7 @@
 import { AlertCircle } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/common/Button";
+import { notFound } from "@/data";
 
 export default function NotFound() {
   return (
@@ -9,13 +10,13 @@ export default function NotFound() {
         <div className="w-16 h-16 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
           <AlertCircle className="h-8 w-8" />
         </div>
-        <h1 className="text-3xl font-bold text-foreground mb-3">404</h1>
-        <h2 className="text-xl font-semibold text-foreground mb-4">Page Not Found</h2>
+        <h1 className="text-3xl font-bold text-foreground mb-3">{notFound.title}</h1>
+        <h2 className="text-xl font-semibold text-foreground mb-4">{notFound.subtitle}</h2>
         <p className="text-muted-foreground mb-8">
-          The page you are looking for doesn't exist or has been moved.
+          {notFound.description}
         </p>
         <Button asChild size="lg" className="w-full">
-          <Link href="/">Return Home</Link>
+          <Link href={notFound.btn.link}>{notFound.btn.text}</Link>
         </Button>
       </div>
     </div>

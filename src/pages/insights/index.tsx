@@ -3,12 +3,13 @@ import { Link } from 'wouter';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { Button } from '@/components/common/Button';
 import { insights } from '@/data/insights';
+import { insightsPage } from '@/data';
 import { ArrowRight, Mail } from 'lucide-react';
 
 export default function Insights() {
   const featuredPost = insights[0];
   const gridPosts = insights.slice(1);
-  const categories = ['All', 'Architecture', 'AI & Automation', 'Development', 'Security', 'Design', 'DevOps'];
+  const categories = insightsPage.categories;
 
   return (
     <div className="w-full">
@@ -17,10 +18,10 @@ export default function Insights() {
         <div className="container mx-auto px-4 md:px-8 text-center max-w-4xl">
           <ScrollReveal>
             <h1 className="text-5xl md:text-7xl font-black text-black mb-6 tracking-tight">
-              Engineering Insights
+              {insightsPage.hero.title}
             </h1>
             <p className="text-xl text-gray-600">
-              Technical deep dives, architectural patterns, and strategic thoughts from the engineers building modern enterprise software.
+              {insightsPage.hero.description}
             </p>
           </ScrollReveal>
         </div>
@@ -69,7 +70,7 @@ export default function Insights() {
                   <span>{featuredPost.readTime}</span>
                 </div>
                 <span className="text-white font-bold flex items-center gap-2 text-lg">
-                  Read Article <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                  {insightsPage.readArticleText} <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                 </span>
               </div>
             </Link>
@@ -117,7 +118,7 @@ export default function Insights() {
           
           <ScrollReveal className="mt-16 text-center">
             <Button variant="outline" size="lg" className="border-2 border-black text-black hover:bg-black hover:text-white h-14 px-8 text-base">
-              Load More Articles
+              {insightsPage.loadMoreText}
             </Button>
           </ScrollReveal>
         </div>
@@ -130,19 +131,19 @@ export default function Insights() {
             <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-8 text-white">
               <Mail className="w-8 h-8" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-6">Stay Ahead of the Curve</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-6">{insightsPage.newsletter.title}</h2>
             <p className="text-xl text-gray-400 mb-10">
-              Join 10,000+ engineering leaders receiving our monthly deep-dives into software architecture, AI, and scaling patterns.
+              {insightsPage.newsletter.description}
             </p>
             <form className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto" onSubmit={e => e.preventDefault()}>
               <input 
                 type="email" 
-                placeholder="Enter your email address" 
+                placeholder={insightsPage.newsletter.placeholder} 
                 className="flex-1 bg-white/10 border border-white/20 text-white px-6 py-4 outline-none focus:border-primary transition-colors placeholder:text-gray-500 text-lg"
                 required
               />
               <Button type="submit" size="lg" className="h-auto py-4 px-8 text-lg bg-primary hover:bg-white hover:text-black">
-                Subscribe
+                {insightsPage.newsletter.submitText}
               </Button>
             </form>
           </ScrollReveal>

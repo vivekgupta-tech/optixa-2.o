@@ -1,0 +1,39 @@
+{
+  "logo": "OPTIXA",
+  "navLinks": [
+    { "label": "Home", "href": "/" },
+    { "label": "About", "href": "/about" },
+    { "label": "Services", "href": "/services", "hasDropdown": true },
+    { "label": "Solutions", "href": "/solutions", "hasDropdown": true },
+    { "label": "Technologies", "href": "/technologies" },
+    { "label": "Industries", "href": "/industries", "hasDropdown": true },
+    { "label": "Process", "href": "/process" },
+    { "label": "Portfolio", "href": "/portfolio" },
+    { "label": "Insights", "href": "/insights" },
+    { "label": "Careers", "href": "/careers" }
+  ],
+  "megaMenu": {
+    "services": {
+      "exploreText": "Explore our full capabilities",
+      "viewAllText": "View all services",
+      "viewAllLink": "/services"
+    },
+    "solutions": {
+      "exploreText": "Purpose-built solutions",
+      "viewAllText": "View all solutions",
+      "viewAllLink": "/solutions"
+    },
+    "industries": {
+      "viewAllText": "View all industries",
+      "viewAllLink": "/industries"
+    }
+  },
+  "actions": {
+    "getQuote": "Get a Quote",
+    "getQuoteLink": "/contact"
+  },
+  "mobileMenu": {
+    "contact": "Contact",
+    "contactLink": "/contact"
+  }
+}

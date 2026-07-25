@@ -1,0 +1,169 @@
+{
+  "stats": [
+    {
+      "value": "50+",
+      "label": "Projects Delivered"
+    },
+    {
+      "value": "10+",
+      "label": "Technology Partnerships"
+    },
+    {
+      "value": "3+",
+      "label": "Years Engineering"
+    },
+    {
+      "value": "100%",
+      "label": "Quality-Driven"
+    }
+  ],
+  "companyIntro": {
+    "image": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80",
+    "imageAlt": "Engineering team collaboration",
+    "subtitle": "Growing Technology Startup",
+    "title": "Engineering Software That Drives Real Business Results",
+    "paragraphs": [
+      "We are not just another outsourced dev shop. Optixa is a dedicated engineering partner for modern enterprises and high-growth startups. We combine deep technical expertise with strategic product vision.",
+      "Our teams don't just write code; they solve complex operational bottlenecks. By focusing on scalable architecture and flawless user experience, we build platforms that outlive their initial requirements.",
+      "From AI-driven automation to custom monolithic-to-microservices migrations, we engineer the digital backbone of forward-thinking companies."
+    ],
+    "bulletPoints": [
+      "Architected for infinite scalability",
+      "Agile, transparent development cycles",
+      "Obsessive focus on code quality and testing"
+    ],
+    "cta": {
+      "text": "Discover Our Approach",
+      "link": "/about"
+    }
+  },
+  "servicesPreview": {
+    "subtitle": "Our Capabilities",
+    "title": "End-to-End Engineering",
+    "ctaText": "Explore Service"
+  },
+  "advantages": {
+    "subtitle": "The Optixa Advantage",
+    "title": "Why Forward-Thinking Companies Choose Optixa",
+    "items": [
+      {
+        "title": "Engineering Depth",
+        "desc": "We employ polyglot engineers who understand architecture, not just syntax."
+      },
+      {
+        "title": "Startup Agility",
+        "desc": "Enterprise-grade output delivered with the speed and flexibility of a startup."
+      },
+      {
+        "title": "Transparent Process",
+        "desc": "Direct access to your engineering team. No black-box development."
+      },
+      {
+        "title": "Scalable Architecture",
+        "desc": "We build systems designed to handle 10x your current load seamlessly."
+      }
+    ]
+  },
+  "process": {
+    "title": "How We Build Your Product",
+    "steps": [
+      { "step": "01", "name": "Discovery", "desc": "Requirement gathering & tech stack definition" },
+      { "step": "02", "name": "Architecture", "desc": "Database schema & system mapping" },
+      { "step": "03", "name": "Design", "desc": "UX/UI prototyping & design systems" },
+      { "step": "04", "name": "Development", "desc": "Agile sprints & feature implementation" },
+      { "step": "05", "name": "Testing", "desc": "Automated QA & security auditing" },
+      { "step": "06", "name": "Launch", "desc": "CI/CD deployment & monitoring setup" },
+      { "step": "07", "name": "Support", "desc": "SLA maintenance & scaling optimization" }
+    ]
+  },
+  "technologies": {
+    "title": "Technology Stack We Master",
+    "categories": [
+      { "label": "Frontend", "techs": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vue.js"] },
+      { "label": "Backend", "techs": ["Node.js", "Python", "Go", "Java Spring", "PostgreSQL"] },
+      { "label": "Cloud & DevOps", "techs": ["AWS", "Kubernetes", "Docker", "Terraform", "GitHub Actions"] },
+      { "label": "AI & Data", "techs": ["TensorFlow", "PyTorch", "OpenAI", "LangChain", "Snowflake"] }
+    ]
+  },
+  "featuredWork": {
+    "title": "Development Capabilities",
+    "subtitle": "Real-world architectures demonstrating our approach to complex technical challenges.",
+    "topShowcase": {
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2000&q=80",
+      "imageAlt": "Enterprise Analytics",
+      "tag": "Capability Showcase",
+      "title": "Enterprise Data Intelligence Platform",
+      "desc": "A highly scalable analytics dashboard processing millions of rows in real-time, utilizing React, Node.js, and Snowflake data warehousing.",
+      "ctaText": "View Architecture",
+      "link": "/portfolio"
+    },
+    "bottomShowcases": [
+      {
+        "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80",
+        "imageAlt": "AI Workflow",
+        "tag": "Selected Concept",
+        "title": "AI Automated Workflow",
+        "ctaText": "View Detail",
+        "link": "/portfolio"
+      },
+      {
+        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+        "imageAlt": "SaaS Platform",
+        "tag": "Selected Concept",
+        "title": "Multi-Tenant SaaS Architecture",
+        "ctaText": "View Detail",
+        "link": "/portfolio"
+      }
+    ]
+  },
+  "industries": {
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+    "imageAlt": "Global industries",
+    "title": "Industries We Transform Through Technology",
+    "description": "We bring deep domain expertise across multiple sectors, building bespoke solutions that address specific regulatory, operational, and competitive challenges.",
+    "items": [
+      "Retail & E-commerce",
+      "Healthcare & MedTech",
+      "Education & EdTech",
+      "Financial Services",
+      "Real Estate",
+      "Manufacturing",
+      "Startups",
+      "Travel & Hospitality"
+    ],
+    "link": "/industries"
+  },
+  "insightsPreview": {
+    "subtitle": "Latest Thinking",
+    "title": "Engineering Insights",
+    "ctaText": "View All Articles",
+    "link": "/insights",
+    "readArticleText": "Read Article"
+  },
+  "testimonials": {
+    "subtitle": "Client Feedback",
+    "title": "Coming Soon",
+    "items": [
+      {
+        "text": "Testimonial pending",
+        "author": "Enterprise Client"
+      },
+      {
+        "text": "Testimonial pending",
+        "author": "Startup Founder"
+      }
+    ]
+  },
+  "ctaBanner": {
+    "title": "Ready to Build Something Extraordinary?",
+    "description": "Partner with Optixa to engineer a scalable, high-performance digital platform that accelerates your business.",
+    "primaryBtn": {
+      "text": "Start a Conversation",
+      "link": "/contact"
+    },
+    "secondaryBtn": {
+      "text": "View Our Services",
+      "link": "/services"
+    }
+  }
+}

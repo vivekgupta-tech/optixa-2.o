@@ -1,0 +1,91 @@
+{
+  "hero": {
+    "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=2000&q=80",
+    "imageAlt": "Team meeting process",
+    "subtitle": "Our Methodology",
+    "title": "Our Proven Development Process",
+    "description": "We replace chaos with predictability. Our engineering methodology ensures transparency, eliminates technical debt, and guarantees delivery."
+  },
+  "philosophy": {
+    "title": "Process That Scales",
+    "paragraphs": [
+      "Too many software projects fail not because of a lack of technical skill, but because of a lack of process. Misaligned expectations, poor communication, and unstructured testing turn great ideas into legacy nightmares before they even launch.",
+      "At Optixa, we operate on a deeply refined Agile methodology. We do not disappear for six months and return with a monolithic product you never wanted. We build in tightly scoped two-week sprints. We demo working software constantly. We pivot when market data tells us to pivot. You are involved, informed, and in control at every single step."
+    ]
+  },
+  "steps": [
+    {
+      "title": "Discovery & Research",
+      "desc": "We dive deep into your business domain. We interview stakeholders, analyze competitors, and map out the core problem. We define the 'Why' before we ever touch the 'How'.",
+      "deliverables": ["Product Requirements Document", "User Personas", "Technical Feasibility Study"],
+      "img": "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "title": "Strategic Planning",
+      "desc": "We define the Minimum Viable Product (MVP) or Phase 1 scope. We establish the product roadmap, prioritize features based on ROI, and agree on the metrics for success.",
+      "deliverables": ["Feature Prioritization Matrix", "Project Timeline", "Resource Allocation Plan"],
+      "img": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "title": "UI/UX Architecture",
+      "desc": "Design is not an afterthought. We wireframe the entire application, establish user flows, and build high-fidelity interactive prototypes to validate the user experience.",
+      "deliverables": ["Information Architecture", "Clickable Figma Prototype", "Design System"],
+      "img": "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "title": "System Architecture",
+      "desc": "Before coding, senior architects map out the technical foundation. We design the database schema, API contracts, cloud infrastructure, and security protocols.",
+      "deliverables": ["Database Schema (ERD)", "API Documentation", "Cloud Infrastructure Diagram"],
+      "img": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "title": "Agile Development",
+      "desc": "The build phase. We execute in two-week sprints. Every sprint ends with a demonstration of working, tested software deployed to a staging environment you can access.",
+      "deliverables": ["Bi-weekly Sprint Demos", "Accessible Staging Environment", "Transparent Jira/Linear Board"],
+      "img": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "title": "QA & Testing",
+      "desc": "Quality assurance runs parallel to development, not just at the end. We write automated unit tests, conduct manual exploratory testing, and perform rigorous security audits.",
+      "deliverables": ["Automated Test Coverage", "Security Vulnerability Report", "UAT Sign-off"],
+      "img": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "title": "Deployment & Launch",
+      "desc": "We configure the production environment, set up zero-downtime CI/CD pipelines, execute the data migration, and push the application live to the world.",
+      "deliverables": ["Production Environment", "CI/CD Pipeline Setup", "Launch Playbook"],
+      "img": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "title": "Ongoing Support",
+      "desc": "Software is never 'done'. We monitor system health, scale infrastructure as user bases grow, and immediately begin iterating on Phase 2 features.",
+      "deliverables": ["SLA Maintenance Contract", "24/7 Monitoring Dashboard", "Iterative Growth Strategy"],
+      "img": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+    }
+  ],
+  "deliverablesLabel": "Key Deliverables:",
+  "toolkit": {
+    "title": "Our Workflow Toolkit",
+    "tools": ["Jira", "Figma", "GitHub", "Slack", "Linear", "Notion"]
+  },
+  "stats": [
+    { "value": "100%", "label": "Code Transparency" },
+    { "value": "2 Wks", "label": "Sprint Cycles" },
+    { "value": "0", "label": "Surprise Costs" },
+    { "value": "24/7", "label": "Environment Access" }
+  ],
+  "faq": {
+    "title": "Process FAQ",
+    "items": [
+      { "q": "How do we communicate with the team?", "a": "We set up a shared Slack channel for daily communication. All tasks are tracked transparently in Jira or Linear. We conduct formal sprint reviews via video call every two weeks." },
+      { "q": "What if we need to change requirements mid-project?", "a": "Agile embraces change. If market conditions shift, we simply re-prioritize the backlog during our next sprint planning session. We don't punish you with change-request fees for pivoting intelligently." },
+      { "q": "Who manages the project?", "a": "Every project is assigned a dedicated Technical Product Manager. They translate your business goals into technical tickets and protect the engineers' time so they can focus on writing code." },
+      { "q": "Can we review the code as it's written?", "a": "Yes. You will have full read-access to the GitHub repositories from Day 1." },
+      { "q": "How do you handle timezones?", "a": "We require a minimum 4-hour timezone overlap with our clients to ensure real-time collaboration. We adapt our sprint ceremonies to fit your working hours." }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Build Without the Chaos?",
+    "btn": { "text": "Start Your Project", "link": "/contact" }
+  }
+}

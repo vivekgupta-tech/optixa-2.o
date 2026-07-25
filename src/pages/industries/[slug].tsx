@@ -3,6 +3,7 @@ import { useParams, Link } from 'wouter';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { Button } from '@/components/common/Button';
 import { industries } from '@/data/industries';
+import { industryDetail } from '@/data';
 import NotFound from '../not-found';
 import { ArrowRight, CheckCircle2, ChevronDown, Layers, Layout, Zap, Lock, Eye, MessageSquare, Database, Shield, Box, Smartphone, Globe, Building } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -41,7 +42,7 @@ export default function IndustryDetail() {
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
           <ScrollReveal>
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block">Industry Focus</span>
+            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block">{industryDetail.hero.subtitle}</span>
             <h1 className="text-5xl md:text-7xl font-black text-white mb-8 max-w-5xl mx-auto leading-[1.1] tracking-tight">
               {industry.title}
             </h1>
@@ -50,7 +51,7 @@ export default function IndustryDetail() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button asChild size="lg" className="h-14 px-8 text-base bg-primary hover:bg-white hover:text-black">
-                <Link href="/contact">Talk with our {industry.title} Experts</Link>
+                <Link href={industryDetail.hero.btnLink}>{industryDetail.hero.btnPrefix} {industry.title} {industryDetail.hero.btnSuffix}</Link>
               </Button>
             </div>
           </ScrollReveal>
@@ -62,7 +63,7 @@ export default function IndustryDetail() {
         <div className="container mx-auto px-4 md:px-8 max-w-5xl text-center">
           <ScrollReveal>
             <h2 className="text-3xl md:text-4xl font-black text-black mb-8 leading-tight">
-              Transforming the Sector
+              {industryDetail.overview.title}
             </h2>
             <p className="text-2xl text-gray-600 leading-relaxed font-medium">
               {industry.overview}
@@ -75,7 +76,7 @@ export default function IndustryDetail() {
       <section className="py-24 md:py-32 bg-gray-50 border-b border-gray-200">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="mb-20 text-center">
-            <h2 className="text-4xl md:text-5xl font-black text-black">Key Industry Challenges</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-black">{industryDetail.challenges.title}</h2>
           </ScrollReveal>
 
           <div className="space-y-8 max-w-5xl mx-auto">
@@ -98,7 +99,7 @@ export default function IndustryDetail() {
       <section className="py-24 md:py-32 bg-[#111111] text-white">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="mb-20">
-            <h2 className="text-4xl md:text-5xl font-black">Our Sector Solutions</h2>
+            <h2 className="text-4xl md:text-5xl font-black">{industryDetail.solutions.title}</h2>
           </ScrollReveal>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -133,7 +134,7 @@ export default function IndustryDetail() {
       <section className="py-24 bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 md:px-8 text-center">
           <ScrollReveal>
-            <h2 className="text-3xl font-black mb-12 text-black">Relevant Tech Stack</h2>
+            <h2 className="text-3xl font-black mb-12 text-black">{industryDetail.technologies.title}</h2>
             <div className="flex flex-wrap justify-center gap-4">
               {industry.technologies.map((tech, i) => (
                 <span key={i} className="px-6 py-3 bg-gray-100 text-black font-bold text-lg rounded-full">
@@ -149,7 +150,7 @@ export default function IndustryDetail() {
       <section className="py-24 md:py-32 bg-gray-50">
         <div className="container mx-auto px-4 md:px-8 max-w-4xl">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-4xl font-black text-black">Sector Questions</h2>
+            <h2 className="text-4xl font-black text-black">{industryDetail.faq.title}</h2>
           </ScrollReveal>
 
           <div className="space-y-4">
@@ -174,9 +175,9 @@ export default function IndustryDetail() {
       <section className="py-24 bg-[#111] text-center">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-8">Modernize Your Operations</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-8">{industryDetail.cta.title}</h2>
             <Button asChild size="lg" className="bg-primary text-white hover:bg-white hover:text-black h-16 px-10 text-lg">
-              <Link href="/contact">Get in Touch</Link>
+              <Link href={industryDetail.cta.btn.link}>{industryDetail.cta.btn.text}</Link>
             </Button>
           </ScrollReveal>
         </div>

@@ -1,0 +1,111 @@
+{
+  "hero": {
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80",
+    "imageAlt": "Optixa Office",
+    "subtitle": "Our Story",
+    "title": "Building the Future of Software",
+    "description": "Optixa is a growing technology startup dedicated to engineering scalable, high-performance software for enterprises and fast-moving companies.",
+    "primaryBtn": { "text": "Work With Us", "link": "/contact" },
+    "secondaryBtn": { "text": "View Portfolio", "link": "/portfolio" }
+  },
+  "story": {
+    "title": "Engineers First.<br/>Consultants Second.",
+    "paragraphs": [
+      "Optixa was founded on a simple premise: most outsourced software is built poorly. Traditional agencies optimize for billable hours, handing off bloated, unscalable codebases to frustrated clients.",
+      "We are different. We operate as an extension of your team—a dedicated squad of senior engineers, architects, and designers who care deeply about the technical elegance of what we build. We don't just take orders; we challenge assumptions and architect systems designed for the long term.",
+      "As a growing technology startup, we bring the agility, modern tech stacks, and aggressive innovation of the startup world directly into enterprise environments."
+    ],
+    "quote": "\"Our mission isn't to write code. It's to solve complex business problems using technology as our lever.\"",
+    "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
+    "imageAlt": "Engineering team"
+  },
+  "missionVision": {
+    "mission": {
+      "subtitle": "Our Mission",
+      "text": "To engineer digital products that eliminate operational friction and accelerate human potential."
+    },
+    "vision": {
+      "subtitle": "Our Vision",
+      "text": "To be the trusted technical backbone for the world's most innovative enterprises and startups."
+    }
+  },
+  "values": {
+    "title": "The Principles That Guide Us",
+    "description": "These aren't just words on a wall. These values dictate who we hire, how we write code, and how we interact with our clients.",
+    "items": [
+      {
+        "title": "Client-First Engineering",
+        "text": "We align our technical architecture strictly with your business goals. We don't over-engineer for the sake of using shiny new tools."
+      },
+      {
+        "title": "Radical Transparency",
+        "text": "You have direct access to our repositories, staging environments, and engineers. No account managers playing telephone."
+      },
+      {
+        "title": "Technical Excellence",
+        "text": "We enforce strict code reviews, high test coverage, and modern CI/CD pipelines on every project, big or small."
+      },
+      {
+        "title": "Continuous Learning",
+        "text": "Technology moves fast. We dedicate 10% of our company time to learning and experimenting with emerging tech like LLMs and Rust."
+      },
+      {
+        "title": "Agile Mindset",
+        "text": "Requirements change. We embrace shifts in strategy and pivot quickly without burying you in change-request paperwork."
+      },
+      {
+        "title": "Quality Over Speed",
+        "text": "We launch fast, but we never compromise on security or structural integrity. Technical debt is paid down immediately."
+      }
+    ]
+  },
+  "timeline": {
+    "title": "Our Journey",
+    "nodes": [
+      { "year": "2021", "title": "Optixa Founded", "desc": "Started by a team of senior engineers frustrated with agency standards." },
+      { "year": "2022", "title": "First Enterprise Client", "desc": "Delivered a massive data intelligence platform for a Fortune 500." },
+      { "year": "2022", "title": "First SaaS Product Launch", "desc": "Architected a multi-tenant platform now used by thousands." },
+      { "year": "2023", "title": "Team Expansion", "desc": "Grew to 30+ specialized engineers and UI/UX designers." },
+      { "year": "2023", "title": "AI Practice Launch", "desc": "Established a dedicated team for Machine Learning and LLM integration." },
+      { "year": "2024", "title": "Global Reach", "desc": "Managing tech stacks for clients across North America, Europe, and MENA." }
+    ]
+  },
+  "operations": {
+    "title": "How We Operate",
+    "rows": [
+      {
+        "num": "01",
+        "title": "Discovery & Strategy",
+        "desc": "We don't write code until we understand your business model. We conduct deep-dive architecture sessions to map out database schemas, API contracts, and user flows.",
+        "img": "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "num": "02",
+        "title": "Agile Engineering",
+        "desc": "We build in two-week sprints with full transparency. You see exactly what is being built, when it's deployed to staging, and how it performs in automated testing.",
+        "img": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "num": "03",
+        "title": "Continuous Delivery",
+        "desc": "Code goes from GitHub to production via automated CI/CD pipelines. This ensures zero-downtime deployments and instant rollback capabilities if issues arise.",
+        "img": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
+      }
+    ]
+  },
+  "culture": {
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80",
+    "imageAlt": "Optixa Culture",
+    "title": "A Place Where Great Software Is Built",
+    "points": [
+      "We hire problem solvers, not just typists.",
+      "We believe remote-first enables global talent acquisition.",
+      "We treat our engineers with respect, providing top-tier hardware and autonomy."
+    ],
+    "btn": { "text": "View Open Roles", "link": "/careers" }
+  },
+  "cta": {
+    "title": "Ready to Start a Project?",
+    "btn": { "text": "Talk to an Architect", "link": "/contact" }
+  }
+}

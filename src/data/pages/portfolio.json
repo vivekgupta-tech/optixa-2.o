@@ -1,0 +1,69 @@
+{
+  "hero": {
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=80",
+    "imageAlt": "Capabilities",
+    "subtitle": "Our Work",
+    "title": "Our Development Capabilities"
+  },
+  "intro": {
+    "title": "Building Out in the Open",
+    "paragraphs": [
+      "As a fast-growing technology startup, many of our recent enterprise projects are currently bound by strict NDAs, preventing us from sharing exact client details or source code.",
+      "However, we believe in demonstrating capability through architectural transparency. Below are detailed showcases of the complex systems, architectures, and applications our engineers build daily. These represent our true technical capability, scale, and design philosophy."
+    ]
+  },
+  "showcases": [
+    {
+      "title": "Enterprise Web Applications",
+      "tag": "Architecture Showcase",
+      "img": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2000&q=80",
+      "desc": "We build highly complex, data-dense web applications that perform like native desktop software. Our frontends process millions of rows of data using WebGL and advanced state management, ensuring zero UI lag.",
+      "bullets": ["Next.js Server-Side Rendering", "Micro-frontend Architectures", "Real-time WebSocket Data Sync", "Complex Data Visualization (D3.js)"]
+    },
+    {
+      "title": "AI & Automation Systems",
+      "tag": "Capability Showcase",
+      "img": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=2000&q=80",
+      "desc": "Integrating Large Language Models and proprietary Machine Learning algorithms into legacy workflows. We build systems that automate thousands of hours of manual cognitive tasks securely.",
+      "bullets": ["Private LLM Deployments", "Custom NLP Data Pipelines", "Computer Vision for QA", "Automated Fallback Mechanisms"]
+    },
+    {
+      "title": "Mobile Applications",
+      "tag": "Platform Showcase",
+      "img": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=2000&q=80",
+      "desc": "Native and cross-platform applications designed for flawless performance and offline capability. We build consumer apps that dominate App Store charts and internal enterprise apps that field workers rely on.",
+      "bullets": ["React Native Cross-Platform", "Offline-First SQLite Syncing", "Secure Enclave Biometrics", "60fps Animated UIs"]
+    },
+    {
+      "title": "Cloud Infrastructure",
+      "tag": "Engineering Showcase",
+      "img": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=2000&q=80",
+      "desc": "Designing and deploying the invisible backend architecture that powers global platforms. We establish auto-scaling, self-healing environments using deep Infrastructure as Code practices.",
+      "bullets": ["Terraform IaC Provisioning", "Kubernetes Orchestration", "Zero-Trust VPC Architecture", "Multi-Region Disaster Recovery"]
+    }
+  ],
+  "showcaseBtn": { "text": "Discuss Your Project", "link": "/contact" },
+  "process": {
+    "title": "How We Execute",
+    "steps": ["Discovery", "Architecture", "Agile Build", "Launch & Scale"],
+    "viewFullLink": { "text": "View Our Full Process", "link": "/process" }
+  },
+  "advantage": {
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+    "imageAlt": "Startup advantage",
+    "subtitle": "The Optixa Advantage",
+    "title": "Why Partner With Us Now",
+    "description": "Engaging a growing technology startup offers massive advantages over sluggish, traditional enterprise agencies. We are hungry, agile, and technically superior.",
+    "items": [
+      { "title": "Direct Team Access", "desc": "You speak directly to the engineers building your product. No account manager middle-men." },
+      { "title": "Modern Tech Stack", "desc": "We aren't bogged down in 10-year-old corporate standards. We use the tools that win today." },
+      { "title": "Rapid Iteration", "desc": "Bureaucracy doesn't slow us down. We deploy changes in hours, not weeks." },
+      { "title": "Aggressive Pricing", "desc": "We are building our reputation. You get senior architectural talent without the massive agency overhead fees." },
+      { "title": "Startup-Friendly Contracts", "desc": "Agile, flexible engagements that allow you to pivot without punitive change-request penalties." }
+    ]
+  },
+  "cta": {
+    "title": "Let's Build Your Capability Showcase",
+    "btn": { "text": "Start Your Project", "link": "/contact" }
+  }
+}

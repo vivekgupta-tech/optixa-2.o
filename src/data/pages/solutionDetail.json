@@ -1,0 +1,28 @@
+{
+  "hero": {
+    "subtitle": "Enterprise Solution",
+    "btn": { "text": "Schedule a Demo", "link": "/contact" }
+  },
+  "overview": {
+    "title": "Solution Overview"
+  },
+  "problems": {
+    "title": "Bottlenecks We Eliminate"
+  },
+  "architecture": {
+    "title": "Solution Architecture"
+  },
+  "benefits": {
+    "title": "Impact & ROI"
+  },
+  "technologies": {
+    "title": "Powered By Modern Stack"
+  },
+  "faq": {
+    "title": "Solution FAQ"
+  },
+  "cta": {
+    "title": "Start the Transformation",
+    "btn": { "text": "Book a Strategy Call", "link": "/contact" }
+  }
+}

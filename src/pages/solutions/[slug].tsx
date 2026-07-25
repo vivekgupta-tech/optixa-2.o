@@ -3,6 +3,7 @@ import { useParams, Link } from 'wouter';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { Button } from '@/components/common/Button';
 import { solutions } from '@/data/solutions';
+import { solutionDetail } from '@/data';
 import NotFound from '../not-found';
 import { ArrowRight, CheckCircle2, ChevronDown, Layers, Layout, Zap, Lock, Eye, MessageSquare, Database, Shield, Box } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -27,7 +28,7 @@ export default function SolutionDetail() {
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <ScrollReveal>
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block">Enterprise Solution</span>
+            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block">{solutionDetail.hero.subtitle}</span>
             <h1 className="text-5xl md:text-7xl font-black text-white mb-8 max-w-5xl leading-[1.1] tracking-tight">
               {solution.title}
             </h1>
@@ -36,7 +37,7 @@ export default function SolutionDetail() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Button asChild size="lg" className="h-14 px-8 text-base">
-                <Link href="/contact">Schedule a Demo</Link>
+                <Link href={solutionDetail.hero.btn.link}>{solutionDetail.hero.btn.text}</Link>
               </Button>
             </div>
           </ScrollReveal>
@@ -49,7 +50,7 @@ export default function SolutionDetail() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal>
               <h2 className="text-4xl md:text-5xl font-black text-black mb-8 leading-tight">
-                Solution Overview
+                {solutionDetail.overview.title}
               </h2>
               <div className="space-y-6 text-xl text-gray-600 leading-relaxed">
                 <p>{solution.description}</p>
@@ -70,7 +71,7 @@ export default function SolutionDetail() {
       <section className="py-24 md:py-32 bg-[#111111] text-white">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="mb-16 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-black">Bottlenecks We Eliminate</h2>
+            <h2 className="text-4xl md:text-5xl font-black">{solutionDetail.problems.title}</h2>
           </ScrollReveal>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -88,7 +89,7 @@ export default function SolutionDetail() {
       <section className="bg-gray-50 py-24 md:py-32">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-black text-black">Solution Architecture</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-black">{solutionDetail.architecture.title}</h2>
           </ScrollReveal>
 
           <div className="space-y-16">
@@ -114,7 +115,7 @@ export default function SolutionDetail() {
       <section className="py-24 md:py-32 bg-white border-y border-gray-200">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="mb-16 text-center">
-            <h2 className="text-4xl md:text-5xl font-black text-black">Impact & ROI</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-black">{solutionDetail.benefits.title}</h2>
           </ScrollReveal>
 
           <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto text-center">
@@ -132,7 +133,7 @@ export default function SolutionDetail() {
       <section className="py-24 bg-[#111] text-white">
         <div className="container mx-auto px-4 md:px-8 text-center">
           <ScrollReveal>
-            <h2 className="text-3xl font-black mb-12">Powered By Modern Stack</h2>
+            <h2 className="text-3xl font-black mb-12">{solutionDetail.technologies.title}</h2>
             <div className="flex flex-wrap justify-center gap-6">
               {solution.technologies.map((tech, i) => (
                 <span key={i} className="text-2xl font-bold text-gray-400 hover:text-white transition-colors">
@@ -148,7 +149,7 @@ export default function SolutionDetail() {
       <section className="py-24 md:py-32 bg-gray-50">
         <div className="container mx-auto px-4 md:px-8 max-w-4xl">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-4xl font-black text-black">Solution FAQ</h2>
+            <h2 className="text-4xl font-black text-black">{solutionDetail.faq.title}</h2>
           </ScrollReveal>
 
           <div className="space-y-4">
@@ -173,9 +174,9 @@ export default function SolutionDetail() {
       <section className="py-24 bg-primary text-center">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-8">Start the Transformation</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-8">{solutionDetail.cta.title}</h2>
             <Button asChild size="lg" className="bg-black text-white hover:bg-white hover:text-black h-16 px-10 text-lg">
-              <Link href="/contact">Book a Strategy Call</Link>
+              <Link href={solutionDetail.cta.btn.link}>{solutionDetail.cta.btn.text}</Link>
             </Button>
           </ScrollReveal>
         </div>
