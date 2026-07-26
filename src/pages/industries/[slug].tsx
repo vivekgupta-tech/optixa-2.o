@@ -31,14 +31,13 @@ export default function IndustryDetail() {
   return (
     <div className="w-full">
       {/* 1. Hero */}
-      <section className="relative pt-40 pb-32 md:pt-48 md:pb-40 bg-[#111] overflow-hidden min-h-[80vh] flex items-center">
+      <section className="relative pt-40 pb-32 md:pt-48 md:pb-40 bg-sidebar text-sidebar-foreground overflow-hidden min-h-[80vh] flex items-center">
         <div className="absolute inset-0">
           <img 
             src={industry.heroImage} 
             alt={industry.title} 
-            className="w-full h-full object-cover opacity-40 mix-blend-luminosity"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/60 to-transparent" />
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
           <ScrollReveal>
@@ -46,11 +45,11 @@ export default function IndustryDetail() {
             <h1 className="text-5xl md:text-7xl font-black text-white mb-8 max-w-5xl mx-auto leading-[1.1] tracking-tight">
               {industry.title}
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-shadow-md text-xl md:text-2xl text-sidebar-foreground/90 mb-12 max-w-3xl mx-auto leading-relaxed">
               {industry.shortDescription}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild size="lg" className="h-14 px-8 text-base bg-primary hover:bg-white hover:text-black">
+              <Button asChild size="lg" className="h-14 px-8 text-base bg-primary hover:bg-background hover:text-foreground">
                 <Link href={industryDetail.hero.btnLink}>{industryDetail.hero.btnPrefix} {industry.title} {industryDetail.hero.btnSuffix}</Link>
               </Button>
             </div>
@@ -59,13 +58,13 @@ export default function IndustryDetail() {
       </section>
 
       {/* 2. Overview */}
-      <section className="py-24 bg-white border-b border-gray-200">
+      <section className="py-24 bg-background border-b border-border">
         <div className="container mx-auto px-4 md:px-8 max-w-5xl text-center">
           <ScrollReveal>
-            <h2 className="text-3xl md:text-4xl font-black text-black mb-8 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-black text-foreground mb-8 leading-tight">
               {industryDetail.overview.title}
             </h2>
-            <p className="text-2xl text-gray-600 leading-relaxed font-medium">
+            <p className="text-2xl text-muted-foreground leading-relaxed font-medium">
               {industry.overview}
             </p>
           </ScrollReveal>
@@ -73,21 +72,21 @@ export default function IndustryDetail() {
       </section>
 
       {/* 3. Challenges (numbered list sections) */}
-      <section className="py-24 md:py-32 bg-gray-50 border-b border-gray-200">
+      <section className="py-24 md:py-32 bg-muted/40 border-b border-border">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="mb-20 text-center">
-            <h2 className="text-4xl md:text-5xl font-black text-black">{industryDetail.challenges.title}</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-foreground">{industryDetail.challenges.title}</h2>
           </ScrollReveal>
 
           <div className="space-y-8 max-w-5xl mx-auto">
             {industry.challenges.map((challenge, i) => (
-              <ScrollReveal key={i} delay={i * 0.1} className="flex flex-col md:flex-row items-start gap-8 bg-white p-10 shadow-sm border border-gray-100">
-                <div className="text-6xl font-black text-gray-200 shrink-0 leading-none">
+              <ScrollReveal key={i} delay={i * 0.1} className="flex flex-col md:flex-row items-start gap-8 bg-card p-10 shadow-sm border border-border">
+                <div className="text-6xl font-black text-muted-foreground/30 shrink-0 leading-none">
                   0{i + 1}
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-black mb-4">{challenge.title}</h3>
-                  <p className="text-gray-600 text-xl leading-relaxed">{challenge.description}</p>
+                  <h3 className="text-2xl font-bold text-foreground mb-4">{challenge.title}</h3>
+                  <p className="text-muted-foreground text-xl leading-relaxed">{challenge.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -96,7 +95,7 @@ export default function IndustryDetail() {
       </section>
 
       {/* 4. How We Solve Them (zigzag / solutions grid) */}
-      <section className="py-24 md:py-32 bg-[#111111] text-white">
+      <section className="py-24 md:py-32 bg-sidebar text-sidebar-foreground">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="mb-20">
             <h2 className="text-4xl md:text-5xl font-black">{industryDetail.solutions.title}</h2>
@@ -104,12 +103,12 @@ export default function IndustryDetail() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {industry.solutions.map((sol, i) => (
-              <ScrollReveal key={i} delay={i * 0.1} className="bg-white/5 border border-white/10 p-10 hover:bg-white/10 transition-colors">
+              <ScrollReveal key={i} delay={i * 0.1} className="bg-sidebar-accent/50 border border-sidebar-border p-10 hover:bg-sidebar-accent transition-colors">
                 <div className="text-primary mb-8">
                   {getIcon(sol.icon)}
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">{sol.title}</h3>
-                <p className="text-gray-400 text-lg leading-relaxed">{sol.description}</p>
+                <h3 className="text-2xl font-bold text-sidebar-foreground mb-4">{sol.title}</h3>
+                <p className="text-sidebar-foreground/75 text-lg leading-relaxed">{sol.description}</p>
               </ScrollReveal>
             ))}
           </div>
@@ -117,13 +116,13 @@ export default function IndustryDetail() {
       </section>
 
       {/* 5. Statistics Strip */}
-      <section className="py-24 bg-primary text-white border-y border-red-800">
+      <section className="py-24 bg-primary text-primary-foreground border-y border-primary/20">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {industry.stats.map((stat, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <p className="text-5xl md:text-6xl font-black mb-2 tracking-tight">{stat.metric}</p>
-                <p className="text-white/80 font-bold uppercase tracking-wider text-sm">{stat.label}</p>
+                <p className="text-5xl md:text-6xl font-black mb-2 tracking-tight text-primary-foreground">{stat.metric}</p>
+                <p className="text-primary-foreground/80 font-bold uppercase tracking-wider text-sm">{stat.label}</p>
               </ScrollReveal>
             ))}
           </div>
@@ -131,13 +130,13 @@ export default function IndustryDetail() {
       </section>
 
       {/* 6. Technologies (inline row) */}
-      <section className="py-24 bg-white border-b border-gray-200">
+      <section className="py-24 bg-background border-b border-border">
         <div className="container mx-auto px-4 md:px-8 text-center">
           <ScrollReveal>
-            <h2 className="text-3xl font-black mb-12 text-black">{industryDetail.technologies.title}</h2>
+            <h2 className="text-3xl font-black mb-12 text-foreground">{industryDetail.technologies.title}</h2>
             <div className="flex flex-wrap justify-center gap-4">
               {industry.technologies.map((tech, i) => (
-                <span key={i} className="px-6 py-3 bg-gray-100 text-black font-bold text-lg rounded-full">
+                <span key={i} className="px-6 py-3 bg-muted text-foreground font-bold text-lg rounded-full">
                   {tech}
                 </span>
               ))}
@@ -147,21 +146,21 @@ export default function IndustryDetail() {
       </section>
 
       {/* 7. FAQ */}
-      <section className="py-24 md:py-32 bg-gray-50">
+      <section className="py-24 md:py-32 bg-muted/40">
         <div className="container mx-auto px-4 md:px-8 max-w-4xl">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-4xl font-black text-black">{industryDetail.faq.title}</h2>
+            <h2 className="text-4xl font-black text-foreground">{industryDetail.faq.title}</h2>
           </ScrollReveal>
 
           <div className="space-y-4">
             {industry.faqs.map((faq, i) => (
-              <ScrollReveal key={i} delay={i * 0.1} className="bg-white border border-gray-200 p-6">
+              <ScrollReveal key={i} delay={i * 0.1} className="bg-card border border-border p-6">
                 <details className="group">
-                  <summary className="flex items-center justify-between cursor-pointer list-none font-bold text-xl text-black">
+                  <summary className="flex items-center justify-between cursor-pointer list-none font-bold text-xl text-foreground">
                     {faq.question}
                     <ChevronDown className="w-6 h-6 text-primary group-open:rotate-180 transition-transform" />
                   </summary>
-                  <p className="text-gray-600 mt-4 text-lg leading-relaxed border-t border-gray-100 pt-4">
+                  <p className="text-muted-foreground mt-4 text-lg leading-relaxed border-t border-border pt-4">
                     {faq.answer}
                   </p>
                 </details>
@@ -172,11 +171,11 @@ export default function IndustryDetail() {
       </section>
 
       {/* 8. CTA */}
-      <section className="py-24 bg-[#111] text-center">
+      <section className="py-24 bg-sidebar text-sidebar-foreground text-center">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-8">{industryDetail.cta.title}</h2>
-            <Button asChild size="lg" className="bg-primary text-white hover:bg-white hover:text-black h-16 px-10 text-lg">
+            <Button asChild size="lg" className="bg-primary text-white hover:bg-background hover:text-foreground h-16 px-10 text-lg">
               <Link href={industryDetail.cta.btn.link}>{industryDetail.cta.btn.text}</Link>
             </Button>
           </ScrollReveal>

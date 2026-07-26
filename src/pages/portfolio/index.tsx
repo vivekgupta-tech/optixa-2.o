@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'wouter';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { Button } from '@/components/common/Button';
@@ -10,7 +10,7 @@ export default function Portfolio() {
   return (
     <div className="w-full">
       {/* 1. Hero */}
-      <section className="relative pt-40 pb-32 md:pt-48 md:pb-40 bg-[#111] overflow-hidden flex items-center">
+      <section className="relative pt-40 pb-32 md:pt-48 md:pb-40 bg-sidebar text-sidebar-foreground overflow-hidden flex items-center">
         <div className="absolute inset-0">
           <img 
             src={portfolio.hero.image} 
@@ -29,11 +29,11 @@ export default function Portfolio() {
       </section>
 
       {/* 2. Intro section */}
-      <section className="py-24 bg-white border-b border-gray-200">
+      <section className="py-24 bg-background border-b border-border">
         <div className="container mx-auto px-4 md:px-8 text-center max-w-4xl">
           <ScrollReveal>
-            <h2 className="text-3xl md:text-4xl font-black text-black mb-8">{portfolio.intro.title}</h2>
-            <div className="space-y-6 text-xl text-gray-600 leading-relaxed">
+            <h2 className="text-3xl md:text-4xl font-black text-foreground mb-8">{portfolio.intro.title}</h2>
+            <div className="space-y-6 text-xl text-muted-foreground leading-relaxed">
               <p>
                 {portfolio.intro.paragraphs[0]}
               </p>
@@ -64,7 +64,7 @@ export default function Portfolio() {
                   {showcase.tag}
                 </span>
                 <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tight">{showcase.title}</h2>
-                <p className="text-xl text-gray-300 mb-10 leading-relaxed">{showcase.desc}</p>
+                <p className="text-xl text-sidebar-foreground/70 mb-10 leading-relaxed">{showcase.desc}</p>
                 
                 <div className="space-y-4 mb-12">
                   {showcase.bullets.map((bullet, j) => (
@@ -72,10 +72,15 @@ export default function Portfolio() {
                       <CheckCircle2 className="w-5 h-5 text-primary" />
                       <span className="text-lg font-medium text-white">{bullet}</span>
                     </div>
-                  ))}
+                    
+                    <Button asChild size="lg" className="h-14 px-8 text-base">
+                      <Link href="/contact">Discuss Your Project</Link>
+                    </Button>
+                  </ScrollReveal>
+
                 </div>
                 
-                <Button asChild size="lg" className="h-14 px-8 text-base bg-white text-black hover:bg-primary hover:text-white border-0">
+                <Button asChild size="lg" className="h-14 px-8 text-base bg-background text-foreground hover:bg-primary hover:text-primary-foreground border-0">
                   <Link href={portfolio.showcaseBtn.link}>{portfolio.showcaseBtn.text}</Link>
                 </Button>
               </ScrollReveal>
@@ -85,19 +90,19 @@ export default function Portfolio() {
       </div>
 
       {/* 4. Development Process Preview */}
-      <section className="py-24 bg-gray-50 border-y border-gray-200 text-center">
+      <section className="py-24 bg-muted/40 border-y border-border text-center">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="mb-16">
-            <h2 className="text-3xl font-black text-black">{portfolio.process.title}</h2>
+            <h2 className="text-3xl font-black text-foreground">{portfolio.process.title}</h2>
           </ScrollReveal>
           
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {portfolio.process.steps.map((step, i) => (
               <ScrollReveal key={i} delay={i * 0.1} className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-red-100 text-primary font-black text-xl flex items-center justify-center mb-4">
+                <div className="w-16 h-16 rounded-full bg-primary/10 text-primary font-black text-xl flex items-center justify-center mb-4">
                   {i + 1}
                 </div>
-                <h4 className="font-bold text-lg text-black">{step}</h4>
+                <h4 className="font-bold text-lg text-foreground">{step}</h4>
               </ScrollReveal>
             ))}
           </div>
@@ -111,7 +116,7 @@ export default function Portfolio() {
       </section>
 
       {/* 5. Why Work With Us Now — Split layout */}
-      <section className="py-24 md:py-32 bg-white">
+      <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal className="relative">
@@ -124,18 +129,18 @@ export default function Portfolio() {
             
             <ScrollReveal delay={0.2}>
               <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">{portfolio.advantage.subtitle}</span>
-              <h2 className="text-4xl font-black text-black mb-8">{portfolio.advantage.title}</h2>
-              <p className="text-xl text-gray-600 mb-10">
+              <h2 className="text-4xl font-black text-foreground mb-8">{portfolio.advantage.title}</h2>
+              <p className="text-xl text-muted-foreground mb-10">
                 {portfolio.advantage.description}
               </p>
               
               <div className="space-y-6">
                 {portfolio.advantage.items.map((adv, i) => (
-                  <div key={i} className="flex gap-4 border-b border-gray-100 pb-4 last:border-0 last:pb-0">
+                  <div key={i} className="flex gap-4 border-b border-border pb-4 last:border-0 last:pb-0">
                     <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-bold text-gray-900">{adv.title}</h4>
-                      <p className="text-gray-600 mt-1">{adv.desc}</p>
+                      <h4 className="font-bold text-foreground">{adv.title}</h4>
+                      <p className="text-muted-foreground mt-1">{adv.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -146,11 +151,11 @@ export default function Portfolio() {
       </section>
 
       {/* 6. CTA */}
-      <section className="py-24 bg-[#111] text-center">
+      <section className="py-24 bg-sidebar text-sidebar-foreground text-center">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-8">{portfolio.cta.title}</h2>
-            <Button asChild size="lg" className="bg-primary text-white hover:bg-white hover:text-black h-16 px-10 text-lg">
+            <Button asChild size="lg" className="bg-primary text-white hover:bg-background hover:text-foreground h-16 px-10 text-lg">
               <Link href={portfolio.cta.btn.link}>{portfolio.cta.btn.text}</Link>
             </Button>
           </ScrollReveal>

@@ -57,7 +57,7 @@ export const HeroSlider: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="relative w-full h-[100dvh] min-h-[600px] overflow-hidden bg-black group">
+    <div className="relative w-full h-[100dvh] min-h-[600px] overflow-hidden bg-sidebar group">
       <Swiper
         modules={[Autoplay, EffectFade, Navigation, Pagination, A11y]}
         effect="fade"
@@ -98,21 +98,21 @@ export const HeroSlider: React.FC = () => {
                   index === activeIndex ? 'scale-100' : 'scale-105'
                 }`}
               />
-              <div className="absolute inset-0 bg-black/45" />
+              <div className="absolute inset-0 bg-image-overlay" />
             </div>
             
             <div className="relative z-10 w-full h-full flex items-center">
               <div className="container mx-auto px-4 md:px-8">
                 <div className="max-w-4xl">
                   <h1 
-                    className={`text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight transition-all duration-1000 delay-100 ${
+                    className={`text-shadow-hero text-4xl md:text-6xl lg:text-7xl font-bold text-sidebar-foreground mb-6 leading-tight transition-all duration-1000 delay-100 ${
                       index === activeIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                   >
                     {slide.title}
                   </h1>
                   <p 
-                    className={`text-lg md:text-xl text-gray-200 mb-10 max-w-2xl leading-relaxed transition-all duration-1000 delay-300 ${
+                    className={`text-shadow-md text-lg md:text-xl text-sidebar-foreground/90 mb-10 max-w-2xl leading-relaxed transition-all duration-1000 delay-300 ${
                       index === activeIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                   >
@@ -129,7 +129,7 @@ export const HeroSlider: React.FC = () => {
                         <ArrowRight className="w-5 h-5 ml-2 inline-flex" />
                       </Link>
                     </Button>
-                    <Button asChild variant="outline" size="lg" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-black">
+                    <Button asChild variant="outline" size="lg" className="w-full sm:w-auto border-sidebar-foreground/30 text-sidebar-foreground hover:bg-sidebar-foreground hover:text-sidebar bg-transparent">
                       <Link href={slide.secondaryLink}>
                         {slide.secondaryCta}
                       </Link>
@@ -148,13 +148,13 @@ export const HeroSlider: React.FC = () => {
         
         <div className="flex gap-2 pointer-events-auto">
           <button 
-            className="hero-prev w-12 h-12 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-primary hover:border-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            className="hero-prev w-12 h-12 rounded-full border border-sidebar-foreground/30 text-sidebar-foreground flex items-center justify-center hover:bg-primary hover:border-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sidebar-foreground"
             aria-label="Previous slide"
           >
             <LucideArrowLeft className="w-5 h-5" />
           </button>
           <button 
-            className="hero-next w-12 h-12 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-primary hover:border-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            className="hero-next w-12 h-12 rounded-full border border-sidebar-foreground/30 text-sidebar-foreground flex items-center justify-center hover:bg-primary hover:border-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sidebar-foreground"
             aria-label="Next slide"
           >
             <LucideArrowRight className="w-5 h-5" />
@@ -166,7 +166,7 @@ export const HeroSlider: React.FC = () => {
         .hero-dot {
           width: 48px;
           height: 3px;
-          background: rgba(255, 255, 255, 0.3);
+          background: var(--hero-dot-bg);
           cursor: pointer;
           transition: all 0.3s ease;
           border-radius: 2px;

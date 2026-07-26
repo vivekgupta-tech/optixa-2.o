@@ -9,7 +9,7 @@ export default function Careers() {
   return (
     <div className="w-full">
       {/* 1. Hero */}
-      <section className="relative pt-40 pb-32 md:pt-48 md:pb-40 bg-[#111] overflow-hidden flex items-center">
+      <section className="relative pt-40 pb-32 md:pt-48 md:pb-40 bg-sidebar text-sidebar-foreground overflow-hidden flex items-center">
         <div className="absolute inset-0">
           <img 
             src={careers.hero.image} 
@@ -23,7 +23,7 @@ export default function Careers() {
             <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tight">
               {careers.hero.title}
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-sidebar-foreground/70 max-w-3xl mx-auto leading-relaxed">
               {careers.hero.description}
             </p>
           </ScrollReveal>
@@ -31,10 +31,10 @@ export default function Careers() {
       </section>
 
       {/* 2. Why Join Optixa — 3 Wide Rows */}
-      <section className="py-24 md:py-32 bg-white">
+      <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="mb-20 text-center">
-            <h2 className="text-4xl md:text-5xl font-black text-black">{careers.whyJoin.title}</h2>
+            <h2 className="text-4xl md:text-5xl font-black text-foreground">{careers.whyJoin.title}</h2>
           </ScrollReveal>
 
           <div className="space-y-16 max-w-5xl mx-auto">
@@ -46,13 +46,13 @@ export default function Careers() {
                 return <Zap {...props} />;
               };
               return (
-                <ScrollReveal key={i} delay={i * 0.1} className="flex flex-col md:flex-row gap-8 items-start border-b border-gray-100 pb-16 last:border-0 last:pb-0">
-                  <div className="w-24 h-24 rounded-2xl bg-red-50 flex items-center justify-center shrink-0">
+                <ScrollReveal key={i} delay={i * 0.1} className="flex flex-col md:flex-row gap-8 items-start border-b border-border pb-16 last:border-0 last:pb-0">
+                  <div className="w-24 h-24 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
                     {getIconElement(row.icon)}
                   </div>
                   <div>
-                    <h3 className="text-3xl font-bold text-black mb-4">{row.title}</h3>
-                    <p className="text-xl text-gray-600 leading-relaxed">{row.desc}</p>
+                    <h3 className="text-3xl font-bold text-foreground mb-4">{row.title}</h3>
+                    <p className="text-xl text-muted-foreground leading-relaxed">{row.desc}</p>
                   </div>
                 </ScrollReveal>
               );
@@ -62,10 +62,10 @@ export default function Careers() {
       </section>
 
       {/* 3. Benefits — 2-column list */}
-      <section className="py-24 bg-gray-50 border-y border-gray-200">
+      <section className="py-24 bg-muted border-y border-border">
         <div className="container mx-auto px-4 md:px-8 max-w-5xl">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-4xl font-black text-black">{careers.perks.title}</h2>
+            <h2 className="text-4xl font-black text-foreground">{careers.perks.title}</h2>
           </ScrollReveal>
 
           <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
@@ -81,12 +81,12 @@ export default function Careers() {
               };
               return (
                 <ScrollReveal key={i} delay={i * 0.05} className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center border border-gray-200 shrink-0 text-primary">
+                  <div className="w-12 h-12 bg-background rounded-lg flex items-center justify-center border border-border shrink-0 text-primary">
                     {getPerkIcon(benefit.icon)}
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-black mb-1">{benefit.title}</h4>
-                    <p className="text-gray-600">{benefit.desc}</p>
+                    <h4 className="text-xl font-bold text-foreground mb-1">{benefit.title}</h4>
+                    <p className="text-muted-foreground">{benefit.desc}</p>
                   </div>
                 </ScrollReveal>
               );
@@ -96,7 +96,7 @@ export default function Careers() {
       </section>
 
       {/* 4. Culture Section — Full-width image background */}
-      <section className="relative py-32 bg-[#111] overflow-hidden">
+      <section className="relative py-32 bg-sidebar text-sidebar-foreground overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src={careers.culture.image} 
@@ -107,7 +107,7 @@ export default function Careers() {
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center max-w-3xl">
           <ScrollReveal>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6">{careers.culture.title}</h2>
-            <p className="text-xl text-gray-300 leading-relaxed">
+            <p className="text-xl text-sidebar-foreground/70 leading-relaxed">
               {careers.culture.description}
             </p>
           </ScrollReveal>
@@ -115,23 +115,23 @@ export default function Careers() {
       </section>
 
       {/* 5. Hiring Process — Numbered Horizontal Steps */}
-      <section className="py-24 bg-white border-b border-gray-200">
+      <section className="py-24 bg-background border-b border-border">
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal className="text-center mb-16">
-            <h2 className="text-4xl font-black text-black">{careers.hiring.title}</h2>
+            <h2 className="text-4xl font-black text-foreground">{careers.hiring.title}</h2>
           </ScrollReveal>
 
           <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto relative">
-            <div className="hidden md:block absolute top-8 left-12 right-12 h-0.5 bg-gray-100" />
+            <div className="hidden md:block absolute top-8 left-12 right-12 h-0.5 bg-border" />
             
             {careers.hiring.steps.map((stage, i) => (
-              <ScrollReveal key={i} delay={i * 0.1} className="relative z-10 bg-white pt-4">
+              <ScrollReveal key={i} delay={i * 0.1} className="relative z-10 bg-background pt-4">
                 <div className="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center font-black text-2xl mx-auto mb-6 border-4 border-white shadow-sm">
                   {stage.step}
                 </div>
                 <div className="text-center">
-                  <h4 className="font-bold text-lg text-black mb-2">{stage.title}</h4>
-                  <p className="text-gray-500 text-sm">{stage.desc}</p>
+                  <h4 className="font-bold text-lg text-foreground mb-2">{stage.title}</h4>
+                  <p className="text-muted-foreground text-sm">{stage.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -140,20 +140,20 @@ export default function Careers() {
       </section>
 
       {/* 6. Open Positions — HONEST EMPTY STATE */}
-      <section className="py-24 md:py-32 bg-gray-50">
+      <section className="py-24 md:py-32 bg-muted">
         <div className="container mx-auto px-4 md:px-8">
-          <ScrollReveal className="max-w-3xl mx-auto text-center bg-white p-12 md:p-16 border border-gray-200 shadow-sm rounded-xl">
-            <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-400">
+          <ScrollReveal className="max-w-3xl mx-auto text-center bg-background p-12 md:p-16 border border-border shadow-sm rounded-xl">
+            <div className="w-20 h-20 bg-muted rounded-full flex items-center justify-center mx-auto mb-6 text-muted-foreground">
               <Code className="w-10 h-10" />
             </div>
-            <h2 className="text-3xl font-black text-black mb-4">{careers.openPositions.title}</h2>
-            <p className="text-xl text-gray-600 mb-8">
+            <h2 className="text-3xl font-black text-foreground mb-4">{careers.openPositions.title}</h2>
+            <p className="text-xl text-muted-foreground mb-8">
               {careers.openPositions.description}
             </p>
-            <div className="bg-red-50 p-6 rounded-lg text-left">
+            <div className="bg-primary/10 p-6 rounded-lg text-left">
               <h4 className="font-bold text-primary mb-2">{careers.openPositions.callout.title}</h4>
-              <p className="text-gray-700 mb-4">{careers.openPositions.callout.description}</p>
-              <a href={`mailto:${careers.openPositions.callout.email}`} className="text-black font-bold flex items-center gap-2 hover:text-primary transition-colors">
+              <p className="text-muted-foreground mb-4">{careers.openPositions.callout.description}</p>
+              <a href={`mailto:${careers.openPositions.callout.email}`} className="text-foreground font-bold flex items-center gap-2 hover:text-primary transition-colors">
                 {careers.openPositions.callout.linkText} <ArrowRight className="w-4 h-4" />
               </a>
             </div>

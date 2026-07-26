@@ -36,8 +36,8 @@ export const Header: React.FC = () => {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm py-4'
-          : 'bg-white py-6 border-b border-gray-100'
+          ? 'bg-background/95 backdrop-blur-md shadow-sm py-4'
+          : 'bg-background py-6 border-b border-border'
       )}
     >
       <div className="container mx-auto px-4 xl:px-8">
@@ -65,8 +65,8 @@ export const Header: React.FC = () => {
                     className={cn(
                       "flex items-center gap-1 text-sm font-semibold transition-colors hover:text-primary px-3 py-2 rounded-md",
                       location === link.href || (location.startsWith(link.href) && link.href !== '/') 
-                        ? "text-primary bg-red-50/50" 
-                        : "text-foreground hover:bg-gray-50"
+                        ? "text-primary bg-primary/5" 
+                        : "text-foreground hover:bg-muted"
                     )}
                   >
                     {link.label}
@@ -76,26 +76,27 @@ export const Header: React.FC = () => {
                   {/* Mega Menu Dropdowns */}
                   {link.hasDropdown && activeDropdown === link.label && (
                     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[600px] z-50">
-                      <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden flex animate-in slide-in-from-top-2 duration-200">
+                      <div className="bg-background rounded-xl shadow-xl border border-border overflow-hidden flex animate-in slide-in-from-top-2 duration-200">
                         {/* Services Dropdown */}
                         {link.label === 'Services' && (
                           <div className="p-6 grid grid-cols-2 gap-4 w-full">
                             {services.slice(0, 6).map(service => (
-                              <Link key={service.slug} href={`/services/${service.slug}`} className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors group/item">
-                                <div className="w-10 h-10 rounded-md bg-red-50 flex items-center justify-center text-primary shrink-0 group-hover/item:scale-110 transition-transform">
+                              <Link key={service.slug} href={`/services/${service.slug}`} className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted transition-colors group/item">
+                                <div className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center text-primary shrink-0 group-hover/item:scale-110 transition-transform">
                                   <span className="font-bold text-sm">{service.title.charAt(0)}</span>
                                 </div>
                                 <div>
-                                  <h4 className="text-sm font-bold text-gray-900 group-hover/item:text-primary transition-colors">{service.title}</h4>
-                                  <p className="text-xs text-gray-500 line-clamp-1 mt-1">{service.shortDescription}</p>
+                                  <h4 className="text-sm font-bold text-foreground group-hover/item:text-primary transition-colors">{service.title}</h4>
+                                  <p className="text-xs text-muted-foreground line-clamp-1 mt-1">{service.shortDescription}</p>
                                 </div>
                               </Link>
                             ))}
-                            <div className="col-span-2 pt-4 mt-2 border-t border-gray-100 flex justify-between items-center px-3">
-                              <span className="text-sm font-medium text-gray-500">{megaMenu.services.exploreText}</span>
+                            <div className="col-span-2 pt-4 mt-2 border-t border-border flex justify-between items-center px-3">
+                              <span className="text-sm font-medium text-muted-foreground">{megaMenu.services.exploreText}</span>
                               <Link href={megaMenu.services.viewAllLink} className="text-sm font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all">
                                 {megaMenu.services.viewAllText} <ArrowRight className="w-4 h-4" />
                               </Link>
+                            </div>
                             </div>
                           </div>
                         )}
@@ -104,21 +105,22 @@ export const Header: React.FC = () => {
                         {link.label === 'Solutions' && (
                           <div className="p-6 grid grid-cols-2 gap-4 w-full">
                             {solutions.slice(0, 4).map(solution => (
-                              <Link key={solution.slug} href={`/solutions/${solution.slug}`} className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors group/item">
-                                <div className="w-10 h-10 rounded-md bg-gray-100 flex items-center justify-center text-gray-900 shrink-0 group-hover/item:bg-primary group-hover/item:text-white transition-colors">
+                              <Link key={solution.slug} href={`/solutions/${solution.slug}`} className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted transition-colors group/item">
+                                <div className="w-10 h-10 rounded-md bg-muted flex items-center justify-center text-foreground shrink-0 group-hover/item:bg-primary group-hover/item:text-primary-foreground transition-colors">
                                   <span className="font-bold text-sm">{solution.title.charAt(0)}</span>
                                 </div>
                                 <div>
-                                  <h4 className="text-sm font-bold text-gray-900 group-hover/item:text-primary transition-colors">{solution.title}</h4>
-                                  <p className="text-xs text-gray-500 line-clamp-1 mt-1">{solution.shortDescription}</p>
+                                  <h4 className="text-sm font-bold text-foreground group-hover/item:text-primary transition-colors">{solution.title}</h4>
+                                  <p className="text-xs text-muted-foreground line-clamp-1 mt-1">{solution.shortDescription}</p>
                                 </div>
                               </Link>
                             ))}
-                            <div className="col-span-2 pt-4 mt-2 border-t border-gray-100 flex justify-between items-center px-3">
-                              <span className="text-sm font-medium text-gray-500">{megaMenu.solutions.exploreText}</span>
+                            <div className="col-span-2 pt-4 mt-2 border-t border-border flex justify-between items-center px-3">
+                              <span className="text-sm font-medium text-muted-foreground">{megaMenu.solutions.exploreText}</span>
                               <Link href={megaMenu.solutions.viewAllLink} className="text-sm font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all">
                                 {megaMenu.solutions.viewAllText} <ArrowRight className="w-4 h-4" />
                               </Link>
+                            </div>
                             </div>
                           </div>
                         )}
@@ -127,17 +129,18 @@ export const Header: React.FC = () => {
                         {link.label === 'Industries' && (
                           <div className="p-6 grid grid-cols-2 gap-4 w-full">
                             {industries.slice(0, 6).map(industry => (
-                              <Link key={industry.slug} href={`/industries/${industry.slug}`} className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors group/item">
-                                <div className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 group-hover/item:border-primary group-hover/item:text-primary transition-colors">
+                              <Link key={industry.slug} href={`/industries/${industry.slug}`} className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-colors group/item">
+                                <div className="w-8 h-8 rounded-full border border-border flex items-center justify-center text-muted-foreground group-hover/item:border-primary group-hover/item:text-primary transition-colors">
                                   <ChevronRight className="w-4 h-4" />
                                 </div>
-                                <h4 className="text-sm font-bold text-gray-900 group-hover/item:text-primary transition-colors">{industry.title}</h4>
+                                <h4 className="text-sm font-bold text-foreground group-hover/item:text-primary transition-colors">{industry.title}</h4>
                               </Link>
                             ))}
-                            <div className="col-span-2 pt-4 mt-2 border-t border-gray-100 flex justify-end items-center px-3">
+                            <div className="col-span-2 pt-4 mt-2 border-t border-border flex justify-end items-center px-3">
                               <Link href={megaMenu.industries.viewAllLink} className="text-sm font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all">
                                 {megaMenu.industries.viewAllText} <ArrowRight className="w-4 h-4" />
                               </Link>
+                            </div>
                             </div>
                           </div>
                         )}
@@ -170,19 +173,19 @@ export const Header: React.FC = () => {
       {/* Mobile Menu Overlay */}
       <div
         className={cn(
-          "fixed inset-0 bg-white z-40 lg:hidden transition-transform duration-500 ease-in-out flex flex-col pt-24 pb-8 px-6 overflow-y-auto",
+          "fixed inset-0 bg-background z-40 lg:hidden transition-transform duration-500 ease-in-out flex flex-col pt-24 pb-8 px-6 overflow-y-auto",
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
         <ul className="flex flex-col gap-2 mb-8 flex-1">
           {navLinks.map((link) => (
-            <li key={link.href} className="border-b border-gray-100 pb-2">
+            <li key={link.href} className="border-b border-border pb-2">
               <div className="flex items-center justify-between">
                 <Link
                   href={link.href}
                   className={cn(
                     "block py-3 text-xl font-bold transition-colors w-full",
-                    location === link.href ? "text-primary" : "text-gray-900"
+                    location === link.href ? "text-primary" : "text-foreground"
                   )}
                 >
                   {link.label}
@@ -190,7 +193,7 @@ export const Header: React.FC = () => {
                 {link.hasDropdown && (
                   <button 
                     onClick={() => setActiveDropdown(activeDropdown === link.label ? null : link.label)}
-                    className="p-3 text-gray-500 hover:text-primary"
+                    className="p-3 text-muted-foreground hover:text-primary"
                   >
                     <ChevronDown className={cn("w-5 h-5 transition-transform", activeDropdown === link.label ? "rotate-180" : "")} />
                   </button>
@@ -201,13 +204,13 @@ export const Header: React.FC = () => {
               {link.hasDropdown && activeDropdown === link.label && (
                 <div className="pl-4 pb-4 flex flex-col gap-3 animate-in slide-in-from-top-2">
                   {link.label === 'Services' && services.slice(0, 6).map(s => (
-                    <Link key={s.slug} href={`/services/${s.slug}`} className="text-gray-600 font-medium py-1">{s.title}</Link>
+                    <Link key={s.slug} href={`/services/${s.slug}`} className="text-muted-foreground font-medium py-1">{s.title}</Link>
                   ))}
                   {link.label === 'Solutions' && solutions.slice(0, 4).map(s => (
-                    <Link key={s.slug} href={`/solutions/${s.slug}`} className="text-gray-600 font-medium py-1">{s.title}</Link>
+                    <Link key={s.slug} href={`/solutions/${s.slug}`} className="text-muted-foreground font-medium py-1">{s.title}</Link>
                   ))}
                   {link.label === 'Industries' && industries.slice(0, 6).map(i => (
-                    <Link key={i.slug} href={`/industries/${i.slug}`} className="text-gray-600 font-medium py-1">{i.title}</Link>
+                    <Link key={i.slug} href={`/industries/${i.slug}`} className="text-muted-foreground font-medium py-1">{i.title}</Link>
                   ))}
                 </div>
               )}
@@ -218,7 +221,7 @@ export const Header: React.FC = () => {
               href={mobileMenu.contactLink}
               className={cn(
                 "block py-3 text-xl font-bold transition-colors w-full",
-                location === mobileMenu.contactLink ? "text-primary" : "text-gray-900"
+                location === mobileMenu.contactLink ? "text-primary" : "text-foreground"
               )}
             >
               {mobileMenu.contact}
