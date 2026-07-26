@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link } from 'wouter';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { Button } from '@/components/common/Button';
@@ -72,12 +72,7 @@ export default function Portfolio() {
                       <CheckCircle2 className="w-5 h-5 text-primary" />
                       <span className="text-lg font-medium text-white">{bullet}</span>
                     </div>
-                    
-                    <Button asChild size="lg" className="h-14 px-8 text-base">
-                      <Link href="/contact">Discuss Your Project</Link>
-                    </Button>
-                  </ScrollReveal>
-
+                  ))}
                 </div>
                 
                 <Button asChild size="lg" className="h-14 px-8 text-base bg-background text-foreground hover:bg-primary hover:text-primary-foreground border-0">

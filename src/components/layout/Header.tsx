@@ -97,7 +97,6 @@ export const Header: React.FC = () => {
                                 {megaMenu.services.viewAllText} <ArrowRight className="w-4 h-4" />
                               </Link>
                             </div>
-                            </div>
                           </div>
                         )}
 
@@ -121,7 +120,6 @@ export const Header: React.FC = () => {
                                 {megaMenu.solutions.viewAllText} <ArrowRight className="w-4 h-4" />
                               </Link>
                             </div>
-                            </div>
                           </div>
                         )}
 
@@ -140,7 +138,6 @@ export const Header: React.FC = () => {
                               <Link href={megaMenu.industries.viewAllLink} className="text-sm font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all">
                                 {megaMenu.industries.viewAllText} <ArrowRight className="w-4 h-4" />
                               </Link>
-                            </div>
                             </div>
                           </div>
                         )}
