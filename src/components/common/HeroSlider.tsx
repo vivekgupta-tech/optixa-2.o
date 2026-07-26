@@ -98,6 +98,7 @@ export const HeroSlider: React.FC = () => {
                   index === activeIndex ? 'scale-100' : 'scale-105'
                 }`}
               />
+              <div className="absolute inset-0 bg-image-overlay" />
             </div>
             
             <div className="relative z-10 w-full h-full flex items-center">

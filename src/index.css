@@ -47,6 +47,7 @@
   --color-sidebar-accent: hsl(var(--sidebar-accent));
   --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
   --color-sidebar-ring: hsl(var(--sidebar-ring));
+  --color-overlay: hsl(var(--overlay) / var(--overlay-opacity));
 
   --font-sans: var(--app-font-sans);
   --font-serif: var(--app-font-serif);
@@ -197,15 +198,8 @@
   }
 }
 
-/* ── Text-shadow utility classes ── */
-.text-shadow-hero {
-  text-shadow: var(--text-shadow-hero);
-}
-
-.text-shadow-md {
-  text-shadow: var(--text-shadow-md);
-}
-
-.text-shadow-sm {
-  text-shadow: var(--text-shadow-sm);
-}
+/* ── Text-shadow & overlay utility classes ── */
+.text-shadow-hero { text-shadow: var(--text-shadow-hero); }
+.text-shadow-md   { text-shadow: var(--text-shadow-md);   }
+.text-shadow-sm   { text-shadow: var(--text-shadow-sm);   }
+.bg-image-overlay { background-color: hsl(var(--overlay) / var(--overlay-opacity)); }
