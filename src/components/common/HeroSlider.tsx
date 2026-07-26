@@ -77,7 +77,7 @@ export const HeroSlider: React.FC = () => {
           bulletClass: 'hero-dot',
           bulletActiveClass: 'hero-dot-active',
         }}
-        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         loop
         className="w-full h-full"
         a11y={{

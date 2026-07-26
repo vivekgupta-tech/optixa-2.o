@@ -17,8 +17,8 @@
       },
       {
         "label": "Location",
-        "value": "Lahore, Pakistan",
-        "subValue": "Remote-First Global Team"
+        "value": "Ghaziabad, Uttar Pradesh, India",
+        "subValue": "Headquarters & Global Delivery Center"
       },
       {
         "label": "Working Hours",
@@ -80,7 +80,7 @@
       { "q": "Do you offer fixed-price contracts?", "a": "Yes, for projects with highly rigid and pre-defined scopes. However, we generally recommend Agile retainers (Time & Materials) as it allows for much greater flexibility and faster time-to-market." },
       { "q": "Can we hire a single developer or do we need a full team?", "a": "We primarily deploy full cross-functional pods (e.g., 1 Lead, 2 Frontend, 1 Backend, 1 QA). However, we do offer staff augmentation for specific senior roles if you already have an established engineering culture." },
       { "q": "Do you work with startups seeking equity exchanges?", "a": "We generally operate on a standard fee-for-service model. We do not accept equity in lieu of payment, ensuring you keep full ownership of your company." },
-      { "q": "Where is your team located?", "a": "We are a remote-first team headquartered in Lahore, Pakistan, with engineers across multiple time zones to ensure overlap with US, European, and MENA clients." },
+      { "q": "Where is your team located?", "a": "We are headquartered in Ghaziabad, Uttar Pradesh, India, with engineering teams serving US, European, MENA, and global clients." },
       { "q": "Will you sign our NDA?", "a": "Absolutely. We can use your standard NDA or provide our own mutual NDA before discussing any sensitive IP." }
     ]
   }
