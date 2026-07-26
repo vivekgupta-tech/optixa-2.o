@@ -53,9 +53,22 @@ export const Header: React.FC = () => {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center">
             <ul className="flex items-center gap-1 xl:gap-4">
+              <li>
+                <Link
+                  href="/"
+                  className={cn(
+                    "flex items-center gap-1 text-sm font-semibold transition-colors hover:text-primary px-3 py-2 rounded-md",
+                    location === "/"
+                      ? "text-primary bg-primary/5"
+                      : "text-foreground hover:bg-muted"
+                  )}
+                >
+                  Home
+                </Link>
+              </li>
               {navLinks.map((link) => (
-                <li 
-                  key={link.href} 
+                <li
+                  key={link.href}
                   className="relative group"
                   onMouseEnter={() => link.hasDropdown && setActiveDropdown(link.label)}
                   onMouseLeave={() => setActiveDropdown(null)}
@@ -64,8 +77,8 @@ export const Header: React.FC = () => {
                     href={link.href}
                     className={cn(
                       "flex items-center gap-1 text-sm font-semibold transition-colors hover:text-primary px-3 py-2 rounded-md",
-                      location === link.href || (location.startsWith(link.href) && link.href !== '/') 
-                        ? "text-primary bg-primary/5" 
+                      location === link.href || (location.startsWith(link.href) && link.href !== '/')
+                        ? "text-primary bg-primary/5"
                         : "text-foreground hover:bg-muted"
                     )}
                   >
@@ -175,6 +188,17 @@ export const Header: React.FC = () => {
         )}
       >
         <ul className="flex flex-col gap-2 mb-8 flex-1">
+          <li className="border-b border-border pb-2">
+            <Link
+              href="/"
+              className={cn(
+                "block py-3 text-xl font-bold transition-colors w-full",
+                location === "/" ? "text-primary" : "text-foreground"
+              )}
+            >
+              Home
+            </Link>
+          </li>
           {navLinks.map((link) => (
             <li key={link.href} className="border-b border-border pb-2">
               <div className="flex items-center justify-between">
@@ -188,7 +212,7 @@ export const Header: React.FC = () => {
                   {link.label}
                 </Link>
                 {link.hasDropdown && (
-                  <button 
+                  <button
                     onClick={() => setActiveDropdown(activeDropdown === link.label ? null : link.label)}
                     className="p-3 text-muted-foreground hover:text-primary"
                   >
@@ -196,7 +220,7 @@ export const Header: React.FC = () => {
                   </button>
                 )}
               </div>
-              
+
               {/* Mobile Dropdown */}
               {link.hasDropdown && activeDropdown === link.label && (
                 <div className="pl-4 pb-4 flex flex-col gap-3 animate-in slide-in-from-top-2">
