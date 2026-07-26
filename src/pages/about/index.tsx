@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'wouter';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { Button } from '@/components/common/Button';
@@ -19,11 +19,11 @@ export default function About() {
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <ScrollReveal>
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.9)' }}>Our Story</span>
-            <h1 className="text-5xl md:text-7xl font-black text-sidebar-foreground mb-8 max-w-4xl leading-[1.1] tracking-tight" style={{ textShadow: '0 2px 12px rgba(0, 0, 0, 0.9)' }}>
+            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block" >Our Story</span>
+            <h1 className="text-5xl md:text-7xl font-black text-sidebar-foreground mb-8 max-w-4xl leading-[1.1] tracking-tight" >
               Building the Future of Software
             </h1>
-            <p className="text-xl text-sidebar-foreground/90 mb-12 max-w-2xl leading-relaxed" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.9)' }}>
+            <p className="text-xl text-sidebar-foreground/90 mb-12 max-w-2xl leading-relaxed" >
               Optixa is a growing technology startup dedicated to engineering scalable, high-performance software for enterprises and fast-moving companies.
             </p>
             <div className="flex flex-wrap gap-4">

@@ -49,10 +49,10 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
         <div className="absolute inset-0 backface-hidden rounded-2xl overflow-hidden bg-card">
           <img src={image} alt={title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-          <div className="absolute bottom-0 left-0 p-6 text-white w-full">
+          <div className="absolute bottom-0 left-0 p-6 text-sidebar-foreground w-full">
             {Icon && <Icon className="w-8 h-8 mb-4 text-primary" />}
             <h3 className="text-2xl font-bold mb-2">{title}</h3>
-            <p className="text-sm text-gray-200 line-clamp-2">{shortDescription}</p>
+            <p className="text-sm text-sidebar-foreground/70 line-clamp-2">{shortDescription}</p>
           </div>
         </div>
 

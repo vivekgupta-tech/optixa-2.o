@@ -40,11 +40,11 @@ export default function IndustryDetail() {
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
           <ScrollReveal>
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.9)' }}>Industry Focus</span>
-            <h1 className="text-5xl md:text-7xl font-black text-sidebar-foreground mb-8 max-w-5xl mx-auto leading-[1.1] tracking-tight" style={{ textShadow: '0 2px 12px rgba(0, 0, 0, 0.9)' }}>
+            <span className="text-shadow-md text-primary font-bold uppercase tracking-widest text-sm mb-6 block">Industry Focus</span>
+            <h1 className="text-shadow-hero text-5xl md:text-7xl font-black text-sidebar-foreground mb-8 max-w-5xl mx-auto leading-[1.1] tracking-tight">
               {industry.title}
             </h1>
-            <p className="text-xl md:text-2xl text-sidebar-foreground/90 mb-12 max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.9)' }}>
+            <p className="text-shadow-md text-xl md:text-2xl text-sidebar-foreground/90 mb-12 max-w-3xl mx-auto leading-relaxed">
               {industry.shortDescription}
             </p>
             <div className="flex flex-wrap justify-center gap-4">

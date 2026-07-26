@@ -3,7 +3,7 @@ import { SectionHeader } from '@/components/common/SectionHeader';
 
 export default function Privacy() {
   return (
-    <div className="w-full pt-12 pb-24 bg-white min-h-screen">
+    <div className="w-full pt-12 pb-24 bg-background min-h-screen">
       <div className="container mx-auto px-4 md:px-8 max-w-3xl">
         <SectionHeader 
           title="Privacy Policy" 

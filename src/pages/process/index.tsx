@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'wouter';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { Button } from '@/components/common/Button';
@@ -19,11 +19,11 @@ export default function Process() {
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
           <ScrollReveal>
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.9)' }}>Our Methodology</span>
-            <h1 className="text-5xl md:text-7xl font-black text-sidebar-foreground mb-8 tracking-tight max-w-4xl mx-auto" style={{ textShadow: '0 2px 12px rgba(0, 0, 0, 0.9)' }}>
+            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block" >Our Methodology</span>
+            <h1 className="text-5xl md:text-7xl font-black text-sidebar-foreground mb-8 tracking-tight max-w-4xl mx-auto" >
               Our Proven Development Process
             </h1>
-            <p className="text-xl md:text-2xl text-sidebar-foreground/90 max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.9)' }}>
+            <p className="text-xl md:text-2xl text-sidebar-foreground/90 max-w-3xl mx-auto leading-relaxed" >
               We replace chaos with predictability. Our engineering methodology ensures transparency, eliminates technical debt, and guarantees delivery.
             </p>
           </ScrollReveal>

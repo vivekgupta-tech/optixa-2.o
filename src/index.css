@@ -117,6 +117,14 @@
   --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
   --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   --shadow-2xl: 0 50px 100px -20px rgba(0, 0, 0, 0.25);
+
+  /* ── Text-shadow tokens (used on hero overlays for legibility) ── */
+  --text-shadow-hero: 0 2px 12px rgba(0, 0, 0, 0.9);
+  --text-shadow-md:   0 2px 8px  rgba(0, 0, 0, 0.9);
+  --text-shadow-sm:   0 2px 6px  rgba(0, 0, 0, 0.9);
+
+  /* ── Hero slider dot color (inactive) ── */
+  --hero-dot-bg: rgba(255, 255, 255, 0.3);
 }
 
 .dark {
@@ -182,3 +190,8 @@
     /* Inter: readable body copy */
   }
 }
+
+/* ── Text-shadow utility classes ── */
+.text-shadow-hero { text-shadow: var(--text-shadow-hero); }
+.text-shadow-md   { text-shadow: var(--text-shadow-md);   }
+.text-shadow-sm   { text-shadow: var(--text-shadow-sm);   }

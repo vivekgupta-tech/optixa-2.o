@@ -32,17 +32,17 @@ export default function InsightDetail() {
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <ScrollReveal className="max-w-4xl">
-            <Link href="/insights" className="inline-flex items-center gap-2 text-sidebar-foreground/85 hover:text-sidebar-foreground transition-colors font-bold text-sm uppercase tracking-wider mb-8" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.9)' }}>
+            <Link href="/insights" className="text-shadow-md inline-flex items-center gap-2 text-sidebar-foreground/85 hover:text-sidebar-foreground transition-colors font-bold text-sm uppercase tracking-wider mb-8">
               <ArrowLeft className="w-4 h-4" /> Back to Insights
             </Link>
             <br />
-            <span className="inline-block px-3 py-1 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider mb-6" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.9)' }}>
+            <span className="text-shadow-md inline-block px-3 py-1 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider mb-6">
               {post.category}
             </span>
-            <h1 className="text-4xl md:text-6xl font-black text-sidebar-foreground mb-8 leading-[1.1] tracking-tight" style={{ textShadow: '0 2px 12px rgba(0, 0, 0, 0.9)' }}>
+            <h1 className="text-shadow-hero text-4xl md:text-6xl font-black text-sidebar-foreground mb-8 leading-[1.1] tracking-tight">
               {post.title}
             </h1>
-            <div className="flex items-center gap-6 text-sm text-sidebar-foreground/80 font-bold uppercase tracking-wide" style={{ textShadow: '0 2px 6px rgba(0, 0, 0, 0.9)' }}>
+            <div className="text-shadow-sm flex items-center gap-6 text-sm text-sidebar-foreground/80 font-bold uppercase tracking-wide">
               <span>{post.date}</span>
               <span>{post.readTime}</span>
             </div>

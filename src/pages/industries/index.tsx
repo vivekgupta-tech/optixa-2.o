@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'wouter';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { Button } from '@/components/common/Button';
@@ -23,10 +23,10 @@ export default function Industries() {
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
           <ScrollReveal>
-            <h1 className="text-5xl md:text-7xl font-black text-sidebar-foreground mb-8 tracking-tight" style={{ textShadow: '0 2px 12px rgba(0, 0, 0, 0.9)' }}>
+            <h1 className="text-5xl md:text-7xl font-black text-sidebar-foreground mb-8 tracking-tight" >
               Industry-Specific Technology Solutions
             </h1>
-            <p className="text-xl md:text-2xl text-sidebar-foreground/90 mb-12 max-w-3xl mx-auto leading-relaxed" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.9)' }}>
+            <p className="text-xl md:text-2xl text-sidebar-foreground/90 mb-12 max-w-3xl mx-auto leading-relaxed" >
               We combine deep sector knowledge with world-class engineering to solve the unique challenges of your industry.
             </p>
             <Button asChild size="lg" className="h-14 px-8 text-base">

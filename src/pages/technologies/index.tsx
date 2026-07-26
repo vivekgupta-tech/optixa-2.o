@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'wouter';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { Button } from '@/components/common/Button';
@@ -116,8 +116,8 @@ export default function Technologies() {
         </div>
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
           <ScrollReveal>
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.9)' }}>Our Arsenal</span>
-            <h1 className="text-5xl md:text-7xl font-black text-sidebar-foreground mb-8 tracking-tight" style={{ textShadow: '0 2px 12px rgba(0, 0, 0, 0.9)' }}>
+            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-6 block" >Our Arsenal</span>
+            <h1 className="text-5xl md:text-7xl font-black text-sidebar-foreground mb-8 tracking-tight" >
               The Technology Stack That Powers Our Work
             </h1>
           </ScrollReveal>
