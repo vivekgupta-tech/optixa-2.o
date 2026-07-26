@@ -68,8 +68,8 @@
   --popover: 0 0% 100%;
   --popover-foreground: 222 47% 11%;
 
-  --primary: 355 75% 42%;
-  /* was 355 94% 46% -> desaturated, less glare */
+  --primary: 43 88% 46%;
+  /* Gold primary theme color */
   --primary-foreground: 0 0% 100%;
 
   --secondary: 0 0% 96%;
@@ -84,7 +84,7 @@
   --destructive-foreground: 0 0% 100%;
   --border: 0 0% 89%;
   --input: 0 0% 89%;
-  --ring: 355 75% 42%;
+  --ring: 43 88% 46%;
   --radius: 0.75rem;
   /* was 0.5rem (8px) -> 12px */
 
@@ -92,13 +92,13 @@
   /* navy sidebar instead of light/black */
   --sidebar-foreground: 0 0% 90%;
   --sidebar-border: 222 40% 18%;
-  --sidebar-primary: 355 75% 42%;
+  --sidebar-primary: 43 88% 46%;
   --sidebar-primary-foreground: 0 0% 100%;
   --sidebar-accent: 222 40% 18%;
   --sidebar-accent-foreground: 0 0% 95%;
-  --sidebar-ring: 355 75% 42%;
+  --sidebar-ring: 43 88% 46%;
 
-  --chart-1: 355 75% 42%;
+  --chart-1: 43 88% 46%;
   --chart-2: 220 70% 50%;
   --chart-3: 160 60% 45%;
   --chart-4: 30 80% 55%;
@@ -120,11 +120,17 @@
 
   /* ── Text-shadow tokens (used on hero overlays for legibility) ── */
   --text-shadow-hero: 0 2px 12px rgba(0, 0, 0, 0.9);
-  --text-shadow-md:   0 2px 8px  rgba(0, 0, 0, 0.9);
-  --text-shadow-sm:   0 2px 6px  rgba(0, 0, 0, 0.9);
+  --text-shadow-md: 0 2px 8px rgba(0, 0, 0, 0.9);
+  --text-shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.9);
 
   /* ── Hero slider dot color (inactive) ── */
   --hero-dot-bg: rgba(255, 255, 255, 0.3);
+
+  /* ── Image overlay: flat navy layer used on hero/banner images so white text stays readable ── */
+  --overlay: 222 47% 11%;
+  /* same navy as --sidebar, #0F172A */
+  --overlay-opacity: 0.55;
+  /* use as hsl(var(--overlay) / var(--overlay-opacity)) */
 }
 
 .dark {
@@ -135,7 +141,7 @@
   --card-foreground: 222 47% 11%;
   --popover: 0 0% 100%;
   --popover-foreground: 222 47% 11%;
-  --primary: 355 75% 42%;
+  --primary: 43 88% 46%;
   --primary-foreground: 0 0% 100%;
   --secondary: 0 0% 96%;
   --secondary-foreground: 222 47% 11%;
@@ -147,18 +153,18 @@
   --destructive-foreground: 0 0% 100%;
   --border: 0 0% 89%;
   --input: 0 0% 89%;
-  --ring: 355 75% 42%;
+  --ring: 43 88% 46%;
 
   --sidebar: 222 47% 11%;
   --sidebar-foreground: 0 0% 90%;
   --sidebar-border: 222 40% 18%;
-  --sidebar-primary: 355 75% 42%;
+  --sidebar-primary: 43 88% 46%;
   --sidebar-primary-foreground: 0 0% 100%;
   --sidebar-accent: 222 40% 18%;
   --sidebar-accent-foreground: 0 0% 95%;
-  --sidebar-ring: 355 75% 42%;
+  --sidebar-ring: 43 88% 46%;
 
-  --chart-1: 355 75% 42%;
+  --chart-1: 43 88% 46%;
   --chart-2: 220 70% 50%;
   --chart-3: 160 60% 45%;
   --chart-4: 30 80% 55%;
@@ -192,6 +198,14 @@
 }
 
 /* ── Text-shadow utility classes ── */
-.text-shadow-hero { text-shadow: var(--text-shadow-hero); }
-.text-shadow-md   { text-shadow: var(--text-shadow-md);   }
-.text-shadow-sm   { text-shadow: var(--text-shadow-sm);   }
+.text-shadow-hero {
+  text-shadow: var(--text-shadow-hero);
+}
+
+.text-shadow-md {
+  text-shadow: var(--text-shadow-md);
+}
+
+.text-shadow-sm {
+  text-shadow: var(--text-shadow-sm);
+}
