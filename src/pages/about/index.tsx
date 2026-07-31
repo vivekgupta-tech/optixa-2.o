@@ -76,54 +76,371 @@ export default function About() {
       </section>
 
       {/* 3. Mission & Vision — Split Dark Section */}
-      <section className="flex flex-col md:flex-row min-h-[60vh]">
-        <div className="md:w-1/2 bg-sidebar text-sidebar-foreground p-12 md:p-24 flex flex-col justify-center">
-          <ScrollReveal>
-            <div className="w-16 h-1 bg-primary mb-8" />
-            <h3 className="text-primary font-bold uppercase tracking-widest text-sm mb-4">{about.missionVision.mission.subtitle}</h3>
-            <p className="text-3xl md:text-4xl font-black text-white leading-snug">
-              {about.missionVision.mission.text}
-            </p>
-          </ScrollReveal>
+
+<section className="py-24 bg-background">
+  <div className="container mx-auto px-4 md:px-8">
+
+    <ScrollReveal className="text-center mb-14">
+      <span className="text-primary uppercase tracking-[0.3em] text-sm font-bold">
+        WHO WE ARE
+      </span>
+
+      <h2 className="mt-4 text-4xl md:text-5xl font-black text-foreground">
+        Mission, Vision & Experience
+      </h2>
+
+      <p className="mt-6 max-w-3xl mx-auto text-xl text-muted-foreground">
+        We build future-ready digital solutions with innovation,
+        transparency and long-term partnerships.
+      </p>
+    </ScrollReveal>
+
+    <div className="grid lg:grid-cols-3 gap-8">
+
+      {/* Mission */}
+      <ScrollReveal>
+        <div
+          className="
+            group
+            h-[320px]
+            rounded-[36px]
+            bg-sidebar
+            border
+            border-sidebar/20
+            shadow-xl
+            p-8
+            flex
+            flex-col
+            transition-all
+            duration-500
+            hover:-translate-y-2
+            hover:bg-primary
+            hover:border-primary
+            hover:shadow-2xl
+          "
+        >
+
+          <div
+            className="
+              w-14
+              h-14
+              rounded-2xl
+              bg-primary/10
+              flex
+              items-center
+              justify-center
+              text-primary
+              transition-all
+              duration-300
+              group-hover:bg-white/20
+              group-hover:text-white
+              group-hover:scale-110
+            "
+          >
+            <Target className="w-7 h-7" />
+          </div>
+
+          <span className="mt-6 uppercase tracking-[0.25em] text-primary text-xs font-bold transition-colors duration-300 group-hover:text-white">
+            {about.missionVision.mission.subtitle}
+          </span>
+
+          <h3 className="mt-4 text-3xl font-black text-white transition-colors duration-300">
+            Our Mission
+          </h3>
+
+          <p className="mt-5 text-base leading-7 text-white/80 flex-1 transition-colors duration-300 group-hover:text-white/90">
+            {about.missionVision.mission.text}
+          </p>
+
         </div>
-        <div className="md:w-1/2 bg-muted/40 p-12 md:p-24 flex flex-col justify-center">
-          <ScrollReveal delay={0.2}>
-            <div className="w-16 h-1 bg-black mb-8" />
-            <h3 className="text-muted-foreground font-bold uppercase tracking-widest text-sm mb-4">{about.missionVision.vision.subtitle}</h3>
-            <p className="text-3xl md:text-4xl font-black text-foreground leading-snug">
-              {about.missionVision.vision.text}
-            </p>
-          </ScrollReveal>
+      </ScrollReveal>
+
+      {/* Vision */}
+      <ScrollReveal delay={0.1}>
+        <div
+          className="
+            group
+            h-[320px]
+            rounded-[36px]
+            bg-card
+            border
+            border-border
+            shadow-xl
+            p-8
+            flex
+            flex-col
+            transition-all
+            duration-500
+            hover:-translate-y-2
+            hover:bg-sidebar
+            hover:border-primary
+            hover:shadow-2xl
+          "
+        >
+
+          <div
+            className="
+              w-14
+              h-14
+              rounded-2xl
+              bg-primary/10
+              flex
+              items-center
+              justify-center
+              text-primary
+              transition-all
+              duration-300
+              group-hover:bg-primary
+              group-hover:text-white
+              group-hover:scale-110
+            "
+          >
+            <Eye className="w-7 h-7" />
+          </div>
+
+          <span className="mt-6 uppercase tracking-[0.25em] text-primary text-xs font-bold">
+            {about.missionVision.vision.subtitle}
+          </span>
+
+          <h3 className="mt-4 text-3xl font-black text-foreground transition-colors duration-300 group-hover:text-white">
+            Our Vision
+          </h3>
+
+          <p className="mt-5 text-base leading-7 text-muted-foreground flex-1 transition-colors duration-300 group-hover:text-white/80">
+            {about.missionVision.vision.text}
+          </p>
+
         </div>
-      </section>
+      </ScrollReveal>
+
+      {/* Experience */}
+      <ScrollReveal delay={0.2}>
+        <div
+          className="
+            group
+            h-[320px]
+            rounded-[36px]
+            bg-primary
+            text-primary-foreground
+            shadow-xl
+            p-8
+            flex
+            flex-col
+            transition-all
+            duration-500
+            hover:-translate-y-2
+            hover:bg-sidebar
+            hover:shadow-2xl
+          "
+        >
+
+          <div
+            className="
+              w-14
+              h-14
+              rounded-2xl
+              bg-white/15
+              flex
+              items-center
+              justify-center
+              transition-all
+              duration-300
+              group-hover:bg-primary
+            "
+          >
+            <Zap className="w-7 h-7 text-white" />
+          </div>
+
+          <span className="mt-6 uppercase tracking-[0.3em] text-xs font-bold opacity-90">
+            EXPERIENCE
+          </span>
+
+          <h2 className="mt-4 text-6xl font-black transition-colors duration-300 group-hover:text-primary">
+            10+
+          </h2>
+
+          <p className="mt-2 text-xl font-bold transition-colors duration-300 group-hover:text-white">
+            Years of Excellence
+          </p>
+
+          <div className="flex-1" />
+
+          <div className="border-t border-white/20 pt-5 flex items-center justify-between">
+
+            <div>
+              <p className="text-2xl font-black">
+                500+
+              </p>
+
+              <p className="text-sm opacity-90">
+                Successful Projects
+              </p>
+            </div>
+
+            <ArrowRight className="w-6 h-6 transition-transform duration-300 group-hover:translate-x-2" />
+
+          </div>
+
+        </div>
+      </ScrollReveal>
+
+    </div>
+
+  </div>
+</section>
 
       {/* 4. Core Values — Large Icon Sections (not cards) */}
-      <section className="py-24 md:py-32 bg-background">
-        <div className="container mx-auto px-4 md:px-8">
-          <ScrollReveal className="mb-20 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-black text-foreground mb-6">{about.values.title}</h2>
-            <p className="text-xl text-muted-foreground">{about.values.description}</p>
-          </ScrollReveal>
+<section className="py-24 md:py-32 bg-background">
+  <div className="container mx-auto px-4 md:px-8">
 
-          <div className="space-y-16">
-            {[<Target key="target" className="w-10 h-10" />, <Eye key="eye" className="w-10 h-10" />, <Zap key="zap" className="w-10 h-10" />, <RefreshCw key="refresh" className="w-10 h-10" />, <Users key="users" className="w-10 h-10" />, <Shield key="shield" className="w-10 h-10" />].map((icon, i) => {
-              const value = about.values.items[i];
-              return (
-              <ScrollReveal key={i} delay={i * 0.1} className="flex flex-col md:flex-row gap-8 items-start border-b border-border pb-16 last:border-0 last:pb-0">
-                <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center shrink-0 text-primary">
+    {/* Heading */}
+    <ScrollReveal className="max-w-3xl mx-auto text-center mb-20">
+
+      <span className="inline-flex items-center rounded-full bg-primary/10 px-5 py-2 text-sm font-semibold uppercase tracking-[0.3em] text-primary">
+        Core Values
+      </span>
+
+      <h2 className="mt-6 text-4xl md:text-5xl font-black text-foreground">
+        {about.values.title}
+      </h2>
+
+      <p className="mt-6 text-xl leading-8 text-muted-foreground">
+        {about.values.description}
+      </p>
+
+    </ScrollReveal>
+
+    {/* Cards */}
+    <div className="space-y-8">
+
+      {[
+        <Target key="target" className="w-10 h-10" />,
+        <Eye key="eye" className="w-10 h-10" />,
+        <Zap key="zap" className="w-10 h-10" />,
+        <RefreshCw key="refresh" className="w-10 h-10" />,
+        <Users key="users" className="w-10 h-10" />,
+        <Shield key="shield" className="w-10 h-10" />,
+      ].map((icon, i) => {
+
+        const value = about.values.items[i];
+
+        return (
+
+          <ScrollReveal
+            key={i}
+            delay={i * 0.08}
+          >
+
+            <div
+              className="
+                group
+                rounded-[32px]
+                border
+                border-border
+                bg-card
+                p-8
+                md:p-10
+                shadow-lg
+                transition-all
+                duration-500
+                hover:-translate-y-2
+                hover:bg-sidebar
+                hover:border-primary/40
+                hover:shadow-2xl
+              "
+            >
+
+              <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
+
+                {/* Icon */}
+                <div
+                  className="
+                    w-20
+                    h-20
+                    rounded-3xl
+                    bg-primary/10
+                    text-primary
+                    flex
+                    items-center
+                    justify-center
+                    shrink-0
+                    transition-all
+                    duration-300
+                    group-hover:bg-primary
+                    group-hover:text-white
+                    group-hover:scale-110
+                  "
+                >
                   {icon}
                 </div>
-                <div className="pt-2">
-                  <h3 className="text-3xl font-black text-foreground mb-4">{value.title}</h3>
-                  <p className="text-xl text-muted-foreground max-w-4xl leading-relaxed">{value.text}</p>
-                </div>
-              </ScrollReveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
+                {/* Content */}
+                <div className="flex-1">
+
+                  <h3
+                    className="
+                      text-3xl
+                      font-black
+                      text-foreground
+                      mb-4
+                      transition-colors
+                      duration-300
+                      group-hover:text-white
+                    "
+                  >
+                    {value.title}
+                  </h3>
+
+                  <p
+                    className="
+                      text-lg
+                      leading-8
+                      text-muted-foreground
+                      transition-colors
+                      duration-300
+                      group-hover:text-white/80
+                    "
+                  >
+                    {value.text}
+                  </p>
+
+                </div>
+
+                {/* Arrow */}
+                <div
+                  className="
+                    hidden
+                    md:flex
+                    w-14
+                    h-14
+                    rounded-full
+                    bg-muted
+                    items-center
+                    justify-center
+                    transition-all
+                    duration-300
+                    group-hover:bg-white
+                    group-hover:text-sidebar
+                    group-hover:translate-x-2
+                  "
+                >
+                  <ArrowRight className="w-6 h-6" />
+                </div>
+
+              </div>
+
+            </div>
+
+          </ScrollReveal>
+
+        );
+
+      })}
+
+    </div>
+
+  </div>
+</section>
       {/* 5. Startup Timeline — Vertical Timeline */}
       <section className="py-24 md:py-32 bg-muted/40 border-y border-border">
         <div className="container mx-auto px-4 md:px-8">
@@ -162,32 +479,106 @@ export default function About() {
         </div>
       </section>
 
-      {/* 6. How We Work — 3 Wide Rows */}
-      <section className="py-24 md:py-32 bg-background">
-        <div className="container mx-auto px-4 md:px-8">
-          <ScrollReveal className="mb-20 text-center">
-            <h2 className="text-4xl md:text-5xl font-black text-foreground">{about.operations.title}</h2>
-          </ScrollReveal>
+   {/* 6. How We Work */}
+<section className="py-24 md:py-32 bg-background">
+  <div className="container mx-auto px-4 md:px-8">
 
-          <div className="space-y-24">
-            {about.operations.rows.map((row, i) => {
-              const isEven = i % 2 === 0;
-              return (
-                <div key={i} className={cn("grid md:grid-cols-2 gap-12 items-center", !isEven && "md:grid-flow-col-dense")}>
-                  <ScrollReveal className={cn(isEven ? "md:col-start-1" : "md:col-start-2")}>
-                    <p className="text-8xl font-black text-muted mb-4 tracking-tighter">{row.num}</p>
-                    <h3 className="text-3xl font-black text-foreground mb-6">{row.title}</h3>
-                    <p className="text-xl text-muted-foreground leading-relaxed">{row.desc}</p>
-                  </ScrollReveal>
-                  <ScrollReveal delay={0.2} className={cn(isEven ? "md:col-start-2" : "md:col-start-1")}>
-                    <img src={row.img} alt={row.title} className="w-full aspect-[4/3] object-cover shadow-xl" />
-                  </ScrollReveal>
+    {/* Heading */}
+    <ScrollReveal className="mb-20 text-center max-w-3xl mx-auto">
+
+      <span className="inline-flex rounded-full bg-primary/10 px-5 py-2 text-primary text-sm font-semibold uppercase tracking-[0.3em]">
+        Process
+      </span>
+
+      <h2 className="mt-6 text-4xl md:text-5xl font-black text-foreground">
+        {about.operations.title}
+      </h2>
+
+      <p className="mt-6 text-xl text-muted-foreground leading-8">
+        Every project follows a structured workflow that keeps quality,
+        transparency and delivery at the highest level.
+      </p>
+
+    </ScrollReveal>
+
+    <div className="space-y-20">
+
+      {about.operations.rows.map((row, i) => {
+
+        const isEven = i % 2 === 0;
+
+        return (
+
+          <div
+            key={i}
+            className={cn(
+              "grid lg:grid-cols-2 gap-14 items-center",
+              !isEven && "lg:grid-flow-col-dense"
+            )}
+          >
+
+            {/* Text */}
+            <ScrollReveal
+              className={cn(
+                isEven ? "lg:col-start-1" : "lg:col-start-2"
+              )}
+            >
+
+              <div className="rounded-[32px] border border-border bg-card p-10 shadow-lg">
+
+                <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground text-2xl font-black mb-8">
+                  {row.num}
                 </div>
-              );
-            })}
+
+                <h3 className="text-4xl font-black text-foreground mb-6">
+                  {row.title}
+                </h3>
+
+                <p className="text-lg leading-8 text-muted-foreground">
+                  {row.desc}
+                </p>
+
+              </div>
+
+            </ScrollReveal>
+
+            {/* Image */}
+            <ScrollReveal
+              delay={0.2}
+              className={cn(
+                isEven ? "lg:col-start-2" : "lg:col-start-1"
+              )}
+            >
+
+              <div className="group overflow-hidden rounded-[32px] shadow-2xl">
+
+                <img
+                  src={row.img}
+                  alt={row.title}
+                  className="
+                    w-full
+                    aspect-[4/3]
+                    object-cover
+                    transition-transform
+                    duration-700
+                    group-hover:scale-110
+                  "
+                />
+
+              </div>
+
+            </ScrollReveal>
+
           </div>
-        </div>
-      </section>
+
+        );
+
+      })}
+
+    </div>
+
+  </div>
+</section>
 
       {/* 7. Work Culture — Full-Width Image Section */}
       <section className="relative py-32 md:py-48 bg-sidebar text-sidebar-foreground">
