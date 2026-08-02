@@ -49,94 +49,185 @@ export default function ServicesList() {
         </div>
       </section>
 
-      {/* 3. Services Zigzag */}
-      <section className="bg-muted/40">
-        {mainServices.map((service, index) => {
-          const isEven = index % 2 === 0;
-          return (
-            <div key={service.slug} className="border-b border-border last:border-0 overflow-hidden">
-              <div className="container mx-auto px-4 md:px-8 py-24 md:py-32">
-                <div className={cn("grid lg:grid-cols-2 gap-16 items-center", !isEven && "lg:grid-flow-col-dense")}>
-                  
-                  {/* Image Side */}
-                  <ScrollReveal className={cn("relative group", isEven ? "lg:col-start-1" : "lg:col-start-2")}>
-                    <div className="absolute inset-0 bg-primary translate-x-4 translate-y-4 -z-10 group-hover:translate-x-6 group-hover:translate-y-6 transition-transform duration-500" />
-                    <img 
-                      src={service.heroImage} 
-                      alt={service.title} 
-                      className="w-full aspect-video md:aspect-square object-cover shadow-2xl border border-border"
-                    />
-                  </ScrollReveal>
-                  
-                  {/* Content Side */}
-                  <ScrollReveal delay={0.2} className={cn(isEven ? "lg:col-start-2" : "lg:col-start-1")}>
-                    <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider mb-6">
-                      {servicesList.labels.coreService}
-                    </span>
-                    <h3 className="text-4xl md:text-5xl font-black text-foreground mb-6">{service.title}</h3>
-                    
-                    <div className="space-y-4 text-lg text-muted-foreground mb-10">
-                      <p>{service.description}</p>
-                      <p>{service.overview.substring(0, 180)}...</p>
-                    </div>
+ {/* 3. Services Zigzag */}
+<section className="bg-muted/40">
+  {mainServices.map((service, index) => {
+    const isEven = index % 2 === 0;
 
-                    <div className="mb-10">
-                      <h4 className="text-xl font-bold text-foreground mb-4">{servicesList.labels.keyCapabilities}</h4>
-                      <div className="space-y-3">
-                        {service.features.slice(0, 4).map((feat, i) => (
-                          <div key={i} className="flex items-start gap-3">
-                            <CheckCircle2 className="w-6 h-6 text-primary shrink-0" />
-                            <p className="font-semibold text-foreground">{feat.title} <span className="font-normal text-muted-foreground">— {feat.description}</span></p>
-                          </div>
-                        ))}
+    return (
+      <div
+        key={service.slug}
+        className="border-b border-border last:border-0 overflow-hidden"
+      >
+        <div className="container mx-auto px-4 md:px-8 py-20 md:py-24">
+
+          <div
+            className={cn(
+              "grid lg:grid-cols-2 gap-14 items-center",
+              !isEven && "lg:grid-flow-col-dense"
+            )}
+          >
+
+            {/* Image Side */}
+            <ScrollReveal
+              className={cn(
+                "relative group flex items-center",
+                isEven ? "lg:col-start-1" : "lg:col-start-2"
+              )}
+            >
+              <div className="absolute inset-0 rounded-3xl bg-primary translate-x-4 translate-y-4 -z-10 transition-all duration-500 group-hover:translate-x-6 group-hover:translate-y-6" />
+
+              <img
+                src={service.heroImage}
+                alt={service.title}
+                className="
+                  w-full
+                  h-[620px]
+                  object-cover
+                  rounded-3xl
+                  border
+                  border-border
+                  shadow-2xl
+                  transition-all
+                  duration-500
+                  group-hover:scale-[1.02]
+                "
+              />
+            </ScrollReveal>
+
+            {/* Content Side */}
+            <ScrollReveal
+              delay={0.2}
+              className={cn(
+                "flex items-center",
+                isEven ? "lg:col-start-2" : "lg:col-start-1"
+              )}
+            >
+              <div className="w-full min-h-[620px] flex flex-col justify-center">
+
+                {/* Badge */}
+                <span className="inline-flex w-fit items-center rounded-full bg-primary/10 px-4 py-1.5 text-primary text-xs font-bold uppercase tracking-[0.15em] mb-4">
+                  {servicesList.labels.coreService}
+                </span>
+
+                {/* Title */}
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight text-foreground mb-5">
+                  {service.title}
+                </h3>
+
+                {/* Description */}
+                <div className="space-y-4 text-base md:text-lg leading-7 text-muted-foreground mb-8">
+                  <p>{service.description}</p>
+                  <p>{service.overview.substring(0, 120)}...</p>
+                </div>
+
+                {/* Key Capabilities */}
+                <div className="mb-8">
+                  <h4 className="text-xl md:text-2xl font-black text-foreground mb-5">
+                    {servicesList.labels.keyCapabilities}
+                  </h4>
+
+                  <div className="space-y-3">
+
+                    {service.features.slice(0, 3).map((feat, i) => (
+                      <div
+                        key={i}
+                        className="flex items-start gap-3"
+                      >
+                        <div className="w-7 h-7 rounded-full border-2 border-primary flex items-center justify-center shrink-0">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
+                        </div>
+
+                        <p className="text-base leading-7">
+                          <span className="font-bold text-foreground">
+                            {feat.title}
+                          </span>
+
+                          <span className="text-muted-foreground">
+                            {" "}
+                            — {feat.description}
+                          </span>
+                        </p>
                       </div>
-                    </div>
+                    ))}
 
-                    <div className="flex flex-wrap gap-2 mb-10">
-                      {service.technologies.slice(0, 5).map(tech => (
-                        <span key={tech} className="px-3 py-1 bg-muted text-muted-foreground text-xs font-bold rounded-full">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                  </div>
+                </div>
 
-                    <Button asChild size="lg" className="h-14 px-8 text-base bg-foreground text-background hover:bg-primary hover:text-primary-foreground">
-                      <Link href={`/services/${service.slug}`}>
-                        {servicesList.labels.explorePrefix} {service.title} <ArrowRight className="w-5 h-5 ml-2" />
-                      </Link>
-                    </Button>
-                  </ScrollReveal>
+                {/* Technology Chips */}
+                <div className="flex flex-wrap gap-3 mb-8">
+
+                  {service.technologies.slice(0, 4).map((tech) => (
+                    <span
+                      key={tech}
+                      className="
+                        inline-flex
+                        items-center
+                        justify-center
+                        rounded-full
+                        px-4
+                        py-2
+                        text-xs
+                        font-semibold
+                        border
+                        border-sky-200
+                        bg-white/60
+                        backdrop-blur-xl
+                        text-sky-700
+                        shadow-md
+                        transition-all
+                        duration-300
+                        hover:-translate-y-1
+                        hover:scale-105
+                        hover:bg-gradient-to-r
+                        hover:from-sky-500
+                        hover:to-blue-600
+                        hover:text-white
+                        hover:border-blue-500
+                        hover:shadow-[0_10px_25px_rgba(37,99,235,0.35)]
+                      "
+                    >
+                      {tech}
+                    </span>
+                  ))}
 
                 </div>
+
+                {/* Button */}
+                <Button
+                  asChild
+                  size="lg"
+                  className="
+                    w-fit
+                    h-14
+                    px-8
+                    rounded-xl
+                    bg-sidebar
+                    text-white
+                    hover:bg-primary
+                    hover:text-white
+                    transition-all
+                    duration-300
+                  "
+                >
+                  <Link href={`/services/${service.slug}`}>
+                    {servicesList.labels.explorePrefix} {service.title}
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Link>
+                </Button>
+
               </div>
-            </div>
-          );
-        })}
-      </section>
+            </ScrollReveal>
 
-      {/* 4. Additional Services Grid — Narrow Cards Allowed */}
-      <section className="py-24 md:py-32 bg-background">
-        <div className="container mx-auto px-4 md:px-8">
-          <ScrollReveal className="text-center mb-16">
-            <h2 className="text-4xl font-black text-foreground">{servicesList.labels.specializedTitle}</h2>
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {additionalServices.map((service, i) => (
-              <ScrollReveal key={service.slug} delay={i * 0.1}>
-                <Link href={`/services/${service.slug}`} className="block h-full border border-border bg-card p-8 hover:border-primary hover:shadow-xl transition-all group">
-                  <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
-                  <p className="text-muted-foreground mb-6 line-clamp-2">{service.shortDescription}</p>
-                  <span className="text-primary font-bold flex items-center gap-2 text-sm uppercase tracking-wider">
-                    {servicesList.labels.viewService} <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
-                  </span>
-                </Link>
-              </ScrollReveal>
-            ))}
           </div>
-        </div>
-      </section>
 
+        </div>
+      </div>
+    );
+  })}
+</section>
+
+  
       {/* 5. Service Selection CTA — Accordion FAQ */}
       <section className="py-24 bg-muted/40 border-t border-border">
         <div className="container mx-auto px-4 md:px-8 max-w-4xl">
