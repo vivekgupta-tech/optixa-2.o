@@ -484,8 +484,7 @@ export default function About() {
   <div className="container mx-auto px-4 md:px-8">
 
     {/* Heading */}
-    <ScrollReveal className="mb-20 text-center max-w-3xl mx-auto">
-
+    <ScrollReveal className="mb-24 text-center max-w-3xl mx-auto">
       <span className="inline-flex rounded-full bg-primary/10 px-5 py-2 text-primary text-sm font-semibold uppercase tracking-[0.3em]">
         Process
       </span>
@@ -498,10 +497,9 @@ export default function About() {
         Every project follows a structured workflow that keeps quality,
         transparency and delivery at the highest level.
       </p>
-
     </ScrollReveal>
 
-    <div className="space-y-20">
+    <div className="space-y-32">
 
       {about.operations.rows.map((row, i) => {
 
@@ -512,37 +510,46 @@ export default function About() {
           <div
             key={i}
             className={cn(
-              "grid lg:grid-cols-2 gap-14 items-center",
+              "grid lg:grid-cols-2 gap-16 lg:gap-24 items-center",
               !isEven && "lg:grid-flow-col-dense"
             )}
           >
 
-            {/* Text */}
+            {/* TEXT */}
             <ScrollReveal
               className={cn(
                 isEven ? "lg:col-start-1" : "lg:col-start-2"
               )}
             >
 
-              <div className="rounded-[32px] border border-border bg-card p-10 shadow-lg">
+              <div className="h-[420px] md:h-[520px] flex items-center justify-center">
 
-                <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground text-2xl font-black mb-8">
-                  {row.num}
+                <div className="max-w-lg w-full">
+
+                  {/* Number */}
+                  <div className="flex justify-center mb-8">
+                    <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground text-2xl font-black">
+                      {row.num}
+                    </div>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-center text-4xl md:text-5xl font-black leading-tight text-foreground mb-8">
+                    {row.title}
+                  </h3>
+
+                  {/* Paragraph */}
+                  <p className="text-left text-lg md:text-xl leading-9 text-muted-foreground">
+                    {row.desc}
+                  </p>
+
                 </div>
-
-                <h3 className="text-4xl font-black text-foreground mb-6">
-                  {row.title}
-                </h3>
-
-                <p className="text-lg leading-8 text-muted-foreground">
-                  {row.desc}
-                </p>
 
               </div>
 
             </ScrollReveal>
 
-            {/* Image */}
+            {/* IMAGE */}
             <ScrollReveal
               delay={0.2}
               className={cn(
@@ -550,18 +557,18 @@ export default function About() {
               )}
             >
 
-              <div className="group overflow-hidden rounded-[32px] shadow-2xl">
+              <div className="group h-[420px] md:h-[520px] overflow-hidden rounded-[32px] shadow-xl">
 
                 <img
                   src={row.img}
                   alt={row.title}
                   className="
                     w-full
-                    aspect-[4/3]
+                    h-full
                     object-cover
                     transition-transform
                     duration-700
-                    group-hover:scale-110
+                    group-hover:scale-105
                   "
                 />
 
@@ -578,8 +585,7 @@ export default function About() {
     </div>
 
   </div>
-</section>
-
+</section>  
       {/* 7. Work Culture — Full-Width Image Section */}
       <section className="relative py-32 md:py-48 bg-sidebar text-sidebar-foreground">
         <div className="absolute inset-0">
