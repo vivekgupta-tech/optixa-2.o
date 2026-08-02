@@ -442,42 +442,98 @@ export default function About() {
   </div>
 </section>
       {/* 5. Startup Timeline — Vertical Timeline */}
-      <section className="py-24 md:py-32 bg-muted/40 border-y border-border">
-        <div className="container mx-auto px-4 md:px-8">
-          <ScrollReveal className="mb-20 text-center">
-            <h2 className="text-4xl md:text-5xl font-black text-foreground">{about.timeline.title}</h2>
+     <section className="py-24 md:py-32 bg-muted/40 border-y border-border">
+  <div className="container mx-auto px-4 md:px-8">
+
+    {/* Heading */}
+    <ScrollReveal className="mb-20 text-center">
+      <h2 className="text-4xl md:text-5xl font-black text-foreground">
+        {about.timeline.title}
+      </h2>
+    </ScrollReveal>
+
+    <div className="max-w-5xl mx-auto relative">
+
+      {/* Vertical Line */}
+      <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-[3px] bg-border md:-translate-x-1/2" />
+
+      {about.timeline.nodes.map((node, i) => {
+        const isEven = i % 2 === 0;
+
+        return (
+          <ScrollReveal
+            key={i}
+            delay={0.1}
+            className="relative flex items-center mb-24 last:mb-0"
+          >
+            {/* LEFT */}
+            <div
+              className={cn(
+                "hidden md:flex w-1/2 pr-20 justify-end",
+                !isEven && "invisible"
+              )}
+            >
+              <div className="max-w-sm text-right">
+                <h4 className="text-2xl lg:text-3xl font-black text-foreground mb-4">
+                  {node.title}
+                </h4>
+
+                <p className="text-lg leading-8 text-muted-foreground">
+                  {node.desc}
+                </p>
+              </div>
+            </div>
+
+            {/* TIMELINE NODE */}
+            <div className="absolute left-8 md:left-1/2 -translate-x-1/2 z-20">
+              <div
+                className="
+                  w-20
+                  h-20
+                  rounded-full
+                  bg-primary
+                  border-4
+                  border-background
+                  shadow-xl
+                  flex
+                  items-center
+                  justify-center
+                  transition-all
+                  duration-300
+                  cursor-pointer
+                  hover:bg-sidebar
+                  hover:scale-110
+                "
+              >
+                <span className="text-white font-black text-xl">
+                  {node.year}
+                </span>
+              </div>
+            </div>
+
+            {/* RIGHT */}
+            <div
+              className={cn(
+                "w-full md:w-1/2 pl-24 md:pl-20",
+                isEven && "md:invisible"
+              )}
+            >
+              <div className="max-w-sm">
+                <h4 className="text-2xl lg:text-3xl font-black text-foreground mb-4">
+                  {node.title}
+                </h4>
+
+                <p className="text-lg leading-8 text-muted-foreground">
+                  {node.desc}
+                </p>
+              </div>
+            </div>
           </ScrollReveal>
-
-          <div className="max-w-4xl mx-auto relative">
-            {/* Vertical Line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-border md:-ml-0.5" />
-
-            {about.timeline.nodes.map((node, i) => {
-              const isEven = i % 2 === 0;
-              return (
-                <ScrollReveal key={i} delay={0.1} className="relative flex items-center justify-between mb-16 last:mb-0 w-full">
-                  {/* Left Side (Empty on mobile, content on desktop even) */}
-                  <div className={cn("hidden md:block w-5/12 text-right pr-12", !isEven && "opacity-0")}>
-                    <h4 className="text-2xl font-bold text-foreground mb-2">{node.title}</h4>
-                    <p className="text-muted-foreground">{node.desc}</p>
-                  </div>
-
-                  {/* Center Node */}
-                  <div className="absolute left-0 md:left-1/2 -ml-2 md:-ml-8 w-16 h-16 rounded-full bg-primary flex items-center justify-center border-4 border-background z-10 shadow-lg">
-                    <span className="text-primary-foreground font-bold text-sm">{node.year}</span>
-                  </div>
-
-                  {/* Right Side (Content on mobile, content on desktop odd) */}
-                  <div className={cn("w-full pl-24 md:pl-12 md:w-5/12", isEven && "md:hidden")}>
-                    <h4 className="text-2xl font-bold text-foreground mb-2">{node.title}</h4>
-                    <p className="text-muted-foreground">{node.desc}</p>
-                  </div>
-                </ScrollReveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+        );
+      })}
+    </div>
+  </div>
+</section>
 
    {/* 6. How We Work */}
 <section className="py-24 md:py-32 bg-background">
