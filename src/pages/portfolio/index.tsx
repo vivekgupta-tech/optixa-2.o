@@ -18,39 +18,36 @@ export default function Portfolio() {
 
   return (
     <div className="w-full bg-background min-h-screen">
-      {/* 1. Hero Banner matching reference screenshot with dark tech overlay & angled accents */}
-      <section className="relative pt-36 pb-24 md:pt-44 md:pb-28 overflow-hidden bg-sidebar text-white">
-        {/* Background Image with Navy Dark Overlay */}
+      {/* 1. Hero Banner matching reference screenshot with clean background image and dark overlay */}
+      <section className="relative pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden bg-black text-white">
+        {/* Full-bleed background image */}
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-25 mix-blend-luminosity scale-105 transition-transform duration-1000"
+          className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${portfolio.hero.backgroundImage})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A] via-[#0F172A]/90 to-[#0F172A]/80" />
+        
+        {/* Dark Overlay over the image matching reference screenshot */}
+        <div className="absolute inset-0 bg-black/60" />
 
-        {/* Diagonal Ribbon Accents in Theme Gold & Primary Colors (like reference screenshot) */}
-        <div className="absolute -bottom-10 -left-16 w-64 h-32 bg-primary/20 -rotate-12 transform skew-x-12 blur-xl pointer-events-none" />
-        <div className="absolute top-10 right-0 w-96 h-64 bg-primary/10 rotate-45 transform skew-y-12 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-6 left-0 right-0 h-12 bg-gradient-to-t from-background to-transparent z-10" />
+        {/* Main Content Area */}
+        <div className="container mx-auto px-6 md:px-12 relative z-10">
+          <div className="max-w-3xl text-left pl-2 md:pl-6">
+            {/* Main Title: Heavy Bold White Typography */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white mb-3 uppercase drop-shadow-md">
+              {portfolio.hero.title}
+            </h1>
 
-        <div className="container mx-auto px-4 md:px-8 relative z-10 text-center md:text-left">
-          <ScrollReveal>
-            {/* Diagonal Brand Accent Graphic Ribbons behind Header */}
-            <div className="relative inline-block mb-4">
-              <div className="absolute -left-6 top-1/2 -translate-y-1/2 w-3 h-8 bg-primary transform -skew-x-12 hidden md:block" />
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white uppercase">
-                {portfolio.hero.title}
-              </h1>
-            </div>
-
-            {/* Breadcrumb Navigation */}
-            <div className="flex items-center justify-center md:justify-start gap-2 text-sm font-medium text-white/70 tracking-wider uppercase mt-2">
-              <Link href="/" className="hover:text-primary transition-colors">
+            {/* Breadcrumb Navigation: HOME / PAGES / PORTFOLIO */}
+            <div className="flex items-center gap-2.5 text-xs md:text-sm font-bold tracking-widest uppercase text-white/80">
+              <Link href="/" className="hover:text-primary transition-colors text-white/90">
                 Home
               </Link>
-              <span className="text-primary font-bold">–</span>
-              <span className="text-primary font-semibold">{portfolio.hero.title}</span>
+              <span className="text-white/40">/</span>
+              <span className="text-white/90">Pages</span>
+              <span className="text-white/40">/</span>
+              <span className="text-primary font-extrabold">{portfolio.hero.title}</span>
             </div>
-          </ScrollReveal>
+          </div>
         </div>
       </section>
 
