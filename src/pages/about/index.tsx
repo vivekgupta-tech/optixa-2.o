@@ -200,64 +200,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* 5. How We Operate */}
-      <section className="py-24 md:py-32 bg-background border-t border-border/40">
-        <div className="container mx-auto px-4 md:px-8">
-          <ScrollReveal className="mb-24 text-center max-w-3xl mx-auto">
-            <span className="inline-flex rounded-full bg-primary/10 px-5 py-2 text-primary text-sm font-semibold uppercase tracking-[0.3em]">
-              Process
-            </span>
-            <h2 className="mt-6 text-4xl md:text-5xl font-black text-foreground">
-              {about.operations.title}
-            </h2>
-            <p className="mt-6 text-xl text-muted-foreground leading-8">
-              Every project follows a structured workflow that keeps quality, transparency and delivery at the highest level.
-            </p>
-          </ScrollReveal>
-
-          <div className="space-y-32">
-            {about.operations.rows.map((row, i) => {
-              const isEven = i % 2 === 0;
-              return (
-                <div
-                  key={i}
-                  className={cn(
-                    'grid lg:grid-cols-2 gap-16 lg:gap-24 items-center',
-                    !isEven && 'lg:grid-flow-col-dense'
-                  )}
-                >
-                  <ScrollReveal className={cn(isEven ? 'lg:col-start-1' : 'lg:col-start-2')}>
-                    <div className="h-[380px] md:h-[480px] flex items-center justify-center">
-                      <div className="max-w-lg w-full">
-                        <div className="flex justify-center mb-8">
-                          <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground text-2xl font-black">
-                            {row.num}
-                          </div>
-                        </div>
-                        <h3 className="text-center text-4xl md:text-5xl font-black leading-tight text-foreground mb-8">
-                          {row.title}
-                        </h3>
-                        <p className="text-left text-lg md:text-xl leading-9 text-muted-foreground">
-                          {row.desc}
-                        </p>
-                      </div>
-                    </div>
-                  </ScrollReveal>
-                  <ScrollReveal delay={0.2} className={cn(isEven ? 'lg:col-start-2' : 'lg:col-start-1')}>
-                    <div className="group h-[380px] md:h-[480px] overflow-hidden rounded-[32px] shadow-xl">
-                      <img
-                        src={row.img}
-                        alt={row.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                    </div>
-                  </ScrollReveal>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* 6. CTA Section */}
       <section className="py-20 bg-sidebar text-sidebar-foreground text-center border-t border-border/20">
