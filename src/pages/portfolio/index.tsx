@@ -1,295 +1,263 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'wouter';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { Button } from '@/components/common/Button';
 import { portfolio } from '@/data';
-import { ArrowRight, CheckCircle2, Terminal } from 'lucide-react';
+import { PortfolioItem } from '@/data/types';
+import { ArrowRight, ExternalLink, Sparkles, X, CheckCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const DEPLOY_LOG = [
-  { text: '$ nexora deploy --env production', delay: 35 },
-  { text: '✓ Build compiled in 4.2s', delay: 20, dim: true },
-  { text: '✓ 128/128 tests passed', delay: 20, dim: true },
-  { text: '✓ Deployed to 12 edge regions', delay: 20, dim: true },
-  { text: '✓ Live at 99.98% uptime', delay: 20, accent: true },
-];
-
-function DeployTerminal() {
-  const [lineIndex, setLineIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [done, setDone] = useState(false);
-
-  useEffect(() => {
-    if (lineIndex >= DEPLOY_LOG.length) {
-      const reset = setTimeout(() => {
-        setLineIndex(0);
-        setCharIndex(0);
-        setDone(false);
-      }, 2200);
-      return () => clearTimeout(reset);
-    }
-    const current = DEPLOY_LOG[lineIndex];
-    if (charIndex < current.text.length) {
-      const t = setTimeout(() => setCharIndex((c) => c + 1), current.delay);
-      return () => clearTimeout(t);
-    }
-    const next = setTimeout(() => {
-      setLineIndex((l) => l + 1);
-      setCharIndex(0);
-      if (lineIndex === DEPLOY_LOG.length - 1) setDone(true);
-    }, 450);
-    return () => clearTimeout(next);
-  }, [lineIndex, charIndex]);
-
-  return (
-    <div className="rounded-md border border-white/10 bg-black/40 overflow-hidden font-mono text-sm shadow-2xl">
-      <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10 bg-white/[0.03]">
-        <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
-        <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
-        <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
-        <span className="ml-3 text-white/40 text-xs tracking-wider">production — zsh</span>
-      </div>
-      <div className="p-5 min-h-[220px] flex flex-col justify-center gap-2.5">
-        {DEPLOY_LOG.slice(0, lineIndex).map((line, i) => (
-          <div
-            key={i}
-            className={cn(
-              'text-white/50',
-              line.accent && 'text-primary',
-              !line.dim && !line.accent && 'text-white'
-            )}
-          >
-            {line.text}
-          </div>
-        ))}
-        {lineIndex < DEPLOY_LOG.length && (
-          <div
-            className={cn(
-              DEPLOY_LOG[lineIndex].accent
-                ? 'text-primary'
-                : DEPLOY_LOG[lineIndex].dim
-                ? 'text-white/50'
-                : 'text-white'
-            )}
-          >
-            {DEPLOY_LOG[lineIndex].text.slice(0, charIndex)}
-            <span className="inline-block w-[7px] h-[15px] bg-primary/80 ml-0.5 align-middle animate-pulse" />
-          </div>
-        )}
-        {done && lineIndex >= DEPLOY_LOG.length && (
-          <div className="text-primary">✓ Live at 99.98% uptime</div>
-        )}
-      </div>
-    </div>
-  );
-}
-
 export default function Portfolio() {
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [activeModalProject, setActiveModalProject] = useState<PortfolioItem | null>(null);
+
+  // Filter items based on selected category chip
+  const filteredItems = selectedCategory === 'All'
+    ? portfolio.items
+    : portfolio.items.filter((item) => item.category.toLowerCase() === selectedCategory.toLowerCase());
+
   return (
-    <div className="w-full bg-background">
-      {/* 1. Hero — split layout, schematic panel replaces the dim photo */}
-      <section className="relative pt-40 pb-28 md:pt-48 md:pb-32 bg-sidebar text-sidebar-foreground overflow-hidden">
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-16 items-center">
-            <ScrollReveal>
-              <div className="flex items-center gap-3 mb-6">
-                <Terminal className="w-4 h-4 text-primary" />
-                <span className="font-mono text-xs tracking-[0.3em] uppercase text-primary">
-                  {portfolio.hero.subtitle}
-                </span>
-              </div>
-              <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tight leading-[0.95]">
+    <div className="w-full bg-background min-h-screen">
+      {/* 1. Hero Banner matching reference screenshot with dark tech overlay & angled accents */}
+      <section className="relative pt-36 pb-24 md:pt-44 md:pb-28 overflow-hidden bg-sidebar text-white">
+        {/* Background Image with Navy Dark Overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-25 mix-blend-luminosity scale-105 transition-transform duration-1000"
+          style={{ backgroundImage: `url(${portfolio.hero.backgroundImage})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A] via-[#0F172A]/90 to-[#0F172A]/80" />
+
+        {/* Diagonal Ribbon Accents in Theme Gold & Primary Colors (like reference screenshot) */}
+        <div className="absolute -bottom-10 -left-16 w-64 h-32 bg-primary/20 -rotate-12 transform skew-x-12 blur-xl pointer-events-none" />
+        <div className="absolute top-10 right-0 w-96 h-64 bg-primary/10 rotate-45 transform skew-y-12 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-6 left-0 right-0 h-12 bg-gradient-to-t from-background to-transparent z-10" />
+
+        <div className="container mx-auto px-4 md:px-8 relative z-10 text-center md:text-left">
+          <ScrollReveal>
+            {/* Diagonal Brand Accent Graphic Ribbons behind Header */}
+            <div className="relative inline-block mb-4">
+              <div className="absolute -left-6 top-1/2 -translate-y-1/2 w-3 h-8 bg-primary transform -skew-x-12 hidden md:block" />
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white uppercase">
                 {portfolio.hero.title}
               </h1>
-              {portfolio.hero.description && (
-                <p className="text-lg text-sidebar-foreground/60 max-w-xl mb-10 leading-relaxed">
-                  {portfolio.hero.description}
-                </p>
-              )}
-              <div className="flex flex-wrap items-center gap-4 border-t border-white/10 pt-8">
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-primary text-white hover:bg-white hover:text-sidebar h-14 px-8 text-base"
-                >
-                  <Link href={portfolio.showcaseBtn.link}>{portfolio.showcaseBtn.text}</Link>
-                </Button>
-                <Link
-                  href="/contact"
-                  className="font-mono text-xs tracking-widest uppercase text-white/70 hover:text-white transition-colors inline-flex items-center gap-2"
-                >
-                  Talk to us <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </ScrollReveal>
+            </div>
 
-            {/* Signature element — a live deploy terminal, animated on load */}
-            <ScrollReveal delay={0.15} className="relative hidden lg:block">
-              <DeployTerminal />
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Intro — pull-quote style */}
-      <section className="py-24 bg-background border-b border-border">
-        <div className="container mx-auto px-4 md:px-8 max-w-4xl">
-          <ScrollReveal>
-            <span className="font-mono text-xs tracking-[0.3em] uppercase text-primary block mb-4">// about</span>
-            <h2 className="text-3xl md:text-4xl font-black text-foreground mb-8 leading-tight">
-              {portfolio.intro.title}
-            </h2>
-            <div className="space-y-6 text-xl text-muted-foreground leading-relaxed border-l-2 border-primary/30 pl-6">
-              <p>{portfolio.intro.paragraphs[0]}</p>
-              <p>{portfolio.intro.paragraphs[1]}</p>
+            {/* Breadcrumb Navigation */}
+            <div className="flex items-center justify-center md:justify-start gap-2 text-sm font-medium text-white/70 tracking-wider uppercase mt-2">
+              <Link href="/" className="hover:text-primary transition-colors">
+                Home
+              </Link>
+              <span className="text-primary font-bold">–</span>
+              <span className="text-primary font-semibold">{portfolio.hero.title}</span>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* 3. Capability showcases — alternating split layout, threaded signal line */}
-      <section className="relative py-8 bg-background">
-        <div
-          className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2"
-          aria-hidden="true"
-        />
-        <div className="container mx-auto px-4 md:px-8 flex flex-col gap-24 py-16">
-          {portfolio.showcases.map((showcase, i) => {
-            const reversed = i % 2 === 1;
-            return (
-              <div
-                key={i}
-                className={cn(
-                  'grid lg:grid-cols-2 gap-12 items-center',
-                  reversed && 'lg:[&>*:first-child]:order-2'
-                )}
-              >
-                <ScrollReveal>
-                  <img
-                    src={showcase.img}
-                    alt={showcase.title}
-                    className="w-full aspect-[4/3] object-cover rounded-sm"
-                  />
-                </ScrollReveal>
-                <ScrollReveal delay={0.1}>
-                  <span className="font-mono text-xs tracking-widest text-primary block mb-4">
-                    [ {String(i + 1).padStart(2, '0')} ] {showcase.tag}
-                  </span>
-                  <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6 tracking-tight">
-                    {showcase.title}
-                  </h2>
-                  <p className="text-lg text-muted-foreground mb-8 leading-relaxed">{showcase.desc}</p>
-
-                  <div className="space-y-3 mb-10">
-                    {showcase.bullets.map((bullet, j) => (
-                      <div key={j} className="flex items-center gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
-                        <span className="text-base font-medium text-foreground">{bullet}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <Button asChild size="lg" variant="outline" className="h-12 px-6">
-                    <Link href={portfolio.showcaseBtn.link}>{portfolio.showcaseBtn.text}</Link>
-                  </Button>
-                </ScrollReveal>
-              </div>
-            );
-          })}
+      {/* 2. Category Filter Chips Section */}
+      <section className="py-10 bg-background border-b border-border/40">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="flex items-center justify-start md:justify-center gap-2 md:gap-3 overflow-x-auto pb-3 pt-1 no-scrollbar">
+            {portfolio.categories.map((cat) => {
+              const isActive = selectedCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={cn(
+                    'px-5 py-2.5 rounded-md text-sm font-semibold whitespace-nowrap transition-all duration-300 transform active:scale-95 cursor-pointer',
+                    isActive
+                      ? 'bg-primary text-white shadow-lg shadow-primary/25 border border-primary'
+                      : 'bg-muted/80 text-muted-foreground hover:bg-muted hover:text-foreground border border-transparent'
+                  )}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* 4. Process — connected trace instead of plain circles */}
-      <section className="py-24 bg-muted/40 border-y border-border">
+      {/* 3. Portfolio Items Grid (3 items per row layout) */}
+      <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-8">
-          <ScrollReveal className="mb-16 text-center">
-            <span className="font-mono text-xs tracking-[0.3em] uppercase text-primary block mb-4">// process</span>
-            <h2 className="text-3xl font-black text-foreground">{portfolio.process.title}</h2>
-          </ScrollReveal>
+          {filteredItems.length === 0 ? (
+            <div className="text-center py-20 text-muted-foreground">
+              <p className="text-lg">No projects found in "{selectedCategory}" category.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+              {filteredItems.map((item, i) => (
+                <ScrollReveal key={item.id} delay={(i % 3) * 0.1}>
+                  <div
+                    onClick={() => setActiveModalProject(item)}
+                    className="group bg-card rounded-xl border border-border/80 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col h-full hover:-translate-y-1.5"
+                  >
+                    {/* Card Mockup / Screenshot Image Container */}
+                    <div className="relative aspect-[16/10] bg-muted overflow-hidden">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                      />
 
-          <div className="relative max-w-5xl mx-auto">
-            <div className="hidden md:block absolute top-8 left-0 right-0 h-px bg-border" aria-hidden="true" />
-            <div className="grid md:grid-cols-4 gap-8">
-              {portfolio.process.steps.map((step, i) => (
-                <ScrollReveal key={i} delay={i * 0.1} className="relative flex flex-col items-center text-center">
-                  <div className="relative z-10 w-16 h-16 rounded-full bg-background border-2 border-primary text-primary font-black text-xl flex items-center justify-center mb-4">
-                    {i + 1}
+                      {/* Top Overlay Badge */}
+                      {item.badge && (
+                        <div className="absolute top-3 right-3 bg-primary text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-md backdrop-blur-sm">
+                          {item.badge}
+                        </div>
+                      )}
+
+                      {/* Hover Overlay Button */}
+                      <div className="absolute inset-0 bg-sidebar/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span className="bg-white text-sidebar font-bold text-sm px-5 py-2.5 rounded-full shadow-lg flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                          View Details <ArrowRight className="w-4 h-4 text-primary" />
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Card Content Area */}
+                    <div className="p-6 flex flex-col flex-grow justify-between bg-card">
+                      <div>
+                        {/* Title matching screenshot layout */}
+                        <h3 className="text-2xl font-black text-foreground group-hover:text-primary transition-colors tracking-tight">
+                          {item.title}
+                        </h3>
+
+                        {/* Subtitle Category Label (All Caps) */}
+                        <div className="font-mono text-xs tracking-wider text-primary uppercase font-bold mt-1 mb-3">
+                          {item.category}
+                        </div>
+
+                        {/* Brief Description */}
+                        <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2 mb-4">
+                          {item.description}
+                        </p>
+                      </div>
+
+                      {/* Tech Stack Chips */}
+                      <div className="flex flex-wrap gap-1.5 pt-3 border-t border-border/40">
+                        {item.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="bg-muted text-foreground/80 text-[11px] font-medium px-2.5 py-0.5 rounded-md"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <h4 className="font-bold text-lg text-foreground">{step}</h4>
                 </ScrollReveal>
               ))}
             </div>
-          </div>
+          )}
+        </div>
+      </section>
 
-          <ScrollReveal delay={0.4} className="mt-12 text-center">
-            <Link
-              href={portfolio.process.viewFullLink.link}
-              className="text-primary font-bold text-lg inline-flex items-center gap-2 hover:gap-4 transition-all"
+      {/* 4. Interactive Project Detail Modal */}
+      {activeModalProject && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
+          <div
+            className="bg-card border border-border rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl relative max-h-[90vh] flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Close Button */}
+            <button
+              onClick={() => setActiveModalProject(null)}
+              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-sidebar/80 text-white flex items-center justify-center hover:bg-primary transition-colors cursor-pointer"
+              aria-label="Close modal"
             >
-              {portfolio.process.viewFullLink.text} <ArrowRight />
-            </Link>
-          </ScrollReveal>
-        </div>
-      </section>
+              <X className="w-5 h-5" />
+            </button>
 
-      {/* 5. Advantage — split layout retained, mono labels added */}
-      <section className="py-24 md:py-32 bg-background">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <ScrollReveal className="relative">
+            {/* Modal Header Image */}
+            <div className="relative aspect-[16/9] w-full bg-muted">
               <img
-                src={portfolio.advantage.image}
-                alt={portfolio.advantage.imageAlt}
-                className="w-full aspect-[4/3] object-cover rounded-sm shadow-xl"
+                src={activeModalProject.image}
+                alt={activeModalProject.title}
+                className="w-full h-full object-cover"
               />
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.2}>
-              <span className="font-mono text-xs tracking-[0.3em] uppercase text-primary block mb-4">
-                {portfolio.advantage.subtitle}
-              </span>
-              <h2 className="text-4xl font-black text-foreground mb-8">{portfolio.advantage.title}</h2>
-              <p className="text-xl text-muted-foreground mb-10">{portfolio.advantage.description}</p>
-
-              <div className="space-y-6">
-                {portfolio.advantage.items.map((adv, i) => (
-                  <div key={i} className="flex gap-4 border-b border-border pb-6 last:border-0 last:pb-0">
-                    <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-1" />
-                    <div>
-                      <h4 className="font-bold text-foreground">{adv.title}</h4>
-                      <p className="text-muted-foreground mt-1">{adv.desc}</p>
-                    </div>
-                  </div>
-                ))}
+              <div className="absolute inset-0 bg-gradient-to-t from-sidebar via-transparent to-transparent opacity-80" />
+              <div className="absolute bottom-4 left-6 right-6">
+                <span className="bg-primary text-white text-xs font-mono tracking-widest px-3 py-1 rounded-md uppercase font-bold">
+                  {activeModalProject.category}
+                </span>
+                <h2 className="text-3xl font-black text-white mt-2">{activeModalProject.title}</h2>
               </div>
-            </ScrollReveal>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-6 md:p-8 overflow-y-auto space-y-6">
+              <div>
+                <h4 className="text-sm font-mono text-primary uppercase tracking-widest mb-2">
+                  Project Overview
+                </h4>
+                <p className="text-muted-foreground text-base leading-relaxed">
+                  {activeModalProject.description}
+                </p>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-mono text-primary uppercase tracking-widest mb-3">
+                  Technologies Used
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {activeModalProject.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="bg-primary/10 text-primary border border-primary/20 font-semibold text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5"
+                    >
+                      <Sparkles className="w-3 h-3 text-primary" /> {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="pt-4 border-t border-border flex flex-wrap items-center justify-between gap-4">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-primary text-white hover:bg-primary/90 gap-2"
+                >
+                  <Link href="/contact">
+                    Request Similar Solution <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => setActiveModalProject(null)}
+                >
+                  Close
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      )}
 
-      {/* 6. CTA — subtle grid backdrop instead of flat dark panel */}
-      <section className="relative py-24 bg-sidebar text-sidebar-foreground text-center overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage:
-              'radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)',
-            backgroundSize: '24px 24px',
-          }}
-          aria-hidden="true"
-        />
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
+      {/* 5. Call to Action Banner */}
+      <section className="relative py-20 bg-sidebar text-white text-center overflow-hidden border-t border-border/20">
+        <div className="container mx-auto px-4 md:px-8 relative z-10 max-w-3xl">
           <ScrollReveal>
-            <span className="font-mono text-xs tracking-[0.3em] uppercase text-primary block mb-4">
-              // let's build
+            <span className="font-mono text-xs tracking-[0.3em] uppercase text-primary block mb-3">
+              // LET'S BUILD TOGETHER
             </span>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-8">{portfolio.cta.title}</h2>
+            <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight">
+              {portfolio.cta.title}
+            </h2>
+            <p className="text-lg text-white/70 mb-8 leading-relaxed">
+              {portfolio.cta.subtitle}
+            </p>
             <Button
               asChild
               size="lg"
-              className="bg-primary text-white hover:bg-background hover:text-foreground h-16 px-10 text-lg"
+              className="bg-primary text-white hover:bg-white hover:text-sidebar h-14 px-8 text-base font-bold shadow-lg shadow-primary/20"
             >
-              <Link href={portfolio.cta.btn.link}>{portfolio.cta.btn.text}</Link>
+              <Link href={portfolio.cta.btnLink}>{portfolio.cta.btnText}</Link>
             </Button>
           </ScrollReveal>
         </div>

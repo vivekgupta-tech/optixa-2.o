@@ -8,6 +8,7 @@ export interface Solution {
   features: { icon: string; title: string; description: string }[];
   benefits: { metric: string; label: string }[];
   technologies: string[];
+  overview?: string;
   faqs: { question: string; answer: string }[];
 }
 

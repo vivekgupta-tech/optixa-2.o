@@ -1,69 +1,109 @@
 {
   "hero": {
-    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=80",
-    "imageAlt": "Capabilities",
-    "subtitle": "Our Work",
-    "title": "Our Development Capabilities"
+    "title": "Our Portfolio",
+    "breadcrumb": "Home  -  Our Portfolio",
+    "backgroundImage": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=2000&q=80"
   },
-  "intro": {
-    "title": "Building Out in the Open",
-    "paragraphs": [
-      "As a fast-growing technology startup, many of our recent enterprise projects are currently bound by strict NDAs, preventing us from sharing exact client details or source code.",
-      "However, we believe in demonstrating capability through architectural transparency. Below are detailed showcases of the complex systems, architectures, and applications our engineers build daily. These represent our true technical capability, scale, and design philosophy."
-    ]
-  },
-  "showcases": [
+  "categories": [
+    "All",
+    "Static Website",
+    "Ecommerce Website",
+    "MLM Software",
+    "ERP Software",
+    "AI & Automation",
+    "Mobile App"
+  ],
+  "items": [
     {
-      "title": "Enterprise Web Applications",
-      "tag": "Architecture Showcase",
-      "img": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2000&q=80",
-      "desc": "We build highly complex, data-dense web applications that perform like native desktop software. Our frontends process millions of rows of data using WebGL and advanced state management, ensuring zero UI lag.",
-      "bullets": ["Next.js Server-Side Rendering", "Micro-frontend Architectures", "Real-time WebSocket Data Sync", "Complex Data Visualization (D3.js)"]
+      "id": "fresh-to-home",
+      "title": "Fresh To Home",
+      "category": "Ecommerce Website",
+      "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80",
+      "description": "Full-featured online fresh produce & organic cold pressed juice store with instant subscription delivery & payments.",
+      "tags": ["React", "Node.js", "MongoDB", "Stripe Checkout"],
+      "liveUrl": "https://example.com/freshtohome",
+      "badge": "Popular"
     },
     {
-      "title": "AI & Automation Systems",
-      "tag": "Capability Showcase",
-      "img": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=2000&q=80",
-      "desc": "Integrating Large Language Models and proprietary Machine Learning algorithms into legacy workflows. We build systems that automate thousands of hours of manual cognitive tasks securely.",
-      "bullets": ["Private LLM Deployments", "Custom NLP Data Pipelines", "Computer Vision for QA", "Automated Fallback Mechanisms"]
+      "id": "jivanseva",
+      "title": "Jivanseva",
+      "category": "MLM Software",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+      "description": "Scalable Multi-Level Marketing platform featuring real-time genealogy tree visualizer, automated payouts & distributor portal.",
+      "tags": ["Vue.js", "Laravel", "MySQL", "Chart.js"],
+      "liveUrl": "https://example.com/jivanseva",
+      "badge": "Enterprise"
     },
     {
-      "title": "Mobile Applications",
-      "tag": "Platform Showcase",
-      "img": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=2000&q=80",
-      "desc": "Native and cross-platform applications designed for flawless performance and offline capability. We build consumer apps that dominate App Store charts and internal enterprise apps that field workers rely on.",
-      "bullets": ["React Native Cross-Platform", "Offline-First SQLite Syncing", "Secure Enclave Biometrics", "60fps Animated UIs"]
+      "id": "raxedo",
+      "title": "Raxedo Apparel",
+      "category": "Ecommerce Website",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80",
+      "description": "High-conversion modern streetwear & lifestyle fashion brand storefront powered by Next.js headless commerce.",
+      "tags": ["Next.js", "Tailwind CSS", "Shopify GraphQL"],
+      "liveUrl": "https://example.com/raxedo"
     },
     {
-      "title": "Cloud Infrastructure",
-      "tag": "Engineering Showcase",
-      "img": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=2000&q=80",
-      "desc": "Designing and deploying the invisible backend architecture that powers global platforms. We establish auto-scaling, self-healing environments using deep Infrastructure as Code practices.",
-      "bullets": ["Terraform IaC Provisioning", "Kubernetes Orchestration", "Zero-Trust VPC Architecture", "Multi-Region Disaster Recovery"]
+      "id": "gold-standard",
+      "title": "Gold Standard Mining",
+      "category": "Static Website",
+      "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+      "description": "Corporate investor relations platform featuring live commodity ticker, interactive quarterly reports & investor decks.",
+      "tags": ["HTML5/CSS3", "JavaScript", "SEO Optimized"],
+      "liveUrl": "https://example.com/goldstandard"
+    },
+    {
+      "id": "bit-erp",
+      "title": "Bit-ERP Industrial",
+      "category": "ERP Software",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+      "description": "Comprehensive resource planning system designed for construction & manufacturing companies to track inventory & labor.",
+      "tags": ["React", "Python", "PostgreSQL", "Docker"],
+      "liveUrl": "https://example.com/biterp",
+      "badge": "High Scale"
+    },
+    {
+      "id": "unisteps",
+      "title": "UniSteps Architecture",
+      "category": "Static Website",
+      "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
+      "description": "Ultra-sleek digital showcase for architectural & blueprint design studio with interactive project viewer.",
+      "tags": ["Gatsby", "Tailwind CSS", "Framer Motion"],
+      "liveUrl": "https://example.com/unisteps"
+    },
+    {
+      "id": "optiai-assistant",
+      "title": "OptiAI Enterprise Agent",
+      "category": "AI & Automation",
+      "image": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=800&q=80",
+      "description": "Autonomous AI workflow agent processing document extractions, customer support desk & automated ticketing.",
+      "tags": ["Python", "PyTorch", "OpenAI API", "FastAPI"],
+      "liveUrl": "https://example.com/optiai",
+      "badge": "AI Powered"
+    },
+    {
+      "id": "fitpulse",
+      "title": "FitPulse Health Tracker",
+      "category": "Mobile App",
+      "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
+      "description": "Cross-platform iOS and Android fitness tracker with live workout telemetry, smartwatch sync & meal plans.",
+      "tags": ["React Native", "TypeScript", "Firebase"],
+      "liveUrl": "https://example.com/fitpulse"
+    },
+    {
+      "id": "cloud-nexus",
+      "title": "Nexus Cloud Management",
+      "category": "ERP Software",
+      "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80",
+      "description": "Multi-cloud infrastructure management console for automated server deployment, monitoring & cost tracking.",
+      "tags": ["Next.js", "Go", "Kubernetes", "AWS"],
+      "liveUrl": "https://example.com/cloudnexus"
     }
   ],
-  "showcaseBtn": { "text": "Discuss Your Project", "link": "/contact" },
-  "process": {
-    "title": "How We Execute",
-    "steps": ["Discovery", "Architecture", "Agile Build", "Launch & Scale"],
-    "viewFullLink": { "text": "View Our Full Process", "link": "/process" }
-  },
-  "advantage": {
-    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
-    "imageAlt": "Startup advantage",
-    "subtitle": "The Optixa Advantage",
-    "title": "Why Partner With Us Now",
-    "description": "Engaging a growing technology startup offers massive advantages over sluggish, traditional enterprise agencies. We are hungry, agile, and technically superior.",
-    "items": [
-      { "title": "Direct Team Access", "desc": "You speak directly to the engineers building your product. No account manager middle-men." },
-      { "title": "Modern Tech Stack", "desc": "We aren't bogged down in 10-year-old corporate standards. We use the tools that win today." },
-      { "title": "Rapid Iteration", "desc": "Bureaucracy doesn't slow us down. We deploy changes in hours, not weeks." },
-      { "title": "Aggressive Pricing", "desc": "We are building our reputation. You get senior architectural talent without the massive agency overhead fees." },
-      { "title": "Startup-Friendly Contracts", "desc": "Agile, flexible engagements that allow you to pivot without punitive change-request penalties." }
-    ]
-  },
   "cta": {
-    "title": "Let's Build Your Capability Showcase",
-    "btn": { "text": "Start Your Project", "link": "/contact" }
+    "title": "Ready to Build Your Custom Software Solution?",
+    "subtitle": "Partner with Optixa to design and deliver high-impact digital experiences for your enterprise.",
+    "btnText": "Get a Free Consultation",
+    "btnLink": "/contact"
   }
 }

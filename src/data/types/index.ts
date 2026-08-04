@@ -296,17 +296,31 @@ export interface ContactData {
   faq: { title: string; items: { q: string; a: string }[] };
 }
 
+export interface PortfolioItem {
+  id: string;
+  title: string;
+  category: string;
+  image: string;
+  description: string;
+  tags: string[];
+  liveUrl?: string;
+  badge?: string;
+}
+
 export interface PortfolioData {
-  hero: { image: string; imageAlt: string; subtitle: string; title: string };
-  intro: { title: string; paragraphs: string[] };
-  showcases: { title: string; tag: string; img: string; desc: string; bullets: string[] }[];
-  showcaseBtn: { text: string; link: string };
-  process: { title: string; steps: string[]; viewFullLink: { text: string; link: string } };
-  advantage: {
-    image: string; imageAlt: string; subtitle: string; title: string; description: string;
-    items: { title: string; desc: string }[];
+  hero: {
+    title: string;
+    breadcrumb: string;
+    backgroundImage: string;
   };
-  cta: { title: string; btn: { text: string; link: string } };
+  categories: string[];
+  items: PortfolioItem[];
+  cta: {
+    title: string;
+    subtitle: string;
+    btnText: string;
+    btnLink: string;
+  };
 }
 
 export interface InsightsData {

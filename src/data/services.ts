@@ -12,6 +12,7 @@ export interface Service {
   benefits: { metric: string; label: string; description: string }[];
   technologies: string[];
   industries: string[];
+  category?: string;
   faqs: { question: string; answer: string }[];
 }
 
