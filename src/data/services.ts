@@ -23,7 +23,7 @@ export const services: Service[] = [
     icon: 'Bot',
     shortDescription: 'Streamline operations with intelligent, automated workflows.',
     description: 'We build custom AI solutions that automate repetitive tasks, reduce human error, and accelerate business processes. Our automated workflows integrate seamlessly with your existing infrastructure.',
-    heroImage: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1400&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=1400&q=80',
     overview: 'In an era where speed and precision define market leaders, AI automation is no longer optional—it is a foundational requirement. We engineer bespoke automation systems that learn your organizational patterns, eliminating bottlenecks and empowering your workforce to focus on high-value strategic initiatives.',
     challenges: [
       { title: 'Operational Inefficiency', description: 'Manual data entry and repetitive administrative tasks consume thousands of hours annually, draining valuable human capital.' },
@@ -68,7 +68,7 @@ export const services: Service[] = [
     icon: 'Code2',
     shortDescription: 'Tailored applications designed for your unique business needs.',
     description: 'Stop compromising with off-the-shelf software. We engineer scalable, secure, and intuitive custom software solutions tailored precisely to your operational requirements and strategic goals.',
-    heroImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1400&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=80',
     overview: 'Generic software forces your business to adapt to its limitations. Custom software adapts to your business. We architect and build proprietary platforms that perfectly map to your operational workflows, giving you complete ownership of your intellectual property and a definitive competitive advantage.',
     challenges: [
       { title: 'Workflow Fragmentation', description: 'Employees jumping between multiple disconnected tools to complete single tasks.' },
