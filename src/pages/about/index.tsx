@@ -43,21 +43,21 @@ export default function About() {
       </section>
 
       {/* 2. Welcome Section matching reference screenshot */}
-      <section className="py-8 md:py-10 bg-background border-b border-border/40">
+      <section className="pt-14 pb-12 md:pt-18 md:pb-14 bg-background border-b border-border/40">
         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
           <ScrollReveal className="text-left">
-            {/* Welcome Heading */}
-            <h2 className="text-2xl md:text-3xl lg:text-[34px] font-black text-foreground tracking-tight leading-snug mb-2">
+            {/* Welcome Heading - Larger & Bold */}
+            <h2 className="text-3xl md:text-4xl lg:text-[42px] font-black text-foreground tracking-tight leading-tight mb-3">
               Welcome to Optixa – The Best Software Development Company
             </h2>
             
             {/* Decorative Underline Bar */}
-            <div className="w-20 h-[3px] bg-slate-500/80 mb-4 rounded-full" />
+            <div className="w-24 h-[3.5px] bg-slate-400/80 mb-6 rounded-full" />
 
-            {/* Content Paragraphs - bolder font & compact spacing */}
-            <div className="space-y-4 text-sm md:text-base font-semibold text-foreground/90 leading-relaxed md:leading-7">
+            {/* Content Paragraphs - Larger font & light gray color */}
+            <div className="space-y-5 text-base md:text-[17px] text-muted-foreground font-normal leading-relaxed md:leading-8">
               <p>
-                At <strong className="text-foreground font-black">Optixa</strong>, we are dedicated to delivering a wide range of innovative and tailored software solutions to help businesses thrive in the digital age. As the best software company, we specialize in Website Design, ensuring your online presence is both visually appealing and highly functional. Our Enterprise Resource Planning (ERP) solutions streamline business operations, allowing for increased efficiency and productivity. We also offer cutting-edge Android Application Development to give your business a competitive edge in the mobile-first world.
+                At <strong className="text-foreground font-bold">Optixa</strong>, we are dedicated to delivering a wide range of innovative and tailored software solutions to help businesses thrive in the digital age. As the best software company, we specialize in Website Design, ensuring your online presence is both visually appealing and highly functional. Our Enterprise Resource Planning (ERP) solutions streamline business operations, allowing for increased efficiency and productivity. We also offer cutting-edge Android Application Development to give your business a competitive edge in the mobile-first world.
               </p>
               <p>
                 With our expertise in Search Engine Optimization (SEO), we ensure your website ranks higher on search engines, driving traffic and generating leads. Our Digital Marketing & Web Promotions services enhance your brand visibility across multiple online platforms, ensuring targeted outreach. Additionally, our comprehensive Branding Solutions help your business build a strong identity that resonates with your audience. Whether you need custom software, ERP systems, or a robust digital marketing strategy, Optixa is your one-stop solution for all your business needs.
