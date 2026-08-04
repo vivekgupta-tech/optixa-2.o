@@ -321,144 +321,144 @@ export default function Home() {
       </section>
 
       {/* 8. Featured Work — Large Showcase */}
-     <section className="py-24 md:py-32 bg-background">
-  <div className="container mx-auto px-4 md:px-8">
+      <section className="py-24 md:py-32 bg-background">
+        <div className="container mx-auto px-4 md:px-8">
 
-    {/* Section Heading */}
-    <ScrollReveal className="mb-16 text-center flex flex-col items-center">
-      <h2 className="text-4xl md:text-5xl font-black text-foreground">
-        {home.featuredWork.title}
-      </h2>
+          {/* Section Heading */}
+          <ScrollReveal className="mb-16 text-center flex flex-col items-center">
+            <h2 className="text-4xl md:text-5xl font-black text-foreground">
+              {home.featuredWork.title}
+            </h2>
 
-      <p className="mt-5 max-w-3xl text-lg md:text-xl text-muted-foreground leading-relaxed">
-        {home.featuredWork.subtitle}
-      </p>
-    </ScrollReveal>
-
-    <div className="space-y-8">
-
-      {/* Top Showcase */}
-      <ScrollReveal
-        className="relative group overflow-hidden rounded-2xl border border-border/60 bg-[#111] shadow-xl aspect-[16/9] md:aspect-[21/9]"
-      >
-        <img
-          src={home.featuredWork.topShowcase.image}
-          alt={home.featuredWork.topShowcase.imageAlt}
-          className="w-full h-full object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-40"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-8 md:p-16">
-
-          <span className="inline-flex items-center rounded-full bg-primary px-5 py-2 text-xs md:text-sm font-bold uppercase tracking-widest text-white mb-5 self-start">
-            {home.featuredWork.topShowcase.tag}
-          </span>
-
-          <h3 className="mb-4 text-3xl md:text-5xl font-black text-white">
-            {home.featuredWork.topShowcase.title}
-          </h3>
-
-          <p className="mb-8 max-w-3xl text-base md:text-lg leading-relaxed text-white/75">
-            {home.featuredWork.topShowcase.desc}
-          </p>
-
-          <Link
-            href={home.featuredWork.topShowcase.link}
-            className="flex items-center gap-2 text-lg font-bold text-white transition-all hover:gap-4"
-          >
-            {home.featuredWork.topShowcase.ctaText}
-            <ArrowRight />
-          </Link>
-
-        </div>
-      </ScrollReveal>
-
-      {/* Bottom Cards */}
-      <div className="grid gap-8 md:grid-cols-2">
-        {home.featuredWork.bottomShowcases.map((showcase, idx) => (
-          <ScrollReveal
-            key={idx}
-            delay={0.1 + idx * 0.1}
-            className="relative group overflow-hidden rounded-2xl border border-border/60 bg-[#111] shadow-lg aspect-square md:aspect-[4/3]"
-          >
-            <img
-              src={showcase.image}
-              alt={showcase.imageAlt}
-              className="h-full w-full object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-40"
-            />
-
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-8">
-
-              <span className="inline-flex items-center rounded-full bg-background/95 px-4 py-2 text-xs font-bold uppercase tracking-widest text-foreground mb-4 self-start">
-                {showcase.tag}
-              </span>
-
-              <h3 className="mb-4 text-2xl md:text-3xl font-black text-white">
-                {showcase.title}
-              </h3>
-
-              <Link
-                href={showcase.link}
-                className="flex items-center gap-2 font-bold text-primary transition-all hover:gap-4"
-              >
-                {showcase.ctaText}
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-
-            </div>
+            <p className="mt-5 max-w-3xl text-lg md:text-xl text-muted-foreground leading-relaxed">
+              {home.featuredWork.subtitle}
+            </p>
           </ScrollReveal>
-        ))}
-      </div>
 
-    </div>
-  </div>
-</section>
+          <div className="space-y-8">
+
+            {/* Top Showcase */}
+            <ScrollReveal
+              className="relative group overflow-hidden rounded-2xl border border-border/60 bg-[#111] shadow-xl aspect-[16/9] md:aspect-[21/9]"
+            >
+              <img
+                src={home.featuredWork.topShowcase.image}
+                alt={home.featuredWork.topShowcase.imageAlt}
+                className="w-full h-full object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-40"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-8 md:p-16">
+
+                <span className="inline-flex items-center rounded-full bg-primary px-5 py-2 text-xs md:text-sm font-bold uppercase tracking-widest text-white mb-5 self-start">
+                  {home.featuredWork.topShowcase.tag}
+                </span>
+
+                <h3 className="mb-4 text-3xl md:text-5xl font-black text-white">
+                  {home.featuredWork.topShowcase.title}
+                </h3>
+
+                <p className="mb-8 max-w-3xl text-base md:text-lg leading-relaxed text-white/75">
+                  {home.featuredWork.topShowcase.desc}
+                </p>
+
+                <Link
+                  href={home.featuredWork.topShowcase.link}
+                  className="flex items-center gap-2 text-lg font-bold text-white transition-all hover:gap-4"
+                >
+                  {home.featuredWork.topShowcase.ctaText}
+                  <ArrowRight />
+                </Link>
+
+              </div>
+            </ScrollReveal>
+
+            {/* Bottom Cards */}
+            <div className="grid gap-8 md:grid-cols-2">
+              {home.featuredWork.bottomShowcases.map((showcase, idx) => (
+                <ScrollReveal
+                  key={idx}
+                  delay={0.1 + idx * 0.1}
+                  className="relative group overflow-hidden rounded-2xl border border-border/60 bg-[#111] shadow-lg aspect-square md:aspect-[4/3]"
+                >
+                  <img
+                    src={showcase.image}
+                    alt={showcase.imageAlt}
+                    className="h-full w-full object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-40"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-8">
+
+                    <span className="inline-flex items-center rounded-full bg-background/95 px-4 py-2 text-xs font-bold uppercase tracking-widest text-foreground mb-4 self-start">
+                      {showcase.tag}
+                    </span>
+
+                    <h3 className="mb-4 text-2xl md:text-3xl font-black text-white">
+                      {showcase.title}
+                    </h3>
+
+                    <Link
+                      href={showcase.link}
+                      className="flex items-center gap-2 font-bold text-primary transition-all hover:gap-4"
+                    >
+                      {showcase.ctaText}
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* 9. Industries We Serve — Split Layout */}
-    <section className="py-20 bg-sidebar text-sidebar-foreground">
-  <div className="container mx-auto px-4 md:px-8">
-    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <section className="py-20 bg-sidebar text-sidebar-foreground">
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-      {/* Image */}
-      <ScrollReveal>
-        <div className="overflow-hidden rounded-3xl shadow-2xl">
-          <img
-            src={home.industries.image}
-            alt={home.industries.imageAlt}
-            className="w-full aspect-[4/3] object-cover opacity-90 transition-transform duration-700 hover:scale-105"
-          />
+            {/* Image */}
+            <ScrollReveal>
+              <div className="overflow-hidden rounded-3xl shadow-2xl">
+                <img
+                  src={home.industries.image}
+                  alt={home.industries.imageAlt}
+                  className="w-full aspect-[4/3] object-cover opacity-90 transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+            </ScrollReveal>
+
+            {/* Content */}
+            <ScrollReveal delay={0.2}>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-4 leading-tight">
+                {home.industries.title}
+              </h2>
+
+              <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-xl">
+                {home.industries.description}
+              </p>
+
+              <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
+                {home.industries.items.map((ind, i) => (
+                  <Link
+                    key={i}
+                    href={home.industries.link}
+                    className="flex items-center justify-between group border-b border-white/10 pb-3"
+                  >
+                    <span className="text-lg md:text-xl font-semibold text-sidebar-foreground/70 group-hover:text-primary-foreground transition-colors duration-300">
+                      {ind}
+                    </span>
+
+                    <ArrowRight className="w-5 h-5 text-primary opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                  </Link>
+                ))}
+              </div>
+            </ScrollReveal>
+
+          </div>
         </div>
-      </ScrollReveal>
-
-      {/* Content */}
-      <ScrollReveal delay={0.2}>
-        <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-4 leading-tight">
-          {home.industries.title}
-        </h2>
-
-        <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-xl">
-          {home.industries.description}
-        </p>
-
-        <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
-          {home.industries.items.map((ind, i) => (
-            <Link
-              key={i}
-              href={home.industries.link}
-              className="flex items-center justify-between group border-b border-white/10 pb-3"
-            >
-              <span className="text-lg md:text-xl font-semibold text-sidebar-foreground/70 group-hover:text-primary-foreground transition-colors duration-300">
-                {ind}
-              </span>
-
-              <ArrowRight className="w-5 h-5 text-primary opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-            </Link>
-          ))}
-        </div>
-      </ScrollReveal>
-
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* 10. Insights Preview */}
       <section className="py-24 md:py-32 bg-muted/40">

@@ -203,7 +203,18 @@
 }
 
 /* ── Text-shadow & overlay utility classes ── */
-.text-shadow-hero { text-shadow: var(--text-shadow-hero); }
-.text-shadow-md   { text-shadow: var(--text-shadow-md);   }
-.text-shadow-sm   { text-shadow: var(--text-shadow-sm);   }
-.bg-image-overlay { background-color: hsl(var(--overlay) / var(--overlay-opacity)); }
+.text-shadow-hero {
+  text-shadow: var(--text-shadow-hero);
+}
+
+.text-shadow-md {
+  text-shadow: var(--text-shadow-md);
+}
+
+.text-shadow-sm {
+  text-shadow: var(--text-shadow-sm);
+}
+
+.bg-image-overlay {
+  background-color: hsl(var(--overlay) / var(--overlay-opacity));
+}

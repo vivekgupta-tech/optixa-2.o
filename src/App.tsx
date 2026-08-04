@@ -11,7 +11,6 @@ import ServicesList from '@/pages/services';
 import ServiceDetail from '@/pages/services/[slug]';
 import Solutions from '@/pages/solutions';
 import SolutionDetail from '@/pages/solutions/[slug]';
-import Technologies from '@/pages/technologies';
 import Industries from '@/pages/industries';
 import IndustryDetail from '@/pages/industries/[slug]';
 import Process from '@/pages/process';
@@ -38,7 +37,6 @@ function Router() {
         <Route path="/services/:slug" component={ServiceDetail} />
         <Route path="/solutions" component={Solutions} />
         <Route path="/solutions/:slug" component={SolutionDetail} />
-        <Route path="/technologies" component={Technologies} />
         <Route path="/industries" component={Industries} />
         <Route path="/industries/:slug" component={IndustryDetail} />
         <Route path="/process" component={Process} />

@@ -16,10 +16,6 @@
       "hasDropdown": true
     },
     {
-      "label": "Technologies",
-      "href": "/technologies"
-    },
-    {
       "label": "Industries",
       "href": "/industries",
       "hasDropdown": true
