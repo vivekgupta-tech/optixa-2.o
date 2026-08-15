@@ -1,8 +1,8 @@
-﻿import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Link } from 'wouter';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { Button } from '@/components/common/Button';
-import { industries } from '@/data/industries';
+import { Industry, industries } from '@/data/industries';
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -21,8 +21,8 @@ import {
 import { cn } from '@/lib/utils';
 
 // ── Custom hook: Intersection Observer ──
-function useInView(options = {}) {
-  const ref = useRef(null);
+function useInView(options = {}): [React.RefObject<HTMLDivElement | null>, boolean] {
+  const ref = useRef<HTMLDivElement | null>(null);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
@@ -38,15 +38,15 @@ function useInView(options = {}) {
 }
 
 // ── Animated Counter ──
-function AnimatedCounter({ end, suffix = "", duration = 2000 }) {
+function AnimatedCounter({ end, suffix = "", duration = 2000 }: { end: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
   const [ref, isInView] = useInView();
 
   useEffect(() => {
     if (!isInView) return;
-    let startTime;
-    const animate = (timestamp) => {
-      if (!startTime) startTime = timestamp;
+    let startTime: number | null = null;
+    const animate = (timestamp: number) => {
+      if (startTime === null) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
       // Ease out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
@@ -56,11 +56,11 @@ function AnimatedCounter({ end, suffix = "", duration = 2000 }) {
     requestAnimationFrame(animate);
   }, [isInView, end, duration]);
 
-  return <span ref={ref}>{count}{suffix}</span>;
+  return <span ref={ref as any}>{count}{suffix}</span>;
 }
 
 // ── Gold Gradient Text ──
-function GoldText({ children, className }) {
+function GoldText({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <span className={cn(
       "bg-gradient-to-r from-[hsl(29,36%,56%)] via-[hsl(35,50%,65%)] to-[hsl(29,36%,56%)] bg-clip-text text-transparent",
@@ -72,10 +72,10 @@ function GoldText({ children, className }) {
 }
 
 // ── Magnetic Button Effect ──
-function MagneticButton({ children, className, onClick, ariaLabel }) {
-  const ref = useRef(null);
+function MagneticButton({ children, className, onClick, ariaLabel, style }: { children?: React.ReactNode; className?: string; onClick?: () => void; ariaLabel?: string; style?: React.CSSProperties }) {
+  const ref = useRef<HTMLButtonElement>(null);
 
-  const handleMouseMove = useCallback((e) => {
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
@@ -95,6 +95,7 @@ function MagneticButton({ children, className, onClick, ariaLabel }) {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       aria-label={ariaLabel}
+      style={style}
       className={cn("transition-transform duration-200 ease-out", className)}
     >
       {children}
@@ -103,7 +104,7 @@ function MagneticButton({ children, className, onClick, ariaLabel }) {
 }
 
 // ── Featured Industry Card ──
-function FeaturedCard({ industry, index }) {
+function FeaturedCard({ industry, index }: { industry: Industry; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -161,7 +162,7 @@ function FeaturedCard({ industry, index }) {
             "space-y-2.5 mb-8 transition-all duration-500 overflow-hidden",
             isHovered ? "max-h-36 opacity-100" : "max-h-0 opacity-0"
           )}>
-            {industry.solutions.slice(0, 2).map((sol, i) => (
+            {industry.solutions.slice(0, 2).map((sol: any, i: number) => (
               <div key={i} className="flex items-center gap-2.5 text-white/80">
                 <CheckCircle2 
                   className="w-4 h-4 shrink-0" 
@@ -202,13 +203,13 @@ function FeaturedCard({ industry, index }) {
 }
 
 // ── Uniform Grid Card ──
-function GridCard({ industry, index }) {
+function GridCard({ industry, index }: { industry: Industry; index: number }) {
   const [ref, isInView] = useInView();
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div 
-      ref={ref}
+      ref={ref as any}
       className="group relative rounded-xl overflow-hidden border border-border bg-card transition-all duration-500 hover:shadow-2xl hover:-translate-y-1.5 hover:border-[hsl(var(--primary)/0.3)]"
       style={{
         opacity: isInView ? 1 : 0,
@@ -274,7 +275,7 @@ function GridCard({ industry, index }) {
           {/* Tags */}
           {industry.solutions && (
             <div className="flex flex-wrap gap-2">
-              {industry.solutions.slice(0, 3).map((sol, i) => (
+              {industry.solutions.slice(0, 3).map((sol: any, i: number) => (
                 <span 
                   key={i} 
                   className="px-2.5 py-1 rounded-full text-xs font-semibold transition-colors duration-300"
@@ -311,9 +312,9 @@ function AnimatedBackground() {
 }
 
 export default function Industries() {
-  const featuredIndustries = industries.slice(0, 5);
-  const gridIndustries = industries.slice(5);
-  const scrollContainerRef = useRef(null);
+  const featuredIndustries = industries.slice(0, 4);
+  const gridIndustries = industries.slice(4);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
@@ -334,7 +335,7 @@ export default function Industries() {
     }
   }, [checkScroll]);
 
-  const scroll = (direction) => {
+  const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
         left: direction === 'left' ? -620 : 620,
@@ -668,7 +669,7 @@ export default function Industries() {
       </p>
     </ScrollReveal>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {gridIndustries.map((industry, index) => (
         <GridCard
           key={industry.slug}
