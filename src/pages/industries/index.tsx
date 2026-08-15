@@ -518,73 +518,31 @@ export default function Industries() {
       >
         {/* Section Header */}
         <div className="container mx-auto px-4 md:px-8 mb-14">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <ScrollReveal>
-              <div>
-                <span
-                  className="font-bold text-xs uppercase tracking-[0.2em] mb-3 block"
-                  style={{ color: 'hsl(var(--primary))' }}
-                >
-                  Core Sectors
-                </span>
-                <h2
-                  className="text-4xl md:text-5xl font-extrabold tracking-tight"
-                  style={{
-                    fontFamily: 'var(--app-font-serif)',
-                    color: 'hsl(var(--foreground))',
-                  }}
-                >
-                  Featured <GoldText>Industries</GoldText>
-                </h2>
-              </div>
-            </ScrollReveal>
-
-            {/* Navigation Buttons — Desktop Only */}
-            <ScrollReveal delay={0.1}>
-              <div className="hidden md:flex items-center gap-3">
-                <MagneticButton
-                  onClick={() => scroll('left')}
-                  className={cn(
-                    "w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all",
-                    canScrollLeft 
-                      ? "opacity-100 hover:border-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]" 
-                      : "opacity-30 cursor-not-allowed"
-                  )}
-                  style={{
-                    borderColor: 'hsl(var(--border))',
-                    color: 'hsl(var(--foreground))',
-                    backgroundColor: 'hsl(var(--background))',
-                  }}
-                  ariaLabel="Previous industry"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </MagneticButton>
-                <MagneticButton
-                  onClick={() => scroll('right')}
-                  className={cn(
-                    "w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all",
-                    canScrollRight 
-                      ? "opacity-100 hover:border-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]" 
-                      : "opacity-30 cursor-not-allowed"
-                  )}
-                  style={{
-                    borderColor: 'hsl(var(--border))',
-                    color: 'hsl(var(--foreground))',
-                    backgroundColor: 'hsl(var(--background))',
-                  }}
-                  ariaLabel="Next industry"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </MagneticButton>
-              </div>
-            </ScrollReveal>
-          </div>
+          <ScrollReveal className="text-center">
+            <div>
+              <span
+                className="font-bold text-xs uppercase tracking-[0.2em] mb-3 block"
+                style={{ color: 'hsl(var(--primary))' }}
+              >
+                Core Sectors
+              </span>
+              <h2
+                className="text-4xl md:text-5xl font-extrabold tracking-tight"
+                style={{
+                  fontFamily: 'var(--app-font-serif)',
+                  color: 'hsl(var(--foreground))',
+                }}
+              >
+                Featured <GoldText>Industries</GoldText>
+              </h2>
+            </div>
+          </ScrollReveal>
         </div>
 
         {/* Industry Cards */}
         <div
           ref={scrollContainerRef}
-          className="flex gap-6 overflow-x-auto px-4 md:px-8 pb-8 snap-x snap-mandatory"
+          className="flex gap-6 overflow-x-auto px-4 md:px-8 pb-4 snap-x snap-mandatory"
           style={{
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
@@ -597,38 +555,46 @@ export default function Industries() {
           ))}
         </div>
 
-        {/* Mobile Navigation */}
-        <div className="flex md:hidden items-center justify-center gap-3 mt-6">
-          <button
-            onClick={() => scroll('left')}
-            className={cn(
-              "w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all",
-              canScrollLeft ? "opacity-100" : "opacity-30"
-            )}
-            style={{
-              borderColor: 'hsl(var(--border))',
-              color: 'hsl(var(--foreground))',
-              backgroundColor: 'hsl(var(--background))',
-            }}
-            aria-label="Previous industry"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={() => scroll('right')}
-            className={cn(
-              "w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all",
-              canScrollRight ? "opacity-100" : "opacity-30"
-            )}
-            style={{
-              borderColor: 'hsl(var(--border))',
-              color: 'hsl(var(--foreground))',
-              backgroundColor: 'hsl(var(--background))',
-            }}
-            aria-label="Next industry"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
+        {/* Navigation Buttons — Bottom Right */}
+        <div className="container mx-auto px-4 md:px-8 mt-6 flex justify-end">
+          <ScrollReveal delay={0.1}>
+            <div className="flex items-center gap-3">
+              <MagneticButton
+                onClick={() => scroll('left')}
+                className={cn(
+                  "w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all",
+                  canScrollLeft 
+                    ? "opacity-100 hover:border-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]" 
+                    : "opacity-30 cursor-not-allowed"
+                )}
+                style={{
+                  borderColor: 'hsl(var(--border))',
+                  color: 'hsl(var(--foreground))',
+                  backgroundColor: 'hsl(var(--background))',
+                }}
+                ariaLabel="Previous industry"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </MagneticButton>
+              <MagneticButton
+                onClick={() => scroll('right')}
+                className={cn(
+                  "w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all",
+                  canScrollRight 
+                    ? "opacity-100 hover:border-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]" 
+                    : "opacity-30 cursor-not-allowed"
+                )}
+                style={{
+                  borderColor: 'hsl(var(--border))',
+                  color: 'hsl(var(--foreground))',
+                  backgroundColor: 'hsl(var(--background))',
+                }}
+                ariaLabel="Next industry"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </MagneticButton>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -640,7 +606,7 @@ export default function Industries() {
   className="py-24 md:py-32 relative"
   style={{ backgroundColor: 'hsl(var(--muted))' }}
 >
-  <div className="container mx-auto px-4 md:px-8">
+  <div className="container mx-auto px-2 sm:px-4 md:px-6">
     <ScrollReveal className="text-center mb-16">
       <span
         className="font-bold text-xs uppercase tracking-[0.2em] mb-3 block"
@@ -669,7 +635,7 @@ export default function Industries() {
       </p>
     </ScrollReveal>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
       {gridIndustries.map((industry, index) => (
         <GridCard
           key={industry.slug}

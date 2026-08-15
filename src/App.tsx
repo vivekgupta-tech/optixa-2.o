@@ -15,6 +15,7 @@ import Industries from '@/pages/industries';
 import IndustryDetail from '@/pages/industries/[slug]';
 import Process from '@/pages/process';
 import Portfolio from '@/pages/portfolio';
+import CaseStudies from '@/pages/case-studies';
 import Insights from '@/pages/insights';
 import InsightDetail from '@/pages/insights/[slug]';
 import Careers from '@/pages/careers';
@@ -41,6 +42,8 @@ function Router() {
         <Route path="/industries/:slug" component={IndustryDetail} />
         <Route path="/process" component={Process} />
         <Route path="/portfolio" component={Portfolio} />
+        <Route path="/case-studies" component={CaseStudies} />
+        <Route path="/case-studies/:slug" component={CaseStudies} />
         <Route path="/insights" component={Insights} />
         <Route path="/insights/:slug" component={InsightDetail} />
         <Route path="/careers" component={Careers} />
