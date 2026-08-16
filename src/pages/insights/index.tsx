@@ -4,11 +4,11 @@ import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { Button } from '@/components/common/Button';
 import { Insight, insights } from '@/data/insights';
 import { insightsPage } from '@/data';
-import { 
-  ArrowRight, 
-  Mail, 
-  Zap, 
-  Clock, 
+import {
+  ArrowRight,
+  Mail,
+  Zap,
+  Clock,
   Calendar,
   TrendingUp,
   Sparkles,
@@ -64,16 +64,16 @@ function GoldText({ children, className = "" }: { children: React.ReactNode; cla
 function AmbientBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <div 
-        className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full blur-[140px] opacity-15 animate-pulse" 
+      <div
+        className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full blur-[140px] opacity-15 animate-pulse"
         style={{ backgroundColor: 'hsl(var(--primary))' }}
       />
-      <div 
-        className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full blur-[120px] opacity-10 animate-pulse" 
+      <div
+        className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full blur-[120px] opacity-10 animate-pulse"
         style={{ backgroundColor: 'hsl(var(--primary))', animationDelay: '1.5s' }}
       />
       {/* Subtle grid pattern */}
-      <div 
+      <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
@@ -88,19 +88,19 @@ function AmbientBackground() {
 function FeaturedCard({ post }: { post: Insight }) {
   return (
     <ScrollReveal>
-      <Link href={`/insights/${post.slug}`} className="group block relative">
+      <Link href={`/insights/${post.slug}`} className="group block relative w-full">
         <div className="relative bg-card border border-border rounded-3xl overflow-hidden hover:border-primary/40 transition-all duration-500 hover:shadow-2xl">
           <div className="grid lg:grid-cols-5 gap-0">
-            {/* Image Side */}
-            <div className="lg:col-span-3 relative aspect-[16/10] lg:aspect-auto lg:h-full overflow-hidden bg-muted">
-              <img 
-                src={post.image} 
-                alt={post.title} 
+            {/* Image Side - Full Width & Height Increased */}
+            <div className="lg:col-span-3 relative h-[370px] sm:h-[370px] lg:h-[470px] overflow-hidden bg-muted">
+              <img
+                src={post.image}
+                alt={post.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-card/80 via-card/30 to-transparent" />
-              <div className="absolute top-6 left-6">
+              <div className="absolute top-5 left-5">
                 <span className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider rounded-full shadow-md">
                   <Zap className="w-3 h-3" />
                   {post.category}
@@ -108,9 +108,9 @@ function FeaturedCard({ post }: { post: Insight }) {
               </div>
             </div>
 
-            {/* Content Side */}
-            <div className="lg:col-span-2 p-8 lg:p-10 flex flex-col justify-center bg-card">
-              <div className="flex items-center gap-4 text-xs text-muted-foreground font-medium uppercase tracking-wider mb-5">
+            {/* Content Side - Centered Title & Subtitle */}
+            <div className="lg:col-span-2 p-8 lg:p-12 flex flex-col justify-center items-center text-center bg-card">
+              <div className="flex items-center justify-center gap-3 text-xs text-muted-foreground font-medium uppercase tracking-wider mb-4">
                 <span className="flex items-center gap-1.5">
                   <Calendar className="w-3.5 h-3.5" />
                   {post.date}
@@ -122,15 +122,15 @@ function FeaturedCard({ post }: { post: Insight }) {
                 </span>
               </div>
 
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-foreground mb-5 group-hover:text-primary transition-colors duration-300 leading-tight tracking-tight" style={{ fontFamily: 'var(--app-font-serif)' }}>
+              <h2 className="text-2xl lg:text-3xl font-extrabold text-foreground mb-4 group-hover:text-primary transition-colors duration-300 leading-snug tracking-tight text-center" style={{ fontFamily: 'var(--app-font-serif)' }}>
                 {post.title}
               </h2>
 
-              <p className="text-muted-foreground text-base leading-relaxed mb-8 line-clamp-3">
+              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-6 line-clamp-3 text-center max-w-lg">
                 {post.excerpt}
               </p>
 
-              <div className="flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider group-hover:gap-4 transition-all duration-300">
+              <div className="flex items-center justify-center gap-2 text-primary font-bold text-xs sm:text-sm uppercase tracking-wider group-hover:gap-3 transition-all duration-300">
                 {insightsPage.readArticleText}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
@@ -150,10 +150,10 @@ function ArticleCarouselCard({ post }: { post: Insight }) {
         <div>
           {/* Image */}
           <div className="relative aspect-[16/10] overflow-hidden bg-muted">
-            <img 
-              src={post.image} 
-              alt={post.title} 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
@@ -280,10 +280,10 @@ export default function Insights() {
           <div className="max-w-5xl mx-auto text-center">
             <ScrollReveal>
               {/* Eyebrow */}
-              <div 
+              <div
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 backdrop-blur-md"
-                style={{ 
-                  backgroundColor: 'hsl(var(--primary) / 0.1)', 
+                style={{
+                  backgroundColor: 'hsl(var(--primary) / 0.1)',
                   border: '1px solid hsl(var(--primary) / 0.2)',
                   color: 'hsl(var(--primary))'
                 }}
@@ -295,7 +295,7 @@ export default function Insights() {
               </div>
 
               {/* Title with Gold Gradient */}
-              <h1 
+              <h1
                 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-8 tracking-tight leading-[0.95]"
                 style={{ fontFamily: 'var(--app-font-serif)' }}
               >
@@ -325,10 +325,11 @@ export default function Insights() {
       <section className="relative py-20 md:py-28 bg-background">
         <div className="container mx-auto px-4 md:px-8">
           {/* Section Header */}
-          <ScrollReveal className="mb-12">
-            <div className="flex items-center gap-4 mb-2">
-              <div className="w-12 h-[2px] bg-primary" />
+          <ScrollReveal className="mb-10 text-center max-w-2xl mx-auto">
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <div className="w-8 h-[2px] bg-primary" />
               <span className="text-sm font-bold text-primary uppercase tracking-widest">Featured</span>
+              <div className="w-8 h-[2px] bg-primary" />
             </div>
             <h2 className="text-3xl font-extrabold text-foreground" style={{ fontFamily: 'var(--app-font-serif)' }}>Editor&apos;s Pick</h2>
           </ScrollReveal>
@@ -343,7 +344,7 @@ export default function Insights() {
           ═══════════════════════════════════════ */}
       <section className="relative py-20 md:py-28 bg-muted/40 border-t border-border overflow-hidden">
         <div className="container mx-auto px-4 md:px-8">
-          
+
           {/* Centered Carousel Header */}
           <ScrollReveal className="mb-10 text-center max-w-2xl mx-auto">
             <div className="flex items-center justify-center gap-3 mb-2">
@@ -358,14 +359,14 @@ export default function Insights() {
 
           {/* Horizontal Scroll Container */}
           <div className="relative">
-            <div 
+            <div
               ref={scrollContainerRef}
               className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory py-4 no-scrollbar -mx-4 px-4 md:-mx-8 md:px-8"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {carouselPosts.map((post) => (
-                <div 
-                  key={post.slug} 
+                <div
+                  key={post.slug}
                   className="snap-start shrink-0 w-[300px] sm:w-[360px] md:w-[400px]"
                 >
                   <ArticleCarouselCard post={post} />
@@ -377,7 +378,7 @@ export default function Insights() {
           {/* Bottom Footer Control Bar: Dots in Center/Left, Arrows in Bottom Right */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-8 pt-4">
             <div className="hidden sm:block w-32" /> {/* spacer for alignment on desktop */}
-            
+
             {/* Carousel Pagination Dots (Centered) */}
             <div className="flex items-center justify-center gap-2">
               {carouselPosts.map((_, idx) => (
@@ -444,23 +445,23 @@ export default function Insights() {
                 {insightsPage.newsletter.description}
               </p>
 
-              <form 
-                className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" 
+              <form
+                className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto"
                 onSubmit={handleSubscribe}
               >
                 <div className="relative flex-1">
-                  <input 
-                    type="email" 
+                  <input
+                    type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder={insightsPage.newsletter.placeholder} 
+                    placeholder={insightsPage.newsletter.placeholder}
                     className="w-full bg-sidebar-accent/50 border border-sidebar-border text-sidebar-foreground px-6 py-4 rounded-xl outline-none focus:border-primary transition-all duration-300 placeholder:text-sidebar-foreground/50 text-base"
                     required
                   />
                 </div>
-                <Button 
-                  type="submit" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  size="lg"
                   className="h-auto py-4 px-8 text-base font-bold bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg"
                 >
                   {isSubscribed ? (
