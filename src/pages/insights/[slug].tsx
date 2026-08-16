@@ -482,7 +482,7 @@ export default function InsightDetail() {
             </div>
 
             {/* ─── Main Content ─── */}
-            <div className="lg:flex-1 max-w-3xl">
+            <div className="lg:flex-1 max-w-4xl">
               <ScrollReveal>
                 <article
                   className="prose prose-lg md:prose-xl max-w-none 
