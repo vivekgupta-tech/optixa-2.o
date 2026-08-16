@@ -13,6 +13,7 @@ import {
   TrendingUp,
   Sparkles,
   ChevronRight,
+  ChevronLeft,
   Hash
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -83,27 +84,6 @@ function AmbientBackground() {
   );
 }
 
-/* ─── Category Badge ─── */
-function CategoryBadge({ cat, active, onClick, index }: { cat: string; active: boolean; onClick: () => void; index: number }) {
-  return (
-    <button
-      onClick={onClick}
-      className={cn(
-        "relative px-5 py-2.5 text-sm font-semibold rounded-full cursor-pointer transition-all duration-300 ease-out border",
-        active
-          ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20 scale-105"
-          : "bg-card text-muted-foreground hover:bg-muted hover:text-foreground border-border"
-      )}
-      style={{ animationDelay: `${index * 50}ms` }}
-    >
-      <span className="relative flex items-center gap-1.5">
-        {active && <Sparkles className="w-3.5 h-3.5" />}
-        {cat}
-      </span>
-    </button>
-  );
-}
-
 /* ─── Featured Article Card ─── */
 function FeaturedCard({ post }: { post: Insight }) {
   return (
@@ -162,18 +142,18 @@ function FeaturedCard({ post }: { post: Insight }) {
   );
 }
 
-/* ─── Article Grid Card ─── */
-function ArticleCard({ post, index }: { post: Insight; index: number }) {
+/* ─── Carousel Article Card Component ─── */
+function ArticleCarouselCard({ post }: { post: Insight }) {
   return (
-    <ScrollReveal delay={index * 0.12}>
-      <Link href={`/insights/${post.slug}`} className="group block h-full">
-        <div className="relative h-full bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500 hover:shadow-xl hover:-translate-y-1">
+    <Link href={`/insights/${post.slug}`} className="group block h-full select-none">
+      <div className="relative h-full bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/40 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+        <div>
           {/* Image */}
           <div className="relative aspect-[16/10] overflow-hidden bg-muted">
             <img 
               src={post.image} 
               alt={post.title} 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
@@ -185,30 +165,31 @@ function ArticleCard({ post, index }: { post: Insight; index: number }) {
           </div>
 
           {/* Content */}
-          <div className="p-6 flex flex-col justify-between flex-grow bg-card">
-            <div>
-              <h3 className="text-xl font-extrabold text-foreground mb-3 group-hover:text-primary transition-colors duration-300 leading-snug line-clamp-2" style={{ fontFamily: 'var(--app-font-serif)' }}>
-                {post.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-5 line-clamp-2">
-                {post.excerpt}
-              </p>
-            </div>
+          <div className="p-6">
+            <h3 className="text-xl font-extrabold text-foreground mb-3 group-hover:text-primary transition-colors duration-300 leading-snug line-clamp-2" style={{ fontFamily: 'var(--app-font-serif)' }}>
+              {post.title}
+            </h3>
+            <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
+              {post.excerpt}
+            </p>
+          </div>
+        </div>
 
-            <div className="flex items-center justify-between pt-4 border-t border-border">
-              <div className="flex items-center gap-3 text-xs text-muted-foreground font-medium">
-                <span>{post.date}</span>
-                <span className="w-1 h-1 rounded-full bg-border" />
-                <span>{post.readTime}</span>
-              </div>
-              <div className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
+        {/* Card Footer */}
+        <div className="p-6 pt-0 border-t border-border/40 mt-auto">
+          <div className="flex items-center justify-between pt-4">
+            <div className="flex items-center gap-3 text-xs text-muted-foreground font-medium">
+              <span>{post.date}</span>
+              <span className="w-1 h-1 rounded-full bg-border" />
+              <span>{post.readTime}</span>
+            </div>
+            <div className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+              <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </div>
         </div>
-      </Link>
-    </ScrollReveal>
+      </div>
+    </Link>
   );
 }
 
@@ -228,16 +209,55 @@ function StatCard({ icon: Icon, value, label, suffix = '' }: { icon: any; value:
 
 /* ─── Main Component ─── */
 export default function Insights() {
-  const [activeCategory, setActiveCategory] = useState('All');
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const featuredPost = insights[0];
-  const categories = insightsPage.categories;
+  const carouselPosts = insights.slice(1);
 
-  const filteredPosts = activeCategory === 'All' 
-    ? insights.slice(1) 
-    : insights.slice(1).filter(p => p.category === activeCategory);
+  // Check scroll position for navigation buttons and dots
+  const checkScrollState = () => {
+    if (!scrollContainerRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+    setCanScrollLeft(scrollLeft > 10);
+    setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 10);
+
+    const cardWidth = 380;
+    const index = Math.round(scrollLeft / cardWidth);
+    setActiveIndex(Math.min(index, carouselPosts.length - 1));
+  };
+
+  useEffect(() => {
+    const el = scrollContainerRef.current;
+    if (el) {
+      el.addEventListener('scroll', checkScrollState, { passive: true });
+      checkScrollState();
+    }
+    return () => el?.removeEventListener('scroll', checkScrollState);
+  }, []);
+
+  const handleScrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: -400, behavior: 'smooth' });
+    }
+  };
+
+  const handleScrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: 400, behavior: 'smooth' });
+    }
+  };
+
+  const scrollToCard = (index: number) => {
+    if (scrollContainerRef.current) {
+      const cardWidth = 400;
+      scrollContainerRef.current.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+    }
+  };
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -300,26 +320,7 @@ export default function Insights() {
       </section>
 
       {/* ═══════════════════════════════════════
-          2. CATEGORY FILTER
-          ═══════════════════════════════════════ */}
-      <section className="relative py-8 bg-muted/40 border-y border-border">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            {categories.map((cat, i) => (
-              <CategoryBadge 
-                key={cat} 
-                cat={cat} 
-                active={activeCategory === cat}
-                onClick={() => setActiveCategory(cat)}
-                index={i}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════
-          3. FEATURED ARTICLE
+          2. FEATURED ARTICLE
           ═══════════════════════════════════════ */}
       <section className="relative py-20 md:py-28 bg-background">
         <div className="container mx-auto px-4 md:px-8">
@@ -337,46 +338,95 @@ export default function Insights() {
       </section>
 
       {/* ═══════════════════════════════════════
-          4. ARTICLE GRID
+          3. LEFT TO RIGHT CAROUSEL CARDS SECTION
+          (Chips completely removed & cards in left-to-right carousel slider)
           ═══════════════════════════════════════ */}
-      <section className="relative py-20 md:py-28 bg-muted/40 border-t border-border">
+      <section className="relative py-20 md:py-28 bg-muted/40 border-t border-border overflow-hidden">
         <div className="container mx-auto px-4 md:px-8">
-          {/* Section Header */}
-          <ScrollReveal className="mb-12 flex items-end justify-between">
-            <div>
-              <div className="flex items-center gap-4 mb-2">
-                <div className="w-12 h-[2px] bg-primary" />
-                <span className="text-sm font-bold text-primary uppercase tracking-widest">Latest</span>
-              </div>
-              <h2 className="text-3xl font-extrabold text-foreground" style={{ fontFamily: 'var(--app-font-serif)' }}>All Articles</h2>
+          
+          {/* Centered Carousel Header */}
+          <ScrollReveal className="mb-10 text-center max-w-2xl mx-auto">
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <div className="w-8 h-[2px] bg-primary" />
+              <span className="text-sm font-bold text-primary uppercase tracking-widest">Explore Insights</span>
+              <div className="w-8 h-[2px] bg-primary" />
             </div>
-            <span className="text-sm text-muted-foreground font-semibold">
-              {filteredPosts.length} articles
-            </span>
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground" style={{ fontFamily: 'var(--app-font-serif)' }}>
+              Latest Engineering Articles
+            </h2>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPosts.map((post, i) => (
-              <ArticleCard key={post.slug} post={post} index={i} />
-            ))}
+          {/* Horizontal Scroll Container */}
+          <div className="relative">
+            <div 
+              ref={scrollContainerRef}
+              className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory py-4 no-scrollbar -mx-4 px-4 md:-mx-8 md:px-8"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {carouselPosts.map((post) => (
+                <div 
+                  key={post.slug} 
+                  className="snap-start shrink-0 w-[300px] sm:w-[360px] md:w-[400px]"
+                >
+                  <ArticleCarouselCard post={post} />
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Load More */}
-          <ScrollReveal className="mt-16 text-center">
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="h-14 px-10 text-base font-bold rounded-full border-2 transition-all hover:scale-105"
-            >
-              {insightsPage.loadMoreText}
-              <ChevronRight className="w-4 h-4 ml-2" />
-            </Button>
-          </ScrollReveal>
+          {/* Bottom Footer Control Bar: Dots in Center/Left, Arrows in Bottom Right */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-8 pt-4">
+            <div className="hidden sm:block w-32" /> {/* spacer for alignment on desktop */}
+            
+            {/* Carousel Pagination Dots (Centered) */}
+            <div className="flex items-center justify-center gap-2">
+              {carouselPosts.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => scrollToCard(idx)}
+                  className={cn(
+                    "h-2.5 rounded-full transition-all duration-300 cursor-pointer",
+                    activeIndex === idx
+                      ? "w-8 bg-primary shadow-sm"
+                      : "w-2.5 bg-border hover:bg-muted-foreground/40"
+                  )}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Left / Right Navigation Buttons (Bottom Right) */}
+            <div className="flex items-center gap-3 self-end sm:self-auto">
+              <button
+                onClick={handleScrollLeft}
+                disabled={!canScrollLeft}
+                className={cn(
+                  "w-12 h-12 rounded-full border border-border bg-card flex items-center justify-center text-foreground transition-all duration-300 shadow-sm cursor-pointer hover:border-primary hover:text-primary active:scale-95",
+                  !canScrollLeft && "opacity-40 cursor-not-allowed hover:border-border hover:text-foreground"
+                )}
+                aria-label="Scroll left"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={handleScrollRight}
+                disabled={!canScrollRight}
+                className={cn(
+                  "w-12 h-12 rounded-full border border-border bg-card flex items-center justify-center text-foreground transition-all duration-300 shadow-sm cursor-pointer hover:border-primary hover:text-primary active:scale-95",
+                  !canScrollRight && "opacity-40 cursor-not-allowed hover:border-border hover:text-foreground"
+                )}
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+
         </div>
       </section>
 
       {/* ═══════════════════════════════════════
-          5. NEWSLETTER CTA
+          4. NEWSLETTER CTA
           ═══════════════════════════════════════ */}
       <section className="relative py-24 md:py-32 bg-sidebar text-sidebar-foreground overflow-hidden border-t border-border">
         <div className="container mx-auto px-4 md:px-8 relative z-10">
