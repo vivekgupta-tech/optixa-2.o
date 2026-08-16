@@ -5,12 +5,12 @@ import { Button } from '@/components/common/Button';
 import { Insight, insights } from '@/data/insights';
 import { insightDetail } from '@/data';
 import NotFound from '../not-found';
-import { 
-  ArrowLeft, 
-  ArrowRight, 
-  Twitter, 
-  Linkedin, 
-  Link as LinkIcon, 
+import {
+  ArrowLeft,
+  ArrowRight,
+  Twitter,
+  Linkedin,
+  Link as LinkIcon,
   Clock,
   Calendar,
   Eye,
@@ -38,7 +38,7 @@ function ReadingProgress() {
 
   return (
     <div className="fixed top-0 left-0 right-0 h-1 z-50 bg-background/50 backdrop-blur-sm">
-      <div 
+      <div
         className="h-full bg-primary transition-all duration-150 ease-out"
         style={{ width: `${progress}%` }}
       />
@@ -115,8 +115,8 @@ function TableOfContents({ content }: { content: string }) {
             onClick={() => setActiveId(heading.id)}
             className={cn(
               "block text-sm py-1.5 px-3 rounded-lg transition-all duration-200",
-              activeId === heading.id 
-                ? "bg-primary/10 text-primary font-bold" 
+              activeId === heading.id
+                ? "bg-primary/10 text-primary font-bold"
                 : "text-muted-foreground hover:text-foreground hover:bg-muted"
             )}
           >
@@ -136,10 +136,10 @@ function RelatedCard({ post, index }: { post: Insight; index: number }) {
       <Link href={`/insights/${post.slug}`} className="group block h-full">
         <div className="h-full bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
           <div className="aspect-[16/10] overflow-hidden bg-muted">
-            <img 
-              src={post.image} 
-              alt={post.title} 
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               loading="lazy"
             />
           </div>
@@ -166,10 +166,10 @@ function AuthorCard({ author, compact = false }: { author: Insight['author']; co
   if (compact) {
     return (
       <div className="flex items-center gap-4">
-        <img 
-          src={author.image} 
-          alt={author.name} 
-          className="w-14 h-14 rounded-full object-cover ring-2 ring-primary/30" 
+        <img
+          src={author.image}
+          alt={author.name}
+          className="w-14 h-14 rounded-full object-cover ring-2 ring-primary/30"
         />
         <div>
           <p className="font-bold text-foreground">{author.name}</p>
@@ -182,10 +182,10 @@ function AuthorCard({ author, compact = false }: { author: Insight['author']; co
   return (
     <div className="bg-card border border-border rounded-2xl p-6 shadow-sm">
       <div className="flex items-center gap-4 mb-4">
-        <img 
-          src={author.image} 
-          alt={author.name} 
-          className="w-16 h-16 rounded-full object-cover ring-2 ring-primary/30" 
+        <img
+          src={author.image}
+          alt={author.name}
+          className="w-16 h-16 rounded-full object-cover ring-2 ring-primary/30"
         />
         <div>
           <p className="font-bold text-foreground text-lg">{author.name}</p>
@@ -193,7 +193,7 @@ function AuthorCard({ author, compact = false }: { author: Insight['author']; co
         </div>
       </div>
       <p className="text-sm text-muted-foreground leading-relaxed">
-        Senior engineer with expertise in distributed systems and cloud architecture. 
+        Senior engineer with expertise in distributed systems and cloud architecture.
         Passionate about building scalable solutions and sharing knowledge with the community.
       </p>
     </div>
@@ -241,77 +241,165 @@ export default function InsightDetail() {
       <BackToTop />
 
       {/* ═══════════════════════════════════════
-          1. HERO SECTION
+          1. HERO SECTION — Premium Editorial
           ═══════════════════════════════════════ */}
-      <section className="relative pt-32 pb-20 md:pt-44 md:pb-28 bg-sidebar text-sidebar-foreground overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0">
-          <img 
-            src={post.image} 
-            alt={post.title} 
-            className="w-full h-full object-cover opacity-20 mix-blend-luminosity"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-sidebar/80 via-sidebar/90 to-sidebar" />
-        </div>
+      <section className="relative bg-sidebar text-sidebar-foreground overflow-hidden">
 
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <ScrollReveal>
-              {/* Back Link */}
-              <Link 
-                href="/insights" 
-                className="inline-flex items-center gap-2 text-sidebar-foreground/70 hover:text-primary transition-colors font-bold text-sm uppercase tracking-wider mb-8 group"
-              >
-                <div className="w-8 h-8 rounded-lg bg-sidebar-accent/60 border border-sidebar-border flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:text-primary-foreground transition-all">
-                  <ArrowLeft className="w-4 h-4" />
-                </div>
-                {insightDetail.backText}
-              </Link>
+        {/* ── Subtle grid pattern background ── */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: 'linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)',
+          backgroundSize: '48px 48px'
+        }} />
 
-              {/* Category */}
-              <div className="flex items-center gap-3 mb-6">
-                <span className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider rounded-full shadow-md">
-                  <Zap className="w-3 h-3" />
-                  {post.category}
-                </span>
-                <span className="flex items-center gap-1.5 text-xs text-sidebar-foreground/60 font-medium">
-                  <Eye className="w-3.5 h-3.5" />
-                  2.4K views
-                </span>
+        {/* ── Glow accent ── */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none opacity-10 -translate-y-1/2 translate-x-1/4"
+          style={{ background: 'radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)', filter: 'blur(80px)' }}
+        />
+
+        <div className="container mx-auto px-4 md:px-10">
+
+          {/* ── Top nav bar ── */}
+          <div className="flex items-center justify-between py-6 border-b border-white/8">
+            <Link
+              href="/insights"
+              className="inline-flex items-center gap-2 text-sidebar-foreground/60 hover:text-primary transition-colors duration-300 font-semibold text-xs uppercase tracking-widest group"
+            >
+              <div className="w-8 h-8 rounded-lg border border-white/12 flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:text-primary-foreground transition-all duration-300">
+                <ArrowLeft className="w-3.5 h-3.5" />
               </div>
+              {insightDetail.backText}
+            </Link>
+            <div className="flex items-center gap-2 text-xs text-sidebar-foreground/40 font-medium">
+              <span>Insights</span>
+              <span>/</span>
+              <span className="text-primary">{post.category}</span>
+            </div>
+          </div>
 
-              {/* Title */}
-              <h1 
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-8 leading-tight tracking-tight"
-                style={{ fontFamily: 'var(--app-font-serif)' }}
-              >
-                {post.title}
-              </h1>
+          {/* ── Two-column hero layout ── */}
+          <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 py-16 md:py-20 items-center">
 
-              {/* Meta */}
-              <div className="flex flex-wrap items-center gap-6 text-sm text-sidebar-foreground/70 font-semibold">
-                <div className="flex items-center gap-3">
-                  <img 
-                    src={post.author.image} 
-                    alt={post.author.name} 
-                    className="w-10 h-10 rounded-full object-cover ring-2 ring-primary/40" 
-                  />
-                  <div>
-                    <p className="font-bold text-white text-sm">{post.author.name}</p>
-                    <p className="text-xs text-sidebar-foreground/60">{post.author.role}</p>
+            {/* LEFT — Text content */}
+            <div className="lg:col-span-3">
+              <ScrollReveal>
+
+                {/* Category + meta pills */}
+                <div className="flex flex-wrap items-center gap-2.5 mb-7">
+                  <span
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest rounded-full"
+                    style={{
+                      background: 'hsl(var(--primary))',
+                      color: 'hsl(var(--primary-foreground))',
+                      boxShadow: '0 0 18px hsl(var(--primary) / 0.45)'
+                    }}
+                  >
+                    <Zap className="w-3 h-3" />
+                    {post.category}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full text-sidebar-foreground/55"
+                    style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                    <Eye className="w-3 h-3" /> 2.4K views
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full text-sidebar-foreground/55"
+                    style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                    <Clock className="w-3 h-3" /> {post.readTime}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h1
+                  className="font-extrabold leading-[1.1] tracking-tight mb-6"
+                  style={{
+                    fontFamily: 'var(--app-font-serif)',
+                    fontSize: 'clamp(2rem, 4.5vw, 3.75rem)',
+                    background: 'linear-gradient(135deg, #ffffff 0%, #f0f0f0 35%, #e8c97a 65%, #f5c842 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  {post.title}
+                </h1>
+
+                {/* Excerpt / Description */}
+                <p className="text-sidebar-foreground/65 text-base md:text-lg leading-relaxed mb-9 font-light">
+                  {post.excerpt}
+                </p>
+
+                {/* Divider */}
+                <div className="h-px w-full mb-8"
+                  style={{ background: 'linear-gradient(to right, hsl(var(--primary)/0.5), hsl(var(--primary)/0.1), transparent)' }}
+                />
+
+                {/* Author meta */}
+                <div className="flex flex-wrap items-center gap-6">
+                  <div className="flex items-center gap-3">
+                    <div className="relative shrink-0">
+                      <img
+                        src={post.author.image}
+                        alt={post.author.name}
+                        className="w-12 h-12 rounded-full object-cover ring-2 ring-primary/40"
+                      />
+                      <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-primary flex items-center justify-center shadow-md">
+                        <Sparkles className="w-2.5 h-2.5 text-primary-foreground" />
+                      </div>
+                    </div>
+                    <div>
+                      <p className="font-bold text-sidebar-foreground text-sm leading-tight">{post.author.name}</p>
+                      <p className="text-xs text-sidebar-foreground/45 mt-0.5">{post.author.role}</p>
+                    </div>
+                  </div>
+
+                  <div className="h-8 w-px bg-sidebar-border hidden sm:block" />
+
+                  <div className="flex items-center gap-4 text-xs text-sidebar-foreground/55 font-medium">
+                    <span className="flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5 text-primary" />
+                      {post.date}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <MessageCircle className="w-3.5 h-3.5 text-primary" />
+                      12 comments
+                    </span>
                   </div>
                 </div>
-                <span className="w-1 h-1 rounded-full bg-sidebar-border hidden sm:block" />
-                <span className="flex items-center gap-1.5">
-                  <Calendar className="w-4 h-4" />
-                  {post.date}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Clock className="w-4 h-4" />
-                  {post.readTime}
-                </span>
-              </div>
-            </ScrollReveal>
+
+              </ScrollReveal>
+            </div>
+
+            {/* RIGHT — Article cover image */}
+            <div className="lg:col-span-2 hidden lg:block">
+              <ScrollReveal delay={0.15}>
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl"
+                  style={{ boxShadow: '0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06)' }}
+                >
+                  {/* Image */}
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full aspect-[4/3] object-cover"
+                  />
+                  {/* Subtle overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-sidebar/60 via-transparent to-transparent" />
+
+                  {/* Category chip on image */}
+                  <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                    <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-black/50 backdrop-blur-md text-white border border-white/15">
+                      {post.category}
+                    </span>
+                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-primary/90 backdrop-blur-md text-primary-foreground">
+                      {post.readTime}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Decorative frame glow */}
+                <div className="absolute inset-0 -z-10 rounded-2xl opacity-30 scale-110"
+                  style={{ background: 'hsl(var(--primary))', filter: 'blur(40px)' }}
+                />
+              </ScrollReveal>
+            </div>
+
           </div>
         </div>
       </section>
@@ -346,18 +434,18 @@ export default function InsightDetail() {
                     {insightDetail.shareArticle}
                   </h4>
                   <div className="flex gap-2">
-                    <ShareButton 
-                      icon={Twitter} 
+                    <ShareButton
+                      icon={Twitter}
                       label="Share on Twitter"
                       onClick={() => handleShare('twitter')}
                     />
-                    <ShareButton 
-                      icon={Linkedin} 
+                    <ShareButton
+                      icon={Linkedin}
                       label="Share on LinkedIn"
                       onClick={() => handleShare('linkedin')}
                     />
-                    <ShareButton 
-                      icon={LinkIcon} 
+                    <ShareButton
+                      icon={LinkIcon}
                       label="Copy Link"
                       onClick={handleCopyLink}
                     />
@@ -365,8 +453,8 @@ export default function InsightDetail() {
                       onClick={() => setIsBookmarked(!isBookmarked)}
                       className={cn(
                         "w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 cursor-pointer border shadow-sm",
-                        isBookmarked 
-                          ? "bg-primary text-primary-foreground border-primary" 
+                        isBookmarked
+                          ? "bg-primary text-primary-foreground border-primary"
                           : "bg-card border-border text-muted-foreground hover:bg-primary hover:border-primary hover:text-primary-foreground"
                       )}
                       title="Bookmark"
@@ -383,8 +471,8 @@ export default function InsightDetail() {
                   </div>
                   <h4 className="font-extrabold text-lg text-foreground mb-2" style={{ fontFamily: 'var(--app-font-serif)' }}>{insightDetail.banner.title}</h4>
                   <p className="text-sm text-muted-foreground mb-5 leading-relaxed">{insightDetail.banner.description}</p>
-                  <Button 
-                    asChild 
+                  <Button
+                    asChild
                     className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl h-11 font-bold transition-all hover:scale-[1.02]"
                   >
                     <Link href={insightDetail.banner.btn.link}>{insightDetail.banner.btn.text}</Link>
@@ -396,7 +484,7 @@ export default function InsightDetail() {
             {/* ─── Main Content ─── */}
             <div className="lg:flex-1 max-w-3xl">
               <ScrollReveal>
-                <article 
+                <article
                   className="prose prose-lg md:prose-xl max-w-none 
                   prose-headings:font-extrabold prose-headings:text-foreground prose-headings:tracking-tight
                   prose-h2:text-3xl prose-h2:mt-14 prose-h2:mb-6 prose-h2:text-foreground
@@ -418,7 +506,7 @@ export default function InsightDetail() {
               <div className="mt-12 pt-8 border-t border-border">
                 <div className="flex flex-wrap gap-2">
                   {['Architecture', 'Engineering', 'Best Practices', 'Tutorial'].map(tag => (
-                    <span 
+                    <span
                       key={tag}
                       className="px-3.5 py-1.5 bg-muted text-muted-foreground text-xs font-semibold rounded-lg border border-border hover:border-primary/40 hover:text-primary transition-colors cursor-pointer"
                     >
@@ -487,9 +575,9 @@ export default function InsightDetail() {
               <p className="text-lg text-sidebar-foreground/70 mb-10 max-w-xl mx-auto leading-relaxed">
                 Our senior engineering team is ready to help you architect, build, and scale your next big idea.
               </p>
-              <Button 
-                asChild 
-                size="lg" 
+              <Button
+                asChild
+                size="lg"
                 className="bg-primary text-primary-foreground hover:bg-primary/90 h-14 px-10 text-lg font-bold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
               >
                 <Link href={insightDetail.cta.btn.link} className="flex items-center gap-2">

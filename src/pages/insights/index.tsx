@@ -294,18 +294,17 @@ export default function Insights() {
                 </span>
               </div>
 
-              {/* Title with Gold Gradient */}
+              {/* Title with Gold Gradient - Single Line */}
               <h1
-                className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-8 tracking-tight leading-[0.95]"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 tracking-tight leading-tight"
                 style={{ fontFamily: 'var(--app-font-serif)' }}
               >
-                Engineering <br />
-                <GoldText>Insights & Perspectives</GoldText>
+                Engineering <GoldText>Insights & Perspectives</GoldText>
               </h1>
 
-              {/* Description */}
-              <p className="text-lg md:text-xl text-sidebar-foreground/70 max-w-2xl mx-auto leading-relaxed mb-12">
-                {insightsPage.hero.description}
+              {/* Description - Expanded & Full Width */}
+              <p className="text-lg md:text-xl text-sidebar-foreground/80 max-w-4xl mx-auto leading-relaxed mb-12">
+                In-depth architectural analysis, battle-tested engineering blueprints, and strategic technology perspectives curated directly from senior principal engineers and software architects building modern, mission-critical enterprise systems.
               </p>
 
               {/* Stats Row */}
