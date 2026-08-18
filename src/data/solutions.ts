@@ -4,11 +4,13 @@ export interface Solution {
   shortDescription: string;
   description: string;
   heroImage: string;
+  overviewHighlights?: string[];
   challenges: { title: string; description: string }[];
-  features: { icon: string; title: string; description: string }[];
+  features: { icon: string; title: string; description: string; bullets?: string[]; image?: string }[];
   benefits: { metric: string; label: string }[];
   technologies: string[];
   overview?: string;
+  process?: { phase: string; description: string; duration: string }[];
   faqs: { question: string; answer: string }[];
 }
 
@@ -68,27 +70,93 @@ export const solutions: Solution[] = [
   {
     slug: 'cloud-infrastructure',
     title: 'Cloud Infrastructure',
-    shortDescription: 'Resilient, auto-scaling cloud architectures for enterprise applications.',
-    description: 'We design and implement secure, highly available cloud environments. Whether migrating to the cloud or optimizing a current AWS/GCP setup, we implement Infrastructure as Code to ensure your platform scales effortlessly.',
+    shortDescription: 'Resilient, auto-scaling cloud architectures designed for zero downtime, maximum security, and predictable costs at enterprise scale.',
+    description: 'We architect, migrate, and operate enterprise-grade cloud environments that eliminate downtime, slash unpredictable costs, and give your engineering teams the velocity they need. Whether you are lifting-and-shifting a legacy on-prem system or rebuilding cloud-native from scratch on AWS, GCP, or Azure, our certified cloud architects implement Infrastructure as Code, automated compliance guardrails, and FinOps practices that keep every dollar accountable.',
     heroImage: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1400&q=80',
+    overviewHighlights: [
+      'Multi-region active-active deployments with automatic failover in under 30 seconds',
+      'Infrastructure as Code (Terraform/Pulumi) for 100% reproducible environments',
+      'FinOps-driven cost governance with real-time spend dashboards',
+      'Zero-trust network security with VPC, WAF, and per-service IAM policies',
+      'Automated compliance reporting for SOC 2, ISO 27001, and HIPAA'
+    ],
     challenges: [
-      { title: 'System Outages', description: 'Servers crashing during peak traffic events, resulting in lost revenue.' },
-      { title: 'Unpredictable Costs', description: 'Cloud bills that spiral out of control due to unoptimized resources.' }
+      { title: 'Catastrophic Downtime', description: 'A single server failure or traffic spike brings your platform offline, costing thousands of dollars per minute and destroying customer trust.' },
+      { title: 'Unpredictable Cloud Bills', description: 'Cloud spending spirals out of control with over-provisioned instances, idle resources, and no visibility into which team is burning the most budget.' },
+      { title: 'Manual, Error-Prone Infrastructure', description: 'Servers provisioned by hand lead to configuration drift, security gaps, and the dreaded "it works on my machine" problem across environments.' },
+      { title: 'Compliance & Audit Anxiety', description: 'Meeting SOC 2, HIPAA, or ISO 27001 requirements feels impossible when access controls and audit logs are not enforced at the infrastructure level.' }
     ],
     features: [
-      { icon: 'Server', title: 'Auto-Scaling Architecture', description: 'Systems that dynamically add resources during spikes and reduce them when quiet.' },
-      { icon: 'Shield', title: 'High Availability', description: 'Multi-region deployments ensuring 99.99% uptime.' },
-      { icon: 'Code', title: 'Infrastructure as Code', description: 'Managing servers via Terraform for perfect reproducibility.' }
+      {
+        icon: 'Server',
+        title: 'Auto-Scaling Architecture',
+        description: 'We design elastic systems using Kubernetes HPA, AWS Auto Scaling Groups, and GCP Managed Instance Groups so your platform seamlessly handles 10x traffic spikes without manual intervention — and scales back down to save cost when quiet.',
+        bullets: [
+          'Horizontal Pod Autoscaling (HPA) & Cluster Autoscaler',
+          'Load-balanced multi-AZ target groups with health checks',
+          'Predictive scaling based on historical traffic patterns',
+          'Sub-60-second new instance warm-up with pre-baked AMIs'
+        ],
+        image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80'
+      },
+      {
+        icon: 'Shield',
+        title: 'High Availability & DR',
+        description: 'We architect multi-region, active-active topologies with automatic DNS failover, cross-region database replication, and tested disaster recovery runbooks so you achieve 99.99% uptime SLAs with confidence.',
+        bullets: [
+          'Active-active multi-region with Route 53 latency routing',
+          'RTO < 30 seconds, RPO < 5 minutes across all services',
+          'Automated chaos engineering tests to validate resilience',
+          'Warm standby environments with continuous data replication'
+        ],
+        image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80'
+      },
+      {
+        icon: 'Code',
+        title: 'Infrastructure as Code',
+        description: 'Every server, network rule, database, and IAM policy is declared in version-controlled Terraform or Pulumi modules. This eliminates configuration drift, enables one-command environment cloning, and makes security audits trivial.',
+        bullets: [
+          'Modular Terraform registry with reusable, tested components',
+          'GitOps-driven change workflow with automated plan reviews',
+          'Policy-as-code with OPA Gatekeeper & Sentinel',
+          'Automated drift detection and remediation pipelines'
+        ],
+        image: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=900&q=80'
+      },
+      {
+        icon: 'BarChart3',
+        title: 'FinOps & Cost Optimization',
+        description: 'We instrument your cloud with real-time cost allocation tags, Spot/Preemptible instance strategies, and Reserved Instance planning that typically cuts your cloud bill by 25–40% without sacrificing performance.',
+        bullets: [
+          'Tag-based cost allocation per team, service, and environment',
+          'Spot/Preemptible fleet management with automatic fallback',
+          'Reserved Instance & Savings Plan purchasing advisory',
+          'Weekly FinOps reports with actionable rightsizing recommendations'
+        ],
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80'
+      }
     ],
     benefits: [
-      { metric: '99.99%', label: 'Uptime Guarantee' },
-      { metric: '30%', label: 'Average Cost Reduction' },
-      { metric: 'Instant', label: 'Disaster Recovery' }
+      { metric: '99.99%', label: 'Uptime SLA Achieved' },
+      { metric: '35%', label: 'Average Cost Reduction' },
+      { metric: '<30s', label: 'Disaster Recovery RTO' },
+      { metric: '10x', label: 'Deployment Velocity' }
     ],
-    technologies: ['AWS', 'GCP', 'Terraform', 'Docker', 'Kubernetes'],
+    process: [
+      { phase: 'Discovery & Cloud Readiness Audit', description: 'We assess your current infrastructure, application architecture, security posture, and cost baseline. We deliver a prioritized gap analysis and migration strategy within one week.', duration: 'Week 1' },
+      { phase: 'Architecture Design & IaC Foundations', description: 'Our architects design the target-state cloud architecture, define network topology, IAM boundaries, and FinOps tagging strategy. All infrastructure is codified in Terraform from day one.', duration: 'Weeks 2–3' },
+      { phase: 'Pilot Migration & Validation', description: 'We migrate a representative low-risk workload first, validate performance benchmarks, run load tests, and iterate on the architecture before committing to the full migration.', duration: 'Weeks 4–6' },
+      { phase: 'Full Migration & Cut-Over', description: 'We execute the complete workload migration using blue-green or canary strategies to ensure zero-downtime cut-over. All teams are briefed and runbooks are rehearsed in advance.', duration: 'Weeks 7–10' },
+      { phase: 'Hardening, Compliance & Handover', description: 'Post-migration we run a full security review, complete compliance documentation, set up ongoing monitoring dashboards, and train your team on operating the new environment.', duration: 'Weeks 11–12' }
+    ],
+    technologies: ['AWS', 'Google Cloud', 'Microsoft Azure', 'Terraform', 'Pulumi', 'Kubernetes', 'Docker', 'Helm', 'Datadog', 'Prometheus', 'Grafana', 'ArgoCD'],
     faqs: [
-      { question: 'Which cloud provider is best?', answer: 'We are vendor-agnostic. We evaluate your specific needs and usually recommend AWS or GCP based on their robust feature sets and reliability.' },
-      { question: 'How do you handle security?', answer: 'We implement strict IAM policies, VPC peering, and encryption at rest/transit to ensure enterprise-grade security.' }
+      { question: 'Which cloud provider do you recommend — AWS, GCP, or Azure?', answer: 'We are 100% vendor-agnostic and certified on all three major providers. Our recommendation depends on your existing technology stack, geographic requirements, and commercial relationships. AWS tends to win for breadth of services; GCP excels for data/ML workloads; Azure is often the right choice for Microsoft-heavy enterprises. We will recommend the best fit after a free discovery call.' },
+      { question: 'How long does a typical cloud migration take?', answer: 'A focused lift-and-shift migration for a medium-complexity application typically takes 8–12 weeks. A full cloud-native re-architecture is a 3–6 month engagement. We always start with a pilot phase so you can see results and build confidence before committing to the full program.' },
+      { question: 'Will migration cause any downtime for our users?', answer: 'No. We use blue-green and canary deployment strategies combined with DNS-level traffic shifting to achieve zero-downtime cut-overs. All migrations are rehearsed multiple times in staging before the production switch.' },
+      { question: 'How do you handle security and compliance during migration?', answer: 'Security is built in from the first line of Terraform, not bolted on at the end. We implement zero-trust networking (VPCs, private subnets, WAF), role-based IAM with least-privilege, encryption at rest and in transit, and automated compliance checks using AWS Config or GCP Security Command Center. We can target SOC 2, ISO 27001, HIPAA, or PCI-DSS compliance.' },
+      { question: 'How do you prevent cloud bills from spiraling?', answer: 'We implement FinOps practices from day one: mandatory cost-allocation tags, automated rightsizing alerts, Spot/Preemptible instance strategies, and Reserved Instance planning. Most clients reduce their cloud spend by 25–40% within the first 3 months. We also deliver weekly cost reports so there are never any surprises.' },
+      { question: 'What ongoing support do you provide after go-live?', answer: 'We offer managed cloud operations retainers that include 24/7 monitoring, incident response SLAs, monthly architecture reviews, and continuous cost optimization. Alternatively, we can fully hand over to your internal team with comprehensive documentation and training.' }
     ]
   },
   {
