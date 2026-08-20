@@ -114,24 +114,60 @@ export default function ServicesList() {
       {/* ════════════════════════════════════════
           2. INTRO
          ════════════════════════════════════════ */}
-      <section className="py-20 bg-background border-b border-border">
+      <section className="py-24 bg-background border-b border-border">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="svl-intro-grid">
-            <ScrollReveal>
-              <div className="svl-tag">Our Engineering Philosophy</div>
-              <h2 className="text-3xl md:text-4xl font-black text-foreground leading-tight">
-                {servicesList.intro.title}
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={0.15}>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-                {servicesList.intro.description}
-              </p>
-              <p className="text-base text-muted-foreground/80 leading-relaxed">
-                Every engagement starts with understanding your business model and outcomes you need — then we architect the right technical solution, not the most technically impressive one.
-              </p>
-            </ScrollReveal>
-          </div>
+
+          {/* ── Centered heading block ── */}
+          <ScrollReveal className="text-center mb-14">
+            <div className="svl-tag">Our Engineering Philosophy</div>
+            <h2 className="text-4xl md:text-5xl font-black text-foreground leading-tight tracking-tight max-w-3xl mx-auto">
+              {servicesList.intro.title}
+            </h2>
+          </ScrollReveal>
+
+          {/* ── Stats row ── */}
+          <ScrollReveal delay={0.1} className="svl-intro-stats">
+            {[
+              { num: '300+',  lbl: 'Projects Delivered' },
+              { num: '18',    lbl: 'Industries Served'  },
+              { num: '10+',   lbl: 'Years of Expertise' },
+              { num: '98%',   lbl: 'Client Satisfaction' },
+            ].map((s) => (
+              <div key={s.lbl} className="svl-intro-stat">
+                <span className="svl-intro-stat-num">{s.num}</span>
+                <span className="svl-intro-stat-lbl">{s.lbl}</span>
+              </div>
+            ))}
+          </ScrollReveal>
+
+          {/* ── Body paragraphs ── */}
+          <ScrollReveal delay={0.2} className="svl-intro-body">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-5">
+              {servicesList.intro.description}
+            </p>
+            <p className="text-base text-muted-foreground/80 leading-relaxed mb-8">
+              Every engagement starts with understanding your business model and
+              the outcomes you need — then we architect the right technical
+              solution, not the most technically impressive one. We pair deep
+              domain expertise with pragmatic engineering to deliver systems that
+              scale with your ambitions and stay maintainable long after launch.
+            </p>
+
+            {/* highlight pills */}
+            <div className="svl-intro-pills">
+              {[
+                'Outcome-Driven Engineering',
+                'Agile & Transparent',
+                'Zero-Trust Security',
+                'Full IP Ownership',
+                'Dedicated Named Team',
+                'SLA-Backed Support',
+              ].map((pill) => (
+                <span key={pill} className="svl-intro-pill">{pill}</span>
+              ))}
+            </div>
+          </ScrollReveal>
+
         </div>
       </section>
 
@@ -382,6 +418,46 @@ export default function ServicesList() {
         /* 2. INTRO */
         .svl-intro-grid { display:grid; grid-template-columns:1fr 1.5fr; gap:80px; align-items:start; }
         @media(max-width:860px){ .svl-intro-grid{ grid-template-columns:1fr; gap:32px; } }
+
+        /* stats row */
+        .svl-intro-stats {
+          display:grid; grid-template-columns:repeat(4,1fr);
+          gap:0; border:1px solid hsl(0 0% 90%); border-radius:20px;
+          overflow:hidden; margin-bottom:48px;
+          box-shadow:0 4px 24px rgba(0,0,0,0.05);
+        }
+        @media(max-width:700px){ .svl-intro-stats{ grid-template-columns:repeat(2,1fr); } }
+        .svl-intro-stat {
+          display:flex; flex-direction:column; align-items:center; justify-content:center;
+          padding:32px 16px; text-align:center;
+          border-right:1px solid hsl(0 0% 90%); background:#fff;
+          transition:background 0.25s;
+        }
+        .svl-intro-stat:last-child { border-right:none; }
+        .svl-intro-stat:hover { background:hsl(29 60% 56%/0.04); }
+        .svl-intro-stat-num {
+          font-size:2.2rem; font-weight:900; line-height:1;
+          color:hsl(29 60% 44%); margin-bottom:6px; letter-spacing:-0.03em;
+        }
+        .svl-intro-stat-lbl {
+          font-size:0.78rem; font-weight:700; text-transform:uppercase;
+          letter-spacing:0.1em; color:hsl(222 47% 35%);
+        }
+
+        /* intro body + pills */
+        .svl-intro-body { max-width:780px; margin:0 auto; text-align:center; }
+        .svl-intro-pills { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+        .svl-intro-pill {
+          padding:6px 16px; border-radius:100px;
+          font-size:0.78rem; font-weight:700;
+          background:hsl(29 60% 56%/0.08); border:1px solid hsl(29 60% 56%/0.22);
+          color:hsl(29 60% 36%); transition:all 0.22s;
+        }
+        .svl-intro-pill:hover {
+          background:hsl(29 60% 56%); color:#fff;
+          border-color:hsl(29 60% 56%);
+          transform:translateY(-1px); box-shadow:0 4px 12px hsl(29 60% 56%/0.28);
+        }
 
         /* ═══ 3. EXPLORER ═══ */
         .svl-explorer { padding:100px 0; background:hsl(0 0% 97%); }
