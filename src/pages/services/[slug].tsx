@@ -593,7 +593,7 @@ export default function ServiceDetail() {
         .sd-feat-panel-title { font-size:1.7rem; font-weight:900; color:hsl(222 47% 11%); margin-bottom:14px; letter-spacing:-0.02em; }
         .sd-feat-panel-desc { font-size:1rem; line-height:1.82; color:hsl(0 0% 42%); margin-bottom:24px; }
         .sd-feat-panel-img-wrap { position:relative; border-radius:16px; overflow:hidden; margin-bottom:4px; }
-        .sd-feat-panel-img { width:100%; aspect-ratio:16/7; object-fit:cover; border-radius:16px; display:block; }
+        .sd-feat-panel-img { width:100%; aspect-ratio:16/5; object-fit:cover; border-radius:16px; display:block; }
         .sd-feat-panel-img-overlay {
           position:absolute; inset:0; border-radius:16px;
           background:linear-gradient(to top,rgba(15,23,42,0.2),transparent);
